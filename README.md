@@ -1,7 +1,7 @@
 # cart253
 Coursework repository for CART253 with Pippin Barr
 
-> ![Image of Banner](/topics/prototyping/images/banner.png)
+> ![Banner](~/topics/prototyping/images/banner.png)
 
 ## Description
 
@@ -10,4 +10,10 @@ Coursework repository for CART253 with Pippin Barr
 ## Useful Links
 
 > [Artstation](https://www.artstation.com/chorkel)
+
 > [Instagram](https://www.instagram.com/chorkel.illu)
+
+## Prototypes
+
+> tba
+
