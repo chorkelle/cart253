@@ -1,7 +1,7 @@
 # cart253
 Coursework repository for CART253 with Pippin Barr
 
-> ![Image of Banner](./topics/prototyping/images/banner.png)
+> ![Image of Banner](./assets/images/banner.png)
 
 ## Description
 
