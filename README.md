@@ -1,7 +1,7 @@
 # cart253
 Coursework repository for CART253 with Pippin Barr
 
-> ![Banner](../cart253/topics/prototyping/images/banner.png)
+> ![Banner](/images/banner.png)
 
 [Reflective Journal](https://github.com/chorkelle/cart253/blob/8d640b32b278c3494efff01c4fc0c86603fce574/journal.md) 
 
