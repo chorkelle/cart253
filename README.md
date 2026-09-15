@@ -4,6 +4,7 @@ Coursework repository for CART253 with Pippin Barr
 > ![Banner](./images/banner.png)
 
 [Reflective Journal Entries](https://github.com/chorkelle/cart253/blob/main/journal.md)
+[Reflective Journal Entries](journal.md)
 
 ---
 
