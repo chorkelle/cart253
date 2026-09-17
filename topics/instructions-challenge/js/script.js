@@ -34,6 +34,8 @@ function draw() {
     drawGround();
     drawMountain();
     drawCloud();
+    drawRiver();
+    drawDuck();
 
 }
 
@@ -75,4 +77,31 @@ function drawMountain() {
     triangle(0, 320, 100, 80, 500, 320);
     triangle(450, 320, 580, 150, 750, 320);
     pop();
+}
+
+/**
+ * Draw a river
+ */
+function drawRiver() {
+    push();
+    fill("blue");
+    rect(0, 520, 640, 640);
+    pop();
+}
+
+/**
+ * Draw a duck
+ */
+function drawDuck() {
+    // made a duck
+    push();
+    fill("yellow");
+    ellipse(300, 550, 80, 40);
+    ellipse(265, 530, 40, 40);
+    fill("orange");
+    triangle(230, 530, 250, 540, 250, 520);
+    fill("black")
+    ellipse(266, 530, 10, 10);
+    pop();
+
 }
