@@ -1,12 +1,12 @@
-# TITLE OF PROJECT
+# Go With the Flow
 
-AUTHOR NAME
+Sofia Allashukurova & Charlotte Walsh
 
 [View this project online](URL_FOR_THE_RUNNING_PROJECT)
 
 ## Description
 
-This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
+It's a landscape drawing of a duck in a river.
 
 ## Attribution
 
