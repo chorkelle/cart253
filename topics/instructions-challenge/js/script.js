@@ -32,9 +32,11 @@ function drawSky() {
 function draw() {
     drawSky();
     drawGround();
+    drawSun();
     drawMountain();
     drawCloud();
     drawRiver();
+    drawLilypad();
     drawDuck();
 
 }
@@ -104,4 +106,27 @@ function drawDuck() {
     ellipse(266, 530, 10, 10);
     pop();
 
+}
+
+/**
+ * Draw a lily pad
+ */
+function drawLilypad() {
+    push();
+    fill(0, 200, 0);
+    ellipse(500, 560, 50, 30);
+    ellipse(525, 575, 50, 30);
+    ellipse(150, 570, 50, 30);
+    pop();
+
+}
+
+/**
+ * Draw a sun
+ */
+function drawSun() {
+    push();
+    fill("yellow")
+    ellipse(640, 0, 150, 150);
+    pop();
 }
