@@ -2,7 +2,7 @@
 
 Charlotte Walsh
 
-[View this project online](http://127.0.0.1:5500/topics/prototyping/prototype-one-instructions/instructions-challenge/)
+[View this project online](http://127.0.0.1:5500/topics/prototyping/click-me-kitty/instructions-challenge/)
 
 ## Description
 

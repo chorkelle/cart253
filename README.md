@@ -21,5 +21,5 @@ Coursework repository for CART253 with Pippin Barr
 
  this website!
 
- [Click Me Kitty](http://127.0.0.1:5500/topics/prototyping/prototype-one-instructions/instructions-challenge/)
+ [Click Me Kitty](./topics/prototyping/click-me-kitty/instructions-challenge/)
 
