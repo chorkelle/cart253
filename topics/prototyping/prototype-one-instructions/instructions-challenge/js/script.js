@@ -2,11 +2,12 @@
  * Rat
  * Charlotte Walsh
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * Beautiful drawing of a cat made by yours truly.
  */
 
 "use strict";
+
+let shapeColor
 
 /**
  * Creates canvas
@@ -14,10 +15,12 @@
 function setup() {
     createCanvas(650, 650);
 
+    shapeColor = color(245, 10, 90);
+
 }
 
 /**
- * Draws rat
+ * Draws cat
 */
 function drawBackground() {
     // Draws background
@@ -31,24 +34,44 @@ function drawBackground() {
  */
 function draw() {
     drawBackground();
-    drawRat();
+    drawCat();
 }
 
 /**
  * Draws cat
 */
-function drawRat() {
+function drawCat() {
     push();
-    fill(70, 70, 0);
+    fill(shapeColor);
     // Body
     ellipse(350, 350, 300, 200);
     ellipse(200, 250, 200, 200);
     // Ears
-    triangle(115, 200, 150, 90, 200, 170);
-    triangle(185, 200, 230, 90, 290, 210);
-    // Face
+    triangle(105, 220, 140, 90, 190, 170);
+    triangle(195, 200, 240, 90, 296, 220);
+    // Eyes (pupils)
+    fill("black");
+    ellipse(250, 250, 50, 35);
+    ellipse(140, 250, 50, 35);
+    // Eyes
     fill(0, 175, 70);
-    ellipse(240, 250, 45, 30);
+    ellipse(250, 250, 45, 30);
+    ellipse(140, 250, 45, 30);
+    fill("black");
+    ellipse(250, 250, 9, 30);
+    ellipse(140, 250, 9, 30);
+    // Nose
+    fill("lightpink");
+    triangle(175, 275, 190, 295, 205, 275);
     pop();
 
 }
+
+/**
+ * Randomizes colour
+*/
+function mousePressed() {
+    shapeColor(random(255), random(255), random(255))
+
+}
+
