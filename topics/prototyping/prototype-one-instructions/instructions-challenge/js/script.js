@@ -1,36 +1,38 @@
 /**
- * Rat
+ * Click Me Kitty
  * Charlotte Walsh
  * 
- * Beautiful drawing of a cat made by yours truly.
+ * A kitty who changes colour every time the mouse is pressed.
  */
 
 "use strict";
 
+
+// Lets shapeColor change kitty colour
 let shapeColor;
 
 /**
- * Creates canvas
+ * Creates the canvas
 */
 function setup() {
     createCanvas(650, 650);
 
-    shapeColor = color(245, 30, 100);
+    shapeColor = color(255, 0, 0);
 
 }
 
 /**
- * Draws cat
+ * Sets the background colour and removes stroke
 */
 function drawBackground() {
-    // Draws background
-    background(15, 15, 15);
+    // Draws background (using RGB which indicates that the colour should change every time the mouse is pressed)
+    background(100, 40, 20);
     // Gets rid of stroke
     noStroke();
 }
 
 /**
- * Draws a landscape
+ * Draws a pretty picture of a cat
  */
 function draw() {
     drawBackground();
@@ -38,33 +40,48 @@ function draw() {
 }
 
 /**
- * Draws cat
+ * Draws the cat
 */
 function drawCat() {
     push();
-    fill(shapeColor);
+    fill(20, 20, 70);
+
     // Body
     ellipse(350, 350, 300, 200);
     ellipse(200, 250, 200, 200);
+
     // Legs
     rect(200, 300, 50, 245, 30);
     rect(275, 300, 50, 245, 30);
     rect(375, 300, 50, 245, 30);
     rect(450, 325, 50, 220, 30);
+
     // Ears
     triangle(105, 220, 140, 90, 190, 170);
     triangle(195, 200, 240, 90, 296, 220);
+
+    // Tail
+    noFill();
+    stroke(20, 20, 70);
+    strokeWeight(40);
+    bezier(490, 330, 550, 300, 400, 200, 530, 150)
+
+    // get rid of stroke again
+    noStroke();
+
     // Eyes (pupils)
     fill("black");
     ellipse(250, 250, 50, 35);
     ellipse(140, 250, 50, 35);
+
     // Eyes
-    fill(0, 175, 70);
+    fill("lightgreen");
     ellipse(250, 250, 45, 30);
     ellipse(140, 250, 45, 30);
     fill("black");
     ellipse(250, 250, 9, 30);
     ellipse(140, 250, 9, 30);
+
     // Nose
     fill("lightpink");
     triangle(175, 275, 190, 295, 205, 275);
@@ -73,10 +90,10 @@ function drawCat() {
 }
 
 /**
- * Randomizes colour
+ * Randomizes colour of cat using RGB as the indication that a colour should be changed
 */
 function mousePressed() {
-    shapeColor = (random(100), random(100), random(100));
+    shapeColor = colorMode(RGB, random(255), random(255), random(255));
 
 }
 
