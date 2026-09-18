@@ -1,9 +1,8 @@
 /**
- * Title of Project
- * Author Name
+ * Abstract Circles
+ * Charlotte Walsh
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * I'm trying to discover the meaning of abstraction so I only have circles here.
  */
 
 "use strict";
