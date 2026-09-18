@@ -7,7 +7,7 @@
 
 "use strict";
 
-let shapeColor
+let shapeColor;
 
 /**
  * Creates canvas
@@ -15,7 +15,7 @@ let shapeColor
 function setup() {
     createCanvas(650, 650);
 
-    shapeColor = color(245, 10, 90);
+    shapeColor = color(245, 30, 100);
 
 }
 
@@ -46,6 +46,11 @@ function drawCat() {
     // Body
     ellipse(350, 350, 300, 200);
     ellipse(200, 250, 200, 200);
+    // Legs
+    rect(200, 300, 50, 245, 30);
+    rect(275, 300, 50, 245, 30);
+    rect(375, 300, 50, 245, 30);
+    rect(450, 325, 50, 220, 30);
     // Ears
     triangle(105, 220, 140, 90, 190, 170);
     triangle(195, 200, 240, 90, 296, 220);
@@ -71,7 +76,7 @@ function drawCat() {
  * Randomizes colour
 */
 function mousePressed() {
-    shapeColor(random(255), random(255), random(255))
+    shapeColor = (random(100), random(100), random(100));
 
 }
 
