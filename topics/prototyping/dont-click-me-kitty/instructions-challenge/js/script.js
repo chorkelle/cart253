@@ -1,23 +1,20 @@
 /**
- * Click Me Kitty
+ * Don't Click Me Kitty
  * Charlotte Walsh
  * 
- * A kitty who changes colour every time the mouse is pressed.
+ * A kitty who is normal until mouse is clicked.
  */
 
 "use strict";
 
-
-// Lets shapeColor change kitty colour
-let shapeColor;
+// Letting the screen fill when mouse is clicked
+let value = 0;
 
 /**
  * Creates the canvas
 */
 function setup() {
     createCanvas(650, 650);
-
-    shapeColor = color(255, 0, 0);
 
 }
 
@@ -29,6 +26,7 @@ function drawBackground() {
     background(100, 40, 20);
     // Gets rid of stroke
     noStroke();
+
 }
 
 /**
@@ -37,6 +35,17 @@ function drawBackground() {
 function draw() {
     drawBackground();
     drawCat();
+
+    // Covers the screen when mouse is toggled
+    push();
+    fill("black");
+    rect(0, 0, value, value);
+    pop();
+
+    push();
+    fill(0, 0, 0);
+    text('You Clicked :(', 100, 300);
+    pop();
 }
 
 /**
@@ -90,10 +99,32 @@ function drawCat() {
 }
 
 /**
- * Randomizes colour of cat using RGB as the indication that a colour should be changed
-*/
-function mousePressed() {
-    shapeColor = colorMode(RGB, random(255), random(255), random(255));
-
+ * Actually runs the mouseClicked variables
+ */
+function mouseClicked() {
+    if (value === 0) {
+        value = 650;
+    } else {
+        value = 0;
+    }
 }
 
+/**
+ * Actually runs the mouseClicked variables
+ */
+function mouseClicked() {
+    if (value === 0) {
+        value = 650;
+    } else {
+        value = 0;
+    }
+}
+
+function mouseClicked() {
+    if (mouseClicked) {
+        textSize(100);
+    } else {
+        textSize(0);
+    }
+
+}
