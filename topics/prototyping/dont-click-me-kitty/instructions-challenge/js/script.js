@@ -42,10 +42,6 @@ function draw() {
     rect(0, 0, value, value);
     pop();
 
-    push();
-    fill(0, 0, 0);
-    text('You Clicked :(', 100, 300);
-    pop();
 }
 
 /**
@@ -107,24 +103,4 @@ function mouseClicked() {
     } else {
         value = 0;
     }
-}
-
-/**
- * Actually runs the mouseClicked variables
- */
-function mouseClicked() {
-    if (value === 0) {
-        value = 650;
-    } else {
-        value = 0;
-    }
-}
-
-function mouseClicked() {
-    if (mouseClicked) {
-        textSize(100);
-    } else {
-        textSize(0);
-    }
-
 }
