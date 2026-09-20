@@ -19,8 +19,6 @@ Coursework repository for CART253 with Pippin Barr
 
 ## Prototypes
 
- this website!
-
  [Click Me Kitty](./topics/prototyping/click-me-kitty/instructions-challenge/)
 
  [Don't Click Me Kitty](./topics/prototyping/dont-click-me-kitty/instructions-challenge/)

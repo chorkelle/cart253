@@ -2,7 +2,7 @@
 
 Charlotte Walsh
 
-[View this project online](http://127.0.0.1:5500/topics/prototyping/prototype-three/prototype-three/)
+[View this project online](http://127.0.0.1:5500/topics/prototyping/a-stroke-of-genius/a-stroke-of-genius/)
 
 ## Description
 
