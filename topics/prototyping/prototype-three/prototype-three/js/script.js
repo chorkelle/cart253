@@ -2,8 +2,7 @@
  * A Stroke of Genius
  * Charlotte Walsh
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * The word "GENIUS" spelled out using lines, strokes, and bezier curves.
  */
 
 "use strict";
@@ -14,21 +13,20 @@
 function setup() {
     createCanvas(650, 650);
 
-
 }
 
-
 /**
- * Draws a stroke spelling genius
+ * Writes the word "GENIUS" using a set of functions that make up each letter
 */
 function draw() {
 
-    background(200, 200, 200);
+    background("white");
     drawG();
     drawE();
     drawN();
     drawI();
     drawU();
+    drawS();
 
 }
 
@@ -105,6 +103,9 @@ function drawN() {
 
 }
 
+/**
+ * Draws an I
+ */
 function drawI() {
     // Line for I
     noFill();
@@ -113,12 +114,34 @@ function drawI() {
     line(370, 330, 370, 200);
 }
 
+/**
+ * Draws a U
+ */
 function drawU() {
 
     // Bezier for U
     noFill();
     stroke(20, 20, 70);
     strokeWeight(20);
-    bezier(460, 200, 430, 350, 330, 350, 400, 200);
+    bezier(460, 200, 460, 375, 400, 375, 400, 200);
+
+}
+
+/**
+ * Draws an S
+ */
+function drawS() {
+
+    // Top bezier for S
+    noFill();
+    stroke(20, 20, 70);
+    strokeWeight(20);
+    bezier(510, 265, 500, 260, 460, 220, 530, 200);
+
+    // Bottom bezier for S
+    noFill();
+    stroke(20, 20, 70);
+    strokeWeight(20);
+    bezier(510, 265, 560, 300, 510, 330, 500, 330);
 
 }
