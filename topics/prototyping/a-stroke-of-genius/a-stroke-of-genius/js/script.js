@@ -3,6 +3,11 @@
  * Charlotte Walsh
  * 
  * The word "GENIUS" spelled out using lines, strokes, and bezier curves.
+ * 
+ * Controls:
+ * N/A
+ * 
+ *
  */
 
 "use strict";
@@ -53,7 +58,7 @@ function drawG() {
  */
 function drawE() {
 
-    // Tall line
+    // Back line
     noFill();
     stroke(20, 20, 70);
     strokeWeight(20);
