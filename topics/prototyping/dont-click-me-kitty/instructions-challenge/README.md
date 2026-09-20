@@ -10,8 +10,6 @@ Don't Click Me Kitty is a cat who disappears when you click your mouse.
 
 ## Attribution
 
-This bit should attribute any code, assets or other elements used taken from other sources. For example:
-
 > - This project uses [p5.js](https://p5js.org).
 
 ## License

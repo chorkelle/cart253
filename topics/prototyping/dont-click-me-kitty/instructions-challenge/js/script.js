@@ -3,6 +3,10 @@
  * Charlotte Walsh
  * 
  * A kitty who is normal until mouse is clicked.
+ * 
+ * Controls:
+ * Click to hide kitty.
+ * 
  */
 
 "use strict";

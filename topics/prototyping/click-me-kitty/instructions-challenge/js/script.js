@@ -3,6 +3,10 @@
  * Charlotte Walsh
  * 
  * A kitty who changes colour every time the mouse is pressed.
+ * 
+ * Controls:
+ * Click with mouse to randomize colour of kitty and background.
+ * 
  */
 
 "use strict";
