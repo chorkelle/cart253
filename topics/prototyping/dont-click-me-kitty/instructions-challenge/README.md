@@ -6,7 +6,7 @@ Charlotte Walsh
 
 ## Description
 
-Click Me Kitty is a cat who changes colour when you use the right button on your mouse. 
+Don't Click Me Kitty is a cat who disappears when you click your mouse. 
 
 ## Attribution
 
