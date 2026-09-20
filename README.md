@@ -25,5 +25,5 @@ Coursework repository for CART253 with Pippin Barr
 
  [Don't Click Me Kitty](./topics/prototyping/dont-click-me-kitty/instructions-challenge/)
 
- [A Stroke of Genius](./topics/prototyping/prototype-three/prototype-three/)
+ [A Stroke of Genius](./topics/prototyping/a-stroke-of-genius/a-stroke-of-genius/)
 

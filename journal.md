@@ -6,4 +6,6 @@
 
 > ![screenshot](./images/Screenshot%202026-09-15%20152213.png)
 
-## September 19, 2026
+## September 20, 2026
+
+> Journal Entry 2. I found that this week's work was much easier for me to do which makes sense considering I got to choose the parameters for each prototype. I actually had fun working on these projects which surprised me considering how frustrating making the website was for me. That being said, I spent a lot of time on them all individually and considering one of them refuses to do what I want it to do, I definitely need to reevaluate how much time I have to spend on these. As much as I have been enjoying this, I must admit that I'm still feeling a little uncertain as to if this program is really for me and my artistic practice. I'm hoping that as I learn more skills and am able to program more freely, I might figure out what exactly it is that I want to do.
