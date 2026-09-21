@@ -17,7 +17,7 @@ Coursework repository for CART253 with Pippin Barr
 
 > [Instagram](https://www.instagram.com/chorkel.illu)
 
-## Prototypes
+## Prototypes - Instructions
 
  [Click Me Kitty](./topics/prototyping/click-me-kitty/instructions-challenge/)
 
