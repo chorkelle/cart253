@@ -2,7 +2,7 @@
  * Don't Click Me Kitty
  * Charlotte Walsh
  * 
- * A kitty who is normal until mouse is clicked.
+ * A kitty who is normal until the mouse is clicked and then he disappears :(
  * 
  * Controls:
  * Click to hide kitty.
@@ -12,7 +12,7 @@
 "use strict";
 
 // Letting the screen fill when mouse is clicked
-let value = 0;
+let shadow = 0;
 
 /**
  * Creates the canvas
@@ -43,7 +43,7 @@ function draw() {
     // Covers the screen when mouse is toggled
     push();
     fill("black");
-    rect(0, 0, value, value);
+    rect(0, 0, shadow, shadow);
     pop();
 
 }
@@ -102,9 +102,13 @@ function drawCat() {
  * Actually runs the mouseClicked variables
  */
 function mouseClicked() {
-    if (value === 0) {
-        value = 650;
+    if (shadow === 0) {
+        shadow = 650;
     } else {
-        value = 0;
+        shadow = 0;
+    }
+
+    if (shadow === 650) {
+        shadow = 650;
     }
 }
