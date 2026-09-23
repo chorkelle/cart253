@@ -13,6 +13,8 @@
 
 // Letting the screen fill when mouse is clicked
 let shadow = 0;
+let textX = 0;
+let textY = 0;
 
 /**
  * Creates the canvas
@@ -44,6 +46,12 @@ function draw() {
     push();
     fill("black");
     rect(0, 0, shadow, shadow);
+    pop();
+
+    push();
+    fill("white");
+    textSize(50);
+    text('You Clicked :(', textX, textY);
     pop();
 
 }
@@ -104,11 +112,11 @@ function drawCat() {
 function mouseClicked() {
     if (shadow === 0) {
         shadow = 650;
-    } else {
-        shadow = 0;
     }
 
-    if (shadow === 650) {
-        shadow = 650;
+    if (mouseClicked = true) {
+        textX = 150
+        textY = 325;
     }
+
 }
