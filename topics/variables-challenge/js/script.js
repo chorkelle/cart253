@@ -7,6 +7,9 @@
 
 "use strict";
 
+let rageOffset = 1;
+let rageMult = 0.5;
+
 // Our friend Mr. Furious
 let mrFurious = {
     // Position and size
@@ -28,12 +31,13 @@ let skyColour = {
 
 };
 let bird = {
-    x: 0,
+    x: 200,
     y: 200,
     width: 30,
     height: 20,
 
 }
+
 
 /**
  * Create the canvas
@@ -75,8 +79,11 @@ function drawMrFurious() {
     // Draw Mr. Furious as a coloured circle
     push();
 
-    let x = random(-3, [3])
-    let y = random(-3, [3])
+    // Make Mr Furious shake
+    let x = random(-rageOffset, [rageOffset])
+    let y = random(-rageOffset, [rageOffset])
+    rageOffset += rageMult;
+
     noStroke();
     fill(mrFurious.fill.r, mrFurious.fill.g, mrFurious.fill.b);
 
@@ -88,9 +95,13 @@ function drawMrFurious() {
 
 function drawBird() {
     push();
+
+    let x = random(-200, [200])
+    let y = random(-200, [200])
+
     noStroke();
-    fill("gray");
-    rect(bird.x, bird.y, bird.width, bird.height);
+    fill("white");
+    rect(bird.x + x, bird.y + y, bird.width, bird.height);
     pop();
 
 }
