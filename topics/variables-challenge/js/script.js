@@ -27,6 +27,13 @@ let skyColour = {
     b: 200
 
 };
+let bird = {
+    x: 0,
+    y: 200,
+    width: 30,
+    height: 20,
+
+}
 
 /**
  * Create the canvas
@@ -58,6 +65,7 @@ function draw() {
 
     updateMrFurious();
     drawMrFurious();
+    drawBird();
 }
 
 /**
@@ -69,6 +77,15 @@ function drawMrFurious() {
     noStroke();
     fill(mrFurious.fill.r, mrFurious.fill.g, mrFurious.fill.b);
     ellipse(mrFurious.x, mrFurious.y, mrFurious.size);
+    pop();
+
+}
+
+function drawBird() {
+    push();
+    noStroke();
+    fill("gray");
+    rect(bird.x, bird.y, bird.width, bird.height);
     pop();
 
 }
