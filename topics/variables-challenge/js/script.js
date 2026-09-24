@@ -7,8 +7,8 @@
 
 "use strict";
 
-let rageOffset = 1;
-let rageMult = 0.5;
+let rageOffset = 0.5;
+let rageMult = 0.1;
 
 // Our friend Mr. Furious
 let mrFurious = {
@@ -62,9 +62,9 @@ function draw() {
     background(skyColour.r, skyColour.g, skyColour.b);
 
 
-    skyColour.r -= 0.5;
-    skyColour.g -= 0.5;
-    skyColour.b -= 0.5;
+    skyColour.r -= 0.3;
+    skyColour.g -= 0.3;
+    skyColour.b -= 0.3;
 
 
     updateMrFurious();
