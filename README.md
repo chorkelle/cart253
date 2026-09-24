@@ -19,20 +19,26 @@ Coursework repository for CART253 with Pippin Barr
 
 # Prototypes - Instructions
 
-## Click Me Kitty
+### Click Me Kitty
 <img src="./images/click-me-kitty-ss.png" width="250">
 
- > [Click Me Kitty](./topics/prototyping/click-me-kitty/instructions-challenge/)
+ > [View Online](./topics/prototyping/click-me-kitty/instructions-challenge/)
 
-## Don't Click Me Kitty
+  > [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/click-me-kitty/instructions-challenge)
+
+### Don't Click Me Kitty
 <img src="./images/dont-click-me-kitty-ss.png" width="250">
 
- > [Don't Click Me Kitty](./topics/prototyping/dont-click-me-kitty/instructions-challenge/)
+ > [View Online](./topics/prototyping/dont-click-me-kitty/instructions-challenge/)
 
-## A Stroke of Genius
+  > [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/dont-click-me-kitty/instructions-challenge)
+
+### A Stroke of Genius
 <img src="./images/genius-ss.png" width="250">
 
  > [A Stroke of Genius](./topics/prototyping/a-stroke-of-genius/a-stroke-of-genius/)
+
+  > [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/a-stroke-of-genius/a-stroke-of-genius)
 
 ## Journal Entry
  > [Instructions Journal](journal.md)
