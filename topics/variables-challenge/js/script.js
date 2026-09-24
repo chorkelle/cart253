@@ -74,9 +74,14 @@ function draw() {
 function drawMrFurious() {
     // Draw Mr. Furious as a coloured circle
     push();
+
+    let x = random(-3, [3])
+    let y = random(-3, [3])
     noStroke();
     fill(mrFurious.fill.r, mrFurious.fill.g, mrFurious.fill.b);
-    ellipse(mrFurious.x, mrFurious.y, mrFurious.size);
+
+    // Make Mr Furious shake
+    ellipse(mrFurious.x + x, mrFurious.y + y, mrFurious.size);
     pop();
 
 }
