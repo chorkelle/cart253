@@ -1,24 +1,74 @@
 /**
- * Title of Project
- * Author Name
- * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * Mr. Furious
+ * Charlotte & Wassim
+ *
+ * A guy who becomes visibly furious!
  */
 
 "use strict";
 
-/**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
-*/
-function setup() {
+// Our friend Mr. Furious
+let mrFurious = {
+    // Position and size
+    x: 200,
+    y: 200,
+    size: 100,
+    // Colour
+    fill: {
+        r: 255,
+        g: 225,
+        b: 225
+    }
+};
+let skyColour = {
+    // Colour
+    r: 160,
+    g: 180,
+    b: 200
 
+};
+
+/**
+ * Create the canvas
+ */
+function setup() {
+    createCanvas(400, 400);
 }
 
+/**
+ * Update Mr. Furious
+ */
+function updateMrFurious() {
+
+    mrFurious.fill.g -= 0.5;
+    mrFurious.fill.b -= 0.5;
+}
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
-*/
+ * Draw (and update) Mr. Furious
+ */
 function draw() {
+    background(skyColour.r, skyColour.g, skyColour.b);
+
+
+    skyColour.r -= 0.5;
+    skyColour.g -= 0.5;
+    skyColour.b -= 0.5;
+
+
+    updateMrFurious();
+    drawMrFurious();
+}
+
+/**
+ * Draw Mr. Furious
+ */
+function drawMrFurious() {
+    // Draw Mr. Furious as a coloured circle
+    push();
+    noStroke();
+    fill(mrFurious.fill.r, mrFurious.fill.g, mrFurious.fill.b);
+    ellipse(mrFurious.x, mrFurious.y, mrFurious.size);
+    pop();
 
 }
