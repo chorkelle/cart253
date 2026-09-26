@@ -7,33 +7,49 @@
 
 "use strict";
 
-/**
- * Sets up the canvass
-*/
-function setup() {
+let grassImage = undefined
 
-    createCanvas(600, 600)
+let horse = {
+    // Position of the bird (where we will place the image)
+    x: 150,
+    y: 150,
+    // The image of the bird, which we will load in preload()
+    image: undefined
+};
 
+async function preload() {
+    // Load the bird image into our bird object's image property
+    horse.image = await loadImage("/images/horse.png")
+    grassImage = await loadImage("/")
 }
 
-/**
- * Makes a horse incredibly happy
-*/
+async function setup() {
+    createCanvas(640, 640);
+
+    await preload();
+}
+
 function draw() {
+    background("white");
 
-    drawBackground();
-
-
+    // Display the horse
+    push();
+    image(horse.image, horse.x, horse.y);
+    pop();
 }
 
 /**
- * Sets the background colour and removes stroke
+ * Makes the horse jump around
 */
-function drawBackground() {
-    // Draws background (using RGB which indicates that the colour should change every time the mouse is pressed)
-    background("lightgreen");
-    // Gets rid of stroke
-    noStroke();
-}
+function mousePressed() {
+    if (mousePressed) {
+        horse.x += random(-200, 200),
+            horse.y += random(-200, 200)
+    }
 
+    // keep horse on the canvas
+    horse.x = constrain(horse.x, 0, 450);
+    horse.y = constrain(horse.y, 0, 450);
+
+}
 
