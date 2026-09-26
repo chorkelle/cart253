@@ -1,23 +1,16 @@
-# TITLE OF PROJECT
+# Horsing Around
 
-AUTHOR NAME
+Charlotte Walsh
 
 [View this project online](URL_FOR_THE_RUNNING_PROJECT)
 
 ## Description
 
-This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
+A horse who eats grass on his field when you click your mouse.
 
 ## Attribution
 
-This bit should attribute any code, assets or other elements used taken from other sources. For example:
-
 > - This project uses [p5.js](https://p5js.org).
-> - The clown image is a capture of the clown from the Apple emoji character set.
-> - The barking sound effect is "single dog bark 1" by crazymonke9 from freesound.org: https://freesound.org/people/crazymonke9/sounds/418107/
+> - The horse image is from google images: https://www.google.com/search?q=horse&sca_esv=05f3d1bca6a79ca3&udm=2&sxsrf=APpeQnvT1DOeE89EGjnTjCP3dNF1cGnkqw:1790393298100&source=lnt&tbs=isz:i&sa=X&ved=2ahUKEwi9_qnkpouXAxWAvokEHahYPUYQpwV6BAgJEAg&biw=1242&bih=626&dpr=1.5#sv=CAMSURoyKhBlLUR4V1lJYkUtVXFWMXJNMg5EeFdZSWJFLVVxVjFyTToOS2Rob0k2b3hRanVvOE0gBCoXCgFzEhBlLUR4V1lJYkUtVXFWMXJNGAEwARgHIJictYQDSggQARgBIAEoAQ
+> - The grass image is from google images: https://www.google.com/search?q=grass+image+650x650&sca_esv=05f3d1bca6a79ca3&udm=2&biw=1242&bih=626&sxsrf=APpeQnv9EK7MS_vUxpNOZksfKK9XSkpTGg%3A1790392048107&ei=8Da3asaPBt2nptQPlo7q-QY&ved=2ahUKEwjGx6SQoouXAxXdk4kEHRaHOm8Q4dUDegQIBhAN&uact=5&oq=grass+image+650x650&gs_lp=Egtnd3Mtd2l6LWltZyITZ3Jhc3MgaW1hZ2UgNjUweDY1MEjjR1DkBFiwQnADeACQAQCYAUWgAecHqgECMTa4AQPIAQD4AQGYAgmgArwEwgIHECMYyQIYJ8ICBhAAGAcYHsICChAAGIAEGIoFGEPCAgUQABiABJgDAIgGAZIHATmgB8AhsgcBN7gHoQTCBwcyLTIuNi4xyAdjgAgB&sclient=gws-wiz-img#sv=CAMSURoyKhBlLTkta1E1R0Nrd1hGSDJNMg45LWtRNUdDa3dYRkgyTToOaGxzb2lBbUhGRGF5WU0gBCoXCgFzEhBlLTkta1E1R0Nrd1hGSDJNGAEwARgHILLeydoDSggQARgBIAEoAQ
 
-## License
-
-This bit could include the license you want to apply to your work. For example:
-
-> This project is licensed under a Creative Commons Attribution ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)) license with the exception of libraries and other components with their own licenses.

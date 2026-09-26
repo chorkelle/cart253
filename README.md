@@ -17,6 +17,8 @@ Coursework repository for CART253 with Pippin Barr
 
 > [Instagram](https://www.instagram.com/chorkel.illu)
 
+---
+
 # Prototypes - Instructions
 
 ### Click Me Kitty
@@ -43,6 +45,7 @@ Coursework repository for CART253 with Pippin Barr
 ## Journal Entry
  > [Instructions Journal](journal.md)
 
+ ---
 
  # Prototypes - Variables
 
@@ -52,4 +55,11 @@ Coursework repository for CART253 with Pippin Barr
  > [View Online](./topics/prototyping/abstract-horse/)
 
   > [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/abstract-horse)
+
+  ### Horsing Around
+<img src="./images/click-me-kitty-ss.png" width="250">
+
+ > - [View Online](./topics/prototyping/prot3/)
+
+  > -  [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/prot3)
 

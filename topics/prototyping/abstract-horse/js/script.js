@@ -83,21 +83,21 @@ function drawHorse() {
 */
 function mouseMoved() {
     // Update the grayscale value.
-    horse.r += 5;
-    horse.g += 3;
-    horse.b += 2;
+    horse.r += 50;
+    horse.g += 30;
+    horse.b += 10;
 
-    // Reset the red value.
+    // Reset the red value
     if (horse.r > 255) {
-        horse.r = 5;
+        horse.r -= 20;
     }
-    // Reset the green value.
+    // Reset the green value
     if (horse.g > 255) {
-        horse.g = 5;
+        horse.g -= 20;
     }
-    // Reset the blue value.
-    if (horse.g > 255) {
-        horse.g = 5;
+    // Reset the blue value
+    if (horse.b > 255) {
+        horse.b -= 20;
     }
 }
 
