@@ -43,3 +43,13 @@ Coursework repository for CART253 with Pippin Barr
 ## Journal Entry
  > [Instructions Journal](journal.md)
 
+
+ # Prototypes - Variables
+
+### Rainbow Horse
+<img src="./images/click-me-kitty-ss.png" width="250">
+
+ > [View Online](./topics/prototyping/abstract-horse/)
+
+  > [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/abstract-horse)
+

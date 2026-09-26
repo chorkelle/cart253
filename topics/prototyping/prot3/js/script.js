@@ -1,24 +1,39 @@
 /**
- * Title of Project
- * Author Name
+ * IDK MAN
+ * Charlotte Walsh
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * HAHAHAHA 
  */
 
 "use strict";
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * Sets up the canvass
 */
 function setup() {
 
+    createCanvas(600, 600)
+
 }
 
-
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * Makes a horse incredibly happy
 */
 function draw() {
 
+    drawBackground();
+
+
 }
+
+/**
+ * Sets the background colour and removes stroke
+*/
+function drawBackground() {
+    // Draws background (using RGB which indicates that the colour should change every time the mouse is pressed)
+    background("lightgreen");
+    // Gets rid of stroke
+    noStroke();
+}
+
+
