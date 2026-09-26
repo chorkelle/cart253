@@ -20,7 +20,7 @@ let horse = {
 async function preload() {
     // Load the bird image into our bird object's image property
     horse.image = await loadImage("/images/horse.png")
-    grassImage = await loadImage("/")
+    grassImage = await loadImage("/image/grass.png")
 }
 
 async function setup() {
@@ -31,6 +31,10 @@ async function setup() {
 
 function draw() {
     background("white");
+
+    push();
+    image(grassImage, 0, 0, 640, 640);
+    pop();
 
     // Display the horse
     push();
