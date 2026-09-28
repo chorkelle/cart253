@@ -1,11 +1,16 @@
 /**
- * Abstract Circles
+ * Horsing Around
  * Charlotte Walsh
  * 
- * Hungry sim
+ * A horse who eats grass on his field when you click your mouse.
  */
 
 "use strict";
+
+/**
+ * Makes the grass a variable
+ */
+let grassImage = undefined
 
 /**
  * Makes the horse a variable
@@ -24,7 +29,7 @@ let horse = {
 async function preload() {
 
     horse.image = await loadImage("/images/horse.png")
-
+    grassImage = await loadImage("/images/grass.png")
 }
 
 /**
@@ -35,8 +40,9 @@ async function setup() {
 
     await preload();
 }
+
 /**
- * Draws a horse
+ * Draws a beautiful horse on a field
  */
 function draw() {
     background(0);
@@ -50,3 +56,19 @@ function draw() {
     image(horse.image, horse.x, horse.y);
     pop();
 }
+
+/**
+ * Makes the horse jump around
+*/
+function mousePressed() {
+    if (mousePressed) {
+        horse.x += random(-200, 200),
+            horse.y += random(-200, 200)
+    }
+
+    // Keeps horse on the canvas
+    horse.x = constrain(horse.x, 0, 450);
+    horse.y = constrain(horse.y, 0, 450);
+
+}
+
