@@ -2,7 +2,7 @@
  * Antisocial Horse
  * Charlotte Walsh
  * 
- * A horse who eats grass on his field when you click your mouse.
+ * A horse who runs away and tries to hide when you move your mouse towards it.
  */
 
 "use strict";
@@ -12,7 +12,7 @@
  * Makes the horse a variable
  */
 let horse = {
-    // Position of the bird (where we will place the image)
+    // Position, velocity, and opacity of the horse
     x: 150,
     y: 150,
     opacity: 255,
@@ -49,14 +49,16 @@ function draw() {
     background(255);
 
     // Gives the horse an opacity
-    tint(horse.opacity, horse.opacity, horse.opacity);
+    tint(255, horse.opacity);
 
     // Display the horse
     push();
     image(horse.image, horse.x, horse.y);
     pop();
 
+    // Makes horse run away
     updateHorse();
+
 
 }
 
@@ -65,18 +67,22 @@ function draw() {
 */
 function updateHorse() {
 
+    // Horse runs away
     horse.x += horse.velocity.x;
     horse.y += horse.velocity.y;
 
     horse.velocity.x += (horse.x - mouseX) * 0.0001;
     horse.velocity.y += (horse.x - mouseY) * 0.0001;
 
-    horse.opacity += (horse.x - mouseX);
-
+    // Horse tries to hide
+    horse.opacity = (horse.x + mouseX);
+    horse.opacity = (horse.y + mouseY);
 
     // Keeps horse on the canvas
     horse.x = constrain(horse.x, 0, 400);
     horse.y = constrain(horse.y, 0, 400);
 
+
 }
+
 
