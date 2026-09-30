@@ -14,6 +14,8 @@
 
 ## September 29, 2026
 
-> Journal Entry 3. Despite minor issues and troubleshooting, this week's prototypes were fairly smooth to make and pretty fun to play around with. However, the image pathing issues that I ran into almost made me quit. As I'm writing this right now, I have fixed one of the paths but somehow disrupted two others. How? I have no clue, they are the same image so you would think the path would be the same... but no. Anyways. Besides that nightmare, I have found it fun to play with variables and interactivity with the mouse. I like the idea of working with drawn assets to make interative works of art or mini games (if i can ever figure out how the image pathing works). I'd like to mess around with functions for pressing keys so hopefully I get to do that next week. 
+> Journal Entry 3. Despite minor issues and troubleshooting, this week's prototypes were fairly smooth to make and pretty fun to play around with. However, the image pathing issues that I ran into almost made me quit. As I'm writing this right now, I have fixed one of the paths but somehow disrupted two others. How? I have no clue, they are the same image so you would think the path would be the same... but no. Anyways. Besides that nightmare, I have found it fun to play with variables and interactivity with the mouse. I like the idea of working with drawn assets to make interative works of art or mini games (if i can ever figure out how the image pathing works). I'd like to mess around with functions for pressing keys so hopefully I get to do that next week.
 
->![screenshot](./images/horsing-around-ss.png)
+> Hello from the other side (I actually fixed the pathing issues for the images). I'm glad I chose horses for this week's prototypes because they were silly enough to keep me from completely abandoning these projects when the image pathing took 4 hours. Thank god for discord and the f12 button. Now that I think I understand it better, I'm looking forward to experimenting with some illustrated assets soon!
+
+<img src="./images/horsing-around-ss.png" width="250">
