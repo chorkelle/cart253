@@ -59,16 +59,17 @@ Coursework repository for CART253 with Pippin Barr
 ### Horsing Around
 <img src="./images/horsing-around-ss.png" width="250">
 
- > - [View Online](./topics/prototyping/horsing-around/)
+ > [View Online](./topics/prototyping/horsing-around/)
 
-  > -  [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/horsing-around)
+  > [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/horsing-around)
 
 ### Antisocial Horse
 <img src="./images/antisocial-horse-ss.png" width="250">
 
- > - [View Online](./topics/prototyping/antisocial-horse/)
+ > [View Online](./topics/prototyping/antisocial-horse/)
 
-  > -  [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/antisocial-horse)
+  > [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/antisocial-horse)
 
-  ## Journal Entry
- > [Variables Journal](journal.md)
+
+## Journal Entry
+> [Variables Journal](journal.md)
