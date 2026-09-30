@@ -14,6 +14,6 @@
 
 ## September 29, 2026
 
-> Journal Entry 3.
+> Journal Entry 3. Despite minor issues and troubleshooting, this week's prototypes were fairly smooth to make and pretty fun to play around with. However, the image pathing issues that I ran into almost made me quit. As I'm writing this right now, I have fixed one of the paths but somehow disrupted two others. How? I have no clue, they are the same image so you would think the path would be the same... but no. Anyways. Besides that nightmare, I have found it fun to play with variables and interactivity with the mouse. I like the idea of working with drawn assets to make interative works of art or mini games (if i can ever figure out how the image pathing works). I'd like to mess around with functions for pressing keys so hopefully I get to do that next week. 
 
 >![screenshot](./images/horsing-around-ss.png)
