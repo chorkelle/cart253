@@ -28,8 +28,8 @@ let horse = {
  */
 async function preload() {
 
-    horse.image = await loadImage("/images/horse.png")
-    grassImage = await loadImage("/images/grass.png")
+    horse.image = await loadImage("cart253/images/horse.png")
+    grassImage = await loadImage("cart253/images/grass.png")
 }
 
 /**
