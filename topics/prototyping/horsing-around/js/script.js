@@ -16,10 +16,10 @@ let grassImage = undefined
  * Makes the horse a variable
  */
 let horse = {
-    // Position of the bird (where we will place the image)
+    // Horse position
     x: 150,
     y: 150,
-    // The image of the bird, which we will load in preload()
+    // Horse Image
     image: undefined
 };
 
