@@ -52,9 +52,9 @@ Coursework repository for CART253 with Pippin Barr
 ### Rainbow Horse
 <img src="./images/rainbow-horse-ss.png" width="250">
 
- > [View Online](./topics/prototyping/rainbow-horse/)
+> [View Online](./topics/prototyping/rainbow-horse/)
 
-  > [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/rainbow-horse)
+> [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/rainbow-horse)
 
 ### Horsing Around
 <img src="./images/horsing-around-ss.png" width="250">
