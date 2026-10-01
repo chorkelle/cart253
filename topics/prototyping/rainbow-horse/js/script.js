@@ -9,8 +9,8 @@
 
 // makes horse colour variables changeable
 let horse = {
-    r: 30,
-    g: 30,
+    r: 10,
+    g: 20,
     b: 30
 }
 
@@ -40,6 +40,7 @@ function draw() {
 
     drawBackground();
     drawHorse();
+    changeHorse();
 
 }
 
@@ -83,21 +84,25 @@ function drawHorse() {
 */
 function mouseMoved() {
     // Update the grayscale value.
-    horse.r += 50;
-    horse.g += 30;
-    horse.b += 10;
+    horse.r += 10;
+    horse.g += 2;
+    horse.b += 3;
+
+}
+
+function changeHorse() {
 
     // Reset the red value
     if (horse.r > 255) {
-        horse.r -= 20;
+        horse.r = 15;
     }
     // Reset the green value
     if (horse.g > 255) {
-        horse.g -= 20;
+        horse.g = 10;
     }
     // Reset the blue value
     if (horse.b > 255) {
-        horse.b -= 20;
+        horse.b = 1;
     }
-}
 
+}
