@@ -217,9 +217,14 @@ function catchRain() {
     const d = dist(umbrella.x, umbrella.y, raindropEVIL.x, raindropEVIL.y);
     const overlap = (d < umbrella.size / 2 + raindropEVIL.size / 2);
 
-    // makes the raindrop restart its fall cycle!!
+    // Makes the raindrop restart its fall cycle!!
     if (overlap) {
-        raindropEVIL.size += 10;
+        raindropEVIL.size += 5;
+    }
+
+    // Makes sure evil raindrop can't get smaller than starting size
+    if (raindropEVIL.size < 15) {
+        raindropEVIL.size = 15
     }
 
     // Calculate distance between umbrella and raindrop B
@@ -229,7 +234,7 @@ function catchRain() {
     if (overlapB) {
         raindropB.y = 0;
         raindropB.x = random(0, 600);
-        raindropEVIL.size -= 2;
+        raindropEVIL.size -= 3;
     }
 
     // Calculate distance between umbrella and raindrop C
@@ -239,6 +244,7 @@ function catchRain() {
     if (overlapC) {
         raindropC.y = 0;
         raindropC.x = random(0, 600);
+        raindropEVIL.size -= 3;
     }
 
     // Calculate distance between umbrella and raindrop D
@@ -248,6 +254,7 @@ function catchRain() {
     if (overlapD) {
         raindropD.y = 0;
         raindropD.x = random(0, 600);
+        raindropEVIL.size -= 3;
     }
 }
 
