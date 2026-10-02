@@ -84,6 +84,7 @@ const umbrella = {
 
     x: 0,
     y: 0,
+    size: 100,
     fill: {
         r: 200,
         g: 100,
@@ -104,7 +105,7 @@ function setup() {
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * Draws a rainy day with an umbrella you can control
 */
 function draw() {
     background(20, 45, 66);
@@ -116,6 +117,8 @@ function draw() {
 
     drawUmbrella();
     updateUmbrella();
+
+    catchRain();
 
 }
 
@@ -155,6 +158,9 @@ function drawRain() {
 
 }
 
+/**
+ * Makes the rain cycle
+ */
 function moveRain() {
 
     // moves the rain down
@@ -190,18 +196,67 @@ function moveRain() {
     }
 }
 
+/**
+ * Makes the umbrella your curser
+ */
 function updateUmbrella() {
 
     umbrella.x = mouseX;
     umbrella.y = mouseY;
+
 }
 
+/**
+   * Makes the umbrella catch the rain
+   */
+function catchRain() {
+    // Calculate distance between umbrella and raindrop 
+    const d = dist(umbrella.x, umbrella.y, raindrop.x, raindrop.y);
+    const overlap = (d < umbrella.size / 2 + raindrop.size / 2);
+
+    // makes the raindrop restart its fall cycle!!
+    if (overlap) {
+        raindrop.y = 0;
+        raindrop.x = random(0, 600);
+    }
+
+    // Calculate distance between umbrella and raindrop B
+    const dB = dist(umbrella.x, umbrella.y, raindropB.x, raindropB.y);
+    const overlapB = (dB < umbrella.size / 2 + raindropB.size / 2);
+    // makes the raindrop restart its fall cycle!! B
+    if (overlapB) {
+        raindropB.y = 0;
+        raindropB.x = random(0, 600);
+    }
+
+    // Calculate distance between umbrella and raindrop C
+    const dC = dist(umbrella.x, umbrella.y, raindropC.x, raindropC.y);
+    const overlapC = (dC < umbrella.size / 2 + raindropC.size / 2);
+    // makes the raindrop restart its fall cycle!! B
+    if (overlapC) {
+        raindropC.y = 0;
+        raindropC.x = random(0, 600);
+    }
+
+    // Calculate distance between umbrella and raindrop D
+    const dD = dist(umbrella.x, umbrella.y, raindropD.x, raindropD.y);
+    const overlapD = (dD < umbrella.size / 2 + raindropD.size / 2);
+    // makes the raindrop restart its fall cycle!! B
+    if (overlapD) {
+        raindropD.y = 0;
+        raindropD.x = random(0, 600);
+    }
+}
+
+/**
+ * Makes the umbrella
+ */
 function drawUmbrella() {
 
     // umbrella cap
     push();
     fill(umbrella.fill.r, umbrella.fill.g, umbrella.fill.b);
-    arc(umbrella.x, umbrella.y, 100, 100, PI, 0);
+    arc(umbrella.x, umbrella.y, umbrella.size, umbrella.size, PI, 0);
     pop();
 
     // umbrella stick
