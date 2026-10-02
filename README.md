@@ -84,4 +84,7 @@ Coursework repository for CART253 with Pippin Barr
 >[View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/umbrella-sim)
 
 
-## Mousey Maze
+### Mousey Maze
+> [View Online](.topics/prototyping/mousey-maze/)
+
+> [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/mousey-maze)

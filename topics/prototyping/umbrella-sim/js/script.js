@@ -220,6 +220,7 @@ function catchRain() {
     // Makes the raindrop restart its fall cycle and get HUGE!!
     if (overlap) {
         raindropEVIL.y = 0;
+        raindropEVIL.x = random(0, 600);
         raindropEVIL.size += 10;
     }
 
