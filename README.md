@@ -79,6 +79,7 @@ Coursework repository for CART253 with Pippin Barr
 # Prototypes - Conditionals
 
 ### Umbrella Sim
+<img src="./images/umbrella-sim-ss.png" width="250">
 > [View Online](./topics/prototyping/umbrella-sim/)
 
 >[View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/umbrella-sim)
