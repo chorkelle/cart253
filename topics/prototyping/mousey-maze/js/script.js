@@ -1,18 +1,17 @@
 /**
- * Title of Project
- * Author Name
+ * Mousey Maze
+ * Charlotte Walsh
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * Mousey maze is a mouse that tries to go through a maze.
  */
 
 "use strict";
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * Creates a canvas
 */
 function setup() {
-
+    createCanvas(600, 600);
 }
 
 
@@ -20,5 +19,7 @@ function setup() {
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
 */
 function draw() {
+    background(0, 0, 0);
+
 
 }
