@@ -2,8 +2,7 @@
  * Umbrella Sim 
  * Charlotte Walsh 
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * Avoid the evil raindrop. AKA, umbrella simulator where one raindrop is evil
  */
 
 "use strict";
@@ -12,7 +11,7 @@
 /**
  * Makes raindrop a variable
 */
-let raindrop = {
+let raindropEVIL = {
 
     x: 300,
     y: 0,
@@ -110,14 +109,18 @@ function setup() {
 function draw() {
     background(20, 45, 66);
 
+    // gets rid of cursor
     noCursor();
 
+    // draws rain
     drawRain();
     moveRain();
 
+    // draws umbrella
     drawUmbrella();
     updateUmbrella();
 
+    //catches the rain
     catchRain();
 
 }
@@ -127,11 +130,11 @@ function draw() {
 */
 function drawRain() {
 
-    // Draws raindrop alpha
+    // Draws raindrop evil
     noStroke();
     push();
-    fill(raindrop.fill.r, raindrop.fill.g, raindrop.fill.b);
-    ellipse(raindrop.x, raindrop.y, raindrop.size, raindrop.size);
+    fill(raindropEVIL.fill.r, raindropEVIL.fill.g, raindropEVIL.fill.b);
+    ellipse(raindropEVIL.x, raindropEVIL.y, raindropEVIL.size, raindropEVIL.size);
     pop();
 
     // Draws raindrop B
@@ -164,11 +167,11 @@ function drawRain() {
 function moveRain() {
 
     // moves the rain down
-    raindrop.y += raindrop.velocity
+    raindropEVIL.y += raindropEVIL.velocity
     // brings back the raindrop
-    if (raindrop.y >= 600) {
-        raindrop.y = 0,
-            raindrop.x = random(0, 600);
+    if (raindropEVIL.y >= 600) {
+        raindropEVIL.y = 0,
+            raindropEVIL.x = random(0, 600);
     }
 
     // move raindrop B down
@@ -211,13 +214,12 @@ function updateUmbrella() {
    */
 function catchRain() {
     // Calculate distance between umbrella and raindrop 
-    const d = dist(umbrella.x, umbrella.y, raindrop.x, raindrop.y);
-    const overlap = (d < umbrella.size / 2 + raindrop.size / 2);
+    const d = dist(umbrella.x, umbrella.y, raindropEVIL.x, raindropEVIL.y);
+    const overlap = (d < umbrella.size / 2 + raindropEVIL.size / 2);
 
     // makes the raindrop restart its fall cycle!!
     if (overlap) {
-        raindrop.y = 0;
-        raindrop.x = random(0, 600);
+        raindropEVIL.size += 10;
     }
 
     // Calculate distance between umbrella and raindrop B
@@ -227,6 +229,7 @@ function catchRain() {
     if (overlapB) {
         raindropB.y = 0;
         raindropB.x = random(0, 600);
+        raindropEVIL.size -= 2;
     }
 
     // Calculate distance between umbrella and raindrop C
