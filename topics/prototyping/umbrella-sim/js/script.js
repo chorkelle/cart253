@@ -217,9 +217,10 @@ function catchRain() {
     const d = dist(umbrella.x, umbrella.y, raindropEVIL.x, raindropEVIL.y);
     const overlap = (d < umbrella.size / 2 + raindropEVIL.size / 2);
 
-    // Makes the raindrop restart its fall cycle!!
+    // Makes the raindrop restart its fall cycle and get HUGE!!
     if (overlap) {
-        raindropEVIL.size += 5;
+        raindropEVIL.y = 0;
+        raindropEVIL.size += 10;
     }
 
     // Makes sure evil raindrop can't get smaller than starting size

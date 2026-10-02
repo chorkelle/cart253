@@ -73,3 +73,15 @@ Coursework repository for CART253 with Pippin Barr
 
 ## Journal Entry
 > [Variables Journal](journal.md)
+
+---
+
+# Prototypes - Conditionals
+
+### Umbrella Sim
+> [View Online](./topics/prototyping/umbrella-sim/)
+
+>[View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/umbrella-sim)
+
+
+## Mousey Maze
