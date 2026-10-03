@@ -17,7 +17,8 @@ let mouse = {
         r: 240,
         g: 130,
         b: 130
-    }
+    },
+    speed: 10
 
 }
 
@@ -75,7 +76,7 @@ function setup() {
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * Draws a mouse in a maze
 */
 function draw() {
     background(220, 230, 240);
@@ -84,11 +85,30 @@ function draw() {
 
     drawMaze();
 
-    drawMouse();
     moveMouse();
+    drawMouse();
 
-    drawCheese();
-    updateCheese();
+
+
+}
+
+function moveMouse() {
+
+    if ((keyIsPressed === true) && (keyIsPressed === 'w')) {
+        mouse.y -= mouse.speed
+    }
+
+    if ((keyIsPressed === true) && (keyIsPressed === 'a')) {
+        mouse.x -= mouse.speed
+    }
+
+    if ((keyIsPressed === true) && (keyIsPressed === 's')) {
+        mouse.y += mouse.speed
+    }
+
+    if ((keyIsPressed === true) && (keyIsPressed === 'd')) {
+        mouse.x += mouse.speed
+    }
 
 }
 
@@ -99,7 +119,7 @@ function drawMouse() {
 
     push();
     fill(mouse.fill.r, mouse.fill.g, mouse.fill.b);
-    ellipse(mouse.x, mouse.y, mouse.size + 10, mouse.size);
+    ellipse(mouse.x, mouse.y, mouse.size, mouse.size);
     pop();
 
 
