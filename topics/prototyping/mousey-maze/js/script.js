@@ -24,14 +24,11 @@ let mouse = {
 
 let cheese = {
 
-    x: 500,
-    y: 500,
+    x: 40,
+    y: 340,
     size: 75,
-    fill: {
-        r: 180,
-        g: 175,
-        b: 90
-    }
+    image: undefined
+
 }
 
 let hedgeA = {
@@ -67,13 +64,33 @@ let hedgeC = {
 
 }
 
-/**
- * Creates a canvas
-*/
-function setup() {
-    createCanvas(600, 600);
+let hedgeD = {
+
+    x: -20,
+    y: 420,
+    width: 300,
+    height: 100,
+    corner: 20,
+    fill: "black"
+
 }
 
+/**
+ * Preloads the images
+ */
+async function preload() {
+
+    cheese.image = await loadImage("./assets/images/cheese.png")
+}
+
+/**
+ * Sets up the canvas and adds the preload function for images
+ */
+async function setup() {
+    createCanvas(600, 600);
+
+    await preload();
+}
 
 /**
  * Draws a mouse in a maze
@@ -83,37 +100,23 @@ function draw() {
 
     noStroke();
 
-    drawMaze();
+    // Display the cheese
+    push();
+    image(cheese.image, cheese.x, cheese.y);
+    pop();
 
-    moveMouse();
+    drawMaze();
     drawMouse();
 
-
-
-}
-
-function moveMouse() {
-
-    if ((keyIsPressed === true) && (keyIsPressed === 'w')) {
-        mouse.y -= mouse.speed
-    }
-
-    if ((keyIsPressed === true) && (keyIsPressed === 'a')) {
-        mouse.x -= mouse.speed
-    }
-
-    if ((keyIsPressed === true) && (keyIsPressed === 's')) {
-        mouse.y += mouse.speed
-    }
-
-    if ((keyIsPressed === true) && (keyIsPressed === 'd')) {
-        mouse.x += mouse.speed
-    }
+    // Display the cheese
+    push();
+    image(cheese.image, cheese.x, cheese.y);
+    pop();
 
 }
 
 /**
- * Draws a mouse
+ * Draws mousey
  */
 function drawMouse() {
 
@@ -123,6 +126,28 @@ function drawMouse() {
     pop();
 
 
+}
+
+
+/**
+ * Makes mousey move
+ */
+function keyPressed() {
+    if (key === 's') {
+        mouse.y += mouse.speed
+    }
+
+    if (key === 'w') {
+        mouse.y -= mouse.speed
+    }
+
+    if (key === 'a') {
+        mouse.x -= mouse.speed
+    }
+
+    if (key === 'd') {
+        mouse.x += mouse.speed
+    }
 }
 
 /**
@@ -148,4 +173,12 @@ function drawMaze() {
     rect(hedgeC.x, hedgeC.y, hedgeC.width, hedgeC.height, hedgeC.corner);
     pop();
 
+    // hedge D
+    push();
+    fill(hedgeD.fill);
+    rect(hedgeD.x, hedgeD.y, hedgeD.width, hedgeD.height, hedgeD.corner);
+    pop();
+
 }
+
+
