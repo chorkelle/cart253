@@ -124,7 +124,6 @@ function keyPressed() {
         circleA.size = 75;
         circleB.size = 125;
         circleC.size = 175;
-
     }
 
 }
