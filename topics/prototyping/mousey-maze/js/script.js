@@ -24,9 +24,9 @@ let mouse = {
         y: 50
     },
     ate: {
-        r: "hotpink",
-        g: "hotpink",
-        b: "hotpink"
+        r: "yellow",
+        g: "yellow",
+        b: "yellow"
     }
 
 }
@@ -285,13 +285,13 @@ function eatCheese() {
 
     // returns mouse to beginning
     if (overlap) {
-        mouse.fill.r = mouse.ate.r;
-        mouse.fill.g = mouse.ate.g;
-        mouse.fill.b = mouse.ate.b;
+        cheese.x = 600 / 2;
+        cheese.y = 600 / 2;
+        cheese.size = 600;
     } else {
-        mouse.fill.r = mouse.fill.r;
-        mouse.fill.g = mouse.fill.g;
-        mouse.fill.b = mouse.fill.b;
+        cheese.x = cheese.x;
+        cheese.y = cheese.y;
+        cheese.size = cheese.size;
     }
 
 }
