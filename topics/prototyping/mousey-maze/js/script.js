@@ -18,7 +18,16 @@ let mouse = {
         g: 130,
         b: 130
     },
-    speed: 10
+    speed: 10,
+    overlap: {
+        x: 50,
+        y: 50
+    },
+    ate: {
+        r: "hotpink",
+        g: "hotpink",
+        b: "hotpink"
+    }
 
 }
 
@@ -76,7 +85,7 @@ let hedgeD = {
 }
 
 /**
- * Preloads the images
+ * Preloads the image
  */
 async function preload() {
 
@@ -107,11 +116,10 @@ function draw() {
 
     drawMaze();
     drawMouse();
+    mazeWalls();
+    eatCheese();
 
-    // Display the cheese
-    push();
-    image(cheese.image, cheese.x, cheese.y);
-    pop();
+
 
 }
 
@@ -181,4 +189,110 @@ function drawMaze() {
 
 }
 
+/**
+ * Makes maze walls interactive
+ */
+function mazeWalls() {
+
+    // makes hedgeA a wall 
+    const overlap = (mouse.x + 25 > hedgeA.x &&
+        //right of hedge
+        mouse.x - 25 < hedgeA.x + hedgeA.width &&
+        // top of hedge
+        mouse.y + 25 > hedgeA.y &&
+        // bottom of hedge
+        mouse.y - 25 < hedgeA.y + hedgeA.height);
+
+
+    // Returns mouse to beginning
+    if (overlap) {
+        mouse.x = mouse.overlap.x;
+        mouse.y = mouse.overlap.y;
+    } else {
+        mouse.x = mouse.x;
+        mouse.y = mouse.y;
+    }
+
+    // HEDGE B 
+    const overlapB = (mouse.x + 25 > hedgeB.x &&
+        //right of hedge
+        mouse.x - 25 < hedgeB.x + hedgeB.width &&
+        // top of hedge
+        mouse.y + 25 > hedgeB.y &&
+        // bottom of hedge
+        mouse.y - 25 < hedgeB.y + hedgeB.height);
+
+
+    // returns mouse to beginning
+    if (overlapB) {
+        mouse.x = mouse.overlap.x;
+        mouse.y = mouse.overlap.y;
+    } else {
+        mouse.x = mouse.x;
+        mouse.y = mouse.y;
+    }
+
+    // HEDGE C
+    const overlapC = (mouse.x + 25 > hedgeC.x &&
+        //right of hedge
+        mouse.x - 25 < hedgeC.x + hedgeC.width &&
+        // top of hedge
+        mouse.y + 25 > hedgeC.y &&
+        // bottom of hedge
+        mouse.y - 25 < hedgeC.y + hedgeC.height);
+
+
+    // returns mouse to beginning
+    if (overlapC) {
+        mouse.x = mouse.overlap.x;
+        mouse.y = mouse.overlap.y;
+    } else {
+        mouse.x = mouse.x;
+        mouse.y = mouse.y;
+    }
+
+    // HEDGE D
+    const overlapD = (mouse.x + 25 > hedgeD.x &&
+        //right of hedge
+        mouse.x - 25 < hedgeD.x + hedgeD.width &&
+        // top of hedge
+        mouse.y + 25 > hedgeD.y &&
+        // bottom of hedge
+        mouse.y - 25 < hedgeD.y + hedgeD.height);
+
+
+    // returns mouse to beginning
+    if (overlapD) {
+        mouse.x = mouse.overlap.x;
+        mouse.y = mouse.overlap.y;
+    } else {
+        mouse.x = mouse.x;
+        mouse.y = mouse.y;
+    }
+}
+
+function eatCheese() {
+
+    // CHEESE
+    const overlap = (mouse.x + 25 > cheese.x + 10 &&
+        //right of hedge
+        mouse.x - 25 < cheese.x + cheese.size - 10 &&
+        // top of hedge
+        mouse.y + 25 > cheese.y &&
+        // bottom of hedge
+        mouse.y - 25 < cheese.y + cheese.size);
+
+
+    // returns mouse to beginning
+    if (overlap) {
+        mouse.fill.r = mouse.ate.r;
+        mouse.fill.g = mouse.ate.g;
+        mouse.fill.b = mouse.ate.b;
+    } else {
+        mouse.fill.r = mouse.fill.r;
+        mouse.fill.g = mouse.fill.g;
+        mouse.fill.b = mouse.fill.b;
+    }
+
+}
 
