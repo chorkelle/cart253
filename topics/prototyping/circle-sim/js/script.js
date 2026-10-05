@@ -1,5 +1,5 @@
 /**
- * Colours
+ * Circle Sim
  * Charlotte Walsh
  * 
  * Circles that light up different colours depending on the key you press.
@@ -15,7 +15,6 @@ let circleA = {
     fill: "#00ff00"
 
 }
-
 
 let circleB = {
 
@@ -55,6 +54,9 @@ function draw() {
 
 }
 
+/**
+ * Draws the circles
+ */
 function drawCircles() {
 
     // Draw Circle A
@@ -115,7 +117,7 @@ function keyPressed() {
         circleB.fill = "#00ff00";
         circleC.fill = "#00ff00";
     }
-
+    // makes a separate set of circles that are huge if you hit the spacebar
     if (key === ' ') {
         circleA.size = 400;
         circleB.size = 450;
