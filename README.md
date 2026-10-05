@@ -87,12 +87,14 @@ Coursework repository for CART253 with Pippin Barr
 
 ### Circle Sim
 <img src="./images/circle-sim-ss.png" width="250">
+
 > [View Online](./topics/prototyping/circle-sim/)
 
 > [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/circle-sim)
 
 ### Mousey Maze
 <img src="./images/mousey-maze-ss.png" width="250">
+
 > [View Online](./topics/prototyping/mousey-maze/)
 
 > [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/mousey-maze)
