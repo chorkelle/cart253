@@ -2,7 +2,7 @@
 
 Charlotte Walsh
 
-[View this project online](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/circle-sim)
+[View this project online](https://chorkelle.github.io/cart253/topics/prototyping/circle-sim/)
 
 ## Description
 
