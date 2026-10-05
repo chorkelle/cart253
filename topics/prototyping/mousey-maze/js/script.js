@@ -2,12 +2,12 @@
  * Mousey Maze
  * Charlotte Walsh
  * 
- * Mousey maze is a mouse that tries to go through a maze.
+ * Try to get the eat the cheese without touching the walls!
  */
 
 "use strict";
 
-
+// Makes the mouse a variable
 let mouse = {
 
     x: 50,
@@ -31,6 +31,7 @@ let mouse = {
 
 }
 
+// Makes cheese a variable
 let cheese = {
 
     x: 40,
@@ -40,6 +41,7 @@ let cheese = {
 
 }
 
+// Makes the hedges variables
 let hedgeA = {
 
     x: 150,
@@ -84,12 +86,31 @@ let hedgeD = {
 
 }
 
+// Makes the canvas a variable
+const Canvas = {
+    right: 600,
+    left: 0,
+    top: 0,
+    bottom: 600
+}
+
+// makes the win screen a variable
+let win = {
+
+    x: -600,
+    y: -600,
+    size: 75,
+    image: undefined
+
+}
+
 /**
  * Preloads the image
  */
 async function preload() {
 
     cheese.image = await loadImage("./assets/images/cheese.png")
+    win.image = await loadImage("./assets/images/mouse.png")
 }
 
 /**
@@ -114,12 +135,20 @@ function draw() {
     image(cheese.image, cheese.x, cheese.y);
     pop();
 
+    // draw the maze
     drawMaze();
+
+    // draw the mouse
     drawMouse();
+
+    // makes walls and cheese interactive
     mazeWalls();
     eatCheese();
 
-
+    // win screen!
+    push();
+    image(win.image, win.x, win.y);
+    pop();
 
 }
 
@@ -141,6 +170,8 @@ function drawMouse() {
  * Makes mousey move
  */
 function keyPressed() {
+
+    // lets you control mousey using WASD controls
     if (key === 's') {
         mouse.y += mouse.speed
     }
@@ -156,6 +187,11 @@ function keyPressed() {
     if (key === 'd') {
         mouse.x += mouse.speed
     }
+
+    // constrains mousey to canvas
+    mouse.x = constrain(mouse.x, Canvas.left + mouse.size / 2, Canvas.right - mouse.size / 2);
+    mouse.y = constrain(mouse.y, Canvas.top + mouse.size / 2, Canvas.bottom - mouse.size / 2);
+
 }
 
 /**
@@ -271,6 +307,9 @@ function mazeWalls() {
     }
 }
 
+/**
+ * Lets you eat the cheese and win the game!
+ */
 function eatCheese() {
 
     // CHEESE
@@ -285,13 +324,11 @@ function eatCheese() {
 
     // returns mouse to beginning
     if (overlap) {
-        cheese.x = 600 / 2;
-        cheese.y = 600 / 2;
-        cheese.size = 600;
+        win.x = 0;
+        win.y = 0;
     } else {
-        cheese.x = cheese.x;
-        cheese.y = cheese.y;
-        cheese.size = cheese.size;
+        win.x = win.x;
+        win.y = win.y;
     }
 
 }
