@@ -85,12 +85,22 @@ Coursework repository for CART253 with Pippin Barr
 
 >[View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/umbrella-sim)
 
+### Circle Sim
+<img src="./images/circle-sim-ss.png" width="250">
+> [View Online](./topics/prototyping/circle-sim/)
+
+> [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/circle-sim)
+
 ### Mousey Maze
+<img src="./images/mousey-maze-ss.png" width="250">
 > [View Online](./topics/prototyping/mousey-maze/)
 
 > [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/mousey-maze)
 
-### Circle Sim
-> [View Online](./topics/prototyping/circle-sim/)
+## Journal Entry
 
-> [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/circle-sim)
+>[Conditionals Journal](journal.md)
+
+---
+
+
