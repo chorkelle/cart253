@@ -1,6 +1,6 @@
 /**
- * The Only Move Is Not To Play
- * Pippin Barr
+ * Don't Move
+ * Charlotte Walsh & Sofia Allashukurova
  *
  * A game where your score increases so long as you do nothing.
  */
