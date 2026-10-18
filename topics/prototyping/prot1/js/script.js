@@ -13,11 +13,6 @@ let mouse = {
     x: 50,
     y: 50,
     size: 50,
-    fill: {
-        r: 240,
-        g: 130,
-        b: 130
-    },
     speed: 10,
     overlap: {
         x: 50,
@@ -112,6 +107,7 @@ async function preload() {
 
     cheese.image = await loadImage("./assets/images/cheese.png")
     win.image = await loadImage("./assets/images/mouse.png")
+    mouse.image = await loadImage("./assets/images/mouse-emoji.png")
 }
 
 /**
@@ -158,11 +154,10 @@ function draw() {
  */
 function drawMouse() {
 
+    // mousey
     push();
-    fill(mouse.fill.r, mouse.fill.g, mouse.fill.b);
-    ellipse(mouse.x, mouse.y, mouse.size, mouse.size);
+    image(mouse.image, mouse.x, mouse.y);
     pop();
-
 
 }
 
@@ -190,8 +185,8 @@ function keyPressed() {
     }
 
     // constrains mousey to canvas
-    mouse.x = constrain(mouse.x, Canvas.left + mouse.size / 2, Canvas.right - mouse.size / 2);
-    mouse.y = constrain(mouse.y, Canvas.top + mouse.size / 2, Canvas.bottom - mouse.size / 2);
+    mouse.x = constrain(mouse.x, Canvas.left, Canvas.right);
+    mouse.y = constrain(mouse.y, Canvas.top, Canvas.bottom);
 
 }
 
@@ -232,13 +227,13 @@ function drawMaze() {
 function mazeWalls() {
 
     // makes hedgeA a wall 
-    const overlap = (mouse.x + 25 > hedgeA.x &&
+    const overlap = (mouse.x + 50 > hedgeA.x &&
         //right of hedge
-        mouse.x - 25 < hedgeA.x + hedgeA.width &&
+        mouse.x < hedgeA.x + hedgeA.width &&
         // top of hedge
-        mouse.y + 25 > hedgeA.y &&
+        mouse.y + 50 > hedgeA.y &&
         // bottom of hedge
-        mouse.y - 25 < hedgeA.y + hedgeA.height);
+        mouse.y < hedgeA.y + hedgeA.height);
 
 
     // Returns mouse to beginning
@@ -251,13 +246,13 @@ function mazeWalls() {
     }
 
     // HEDGE B 
-    const overlapB = (mouse.x + 25 > hedgeB.x &&
+    const overlapB = (mouse.x + 50 > hedgeB.x &&
         //right of hedge
-        mouse.x - 25 < hedgeB.x + hedgeB.width &&
+        mouse.x < hedgeB.x + hedgeB.width &&
         // top of hedge
-        mouse.y + 25 > hedgeB.y &&
+        mouse.y + 50 > hedgeB.y &&
         // bottom of hedge
-        mouse.y - 25 < hedgeB.y + hedgeB.height);
+        mouse.y < hedgeB.y + hedgeB.height);
 
 
     // returns mouse to beginning
@@ -270,13 +265,13 @@ function mazeWalls() {
     }
 
     // HEDGE C
-    const overlapC = (mouse.x + 25 > hedgeC.x &&
+    const overlapC = (mouse.x + 50 > hedgeC.x &&
         //right of hedge
-        mouse.x - 25 < hedgeC.x + hedgeC.width &&
+        mouse.x < hedgeC.x + hedgeC.width &&
         // top of hedge
-        mouse.y + 25 > hedgeC.y &&
+        mouse.y + 50 > hedgeC.y &&
         // bottom of hedge
-        mouse.y - 25 < hedgeC.y + hedgeC.height);
+        mouse.y < hedgeC.y + hedgeC.height);
 
 
     // returns mouse to beginning
@@ -289,13 +284,13 @@ function mazeWalls() {
     }
 
     // HEDGE D
-    const overlapD = (mouse.x + 25 > hedgeD.x &&
+    const overlapD = (mouse.x + 50 > hedgeD.x &&
         //right of hedge
-        mouse.x - 25 < hedgeD.x + hedgeD.width &&
+        mouse.x < hedgeD.x + hedgeD.width &&
         // top of hedge
-        mouse.y + 25 > hedgeD.y &&
+        mouse.y + 50 > hedgeD.y &&
         // bottom of hedge
-        mouse.y - 25 < hedgeD.y + hedgeD.height);
+        mouse.y < hedgeD.y + hedgeD.height);
 
 
     // returns mouse to beginning
