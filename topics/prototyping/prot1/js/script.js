@@ -2,7 +2,7 @@
  * Mousey Maze 2.0
  * Charlotte Walsh
  * 
- * Get through the maze before the timer goes off and blows you up.
+ * Get through the maze and avoid the bomb.
  */
 
 "use strict";
@@ -29,8 +29,8 @@ let mouse = {
 
 // Makes dynamite a variable
 let dynamite = {
-    x: 25,
-    y: 400,
+    x: 500,
+    y: 450,
     size: 75,
     image: undefined
 }
@@ -114,15 +114,28 @@ let lose = {
     image: undefined
 }
 
+let game = {
+    lost: false,
+    won: false
+}
+
+// Time
+let time = 15;
+
 /**
  * Preloads the image
  */
 async function preload() {
 
     cheese.image = await loadImage("./assets/images/cheese.png")
+
     win.image = await loadImage("./assets/images/mouse.png")
+
     mouse.image = await loadImage("./assets/images/mouse-emoji.png")
+
     dynamite.image = await loadImage("./assets/images/dynamite.png")
+
+    lose.image = await loadImage("./assets/images/lose.png")
 }
 
 /**
@@ -138,7 +151,7 @@ async function setup() {
  * Draws a mouse in a maze
 */
 function draw() {
-    background(220, 230, 240);
+    background("lightgreen");
 
     noStroke();
 
@@ -167,6 +180,19 @@ function draw() {
     pop();
 
     // lose screen!
+    push();
+    image(lose.image, lose.x, lose.y);
+    pop();
+    loseScreen();
+
+    // Makes the timer slowly go down if you havent already blown up
+    if (!game.lost) {
+        // Score increases relatively slowly
+        time -= 0.03;
+    }
+
+
+    timer();
 
 }
 
@@ -370,18 +396,46 @@ function blowUp() {
         //right of hedge
         mouse.x < dynamite.x + dynamite.size &&
         // top of hedge
-        mouse.y + dynamite.size > dynamite.y &&
+        mouse.y + mouse.size > dynamite.y &&
         // bottom of hedge
         mouse.y < dynamite.y + dynamite.size);
 
 
     // returns mouse to beginning
     if (overlap) {
-        lose.x = 0;
-        lose.y = 0;
-    } else {
-        lose.x = lose.x;
-        lose.y = lose.y;
+        game.lost = true;
     }
 
 }
+
+/**
+ * Displays the bomb timer
+ */
+function timer() {
+    push();
+    textSize(30);
+    textStyle(BOLD);
+    textAlign(50, 450);
+    text(floor(time), 550, 50);
+    pop();
+}
+/**
+ * Shows that the bomb went off
+ */
+function loseScreen() {
+    if (game.lost) {
+        push();
+        image(lose.image, 0, 0);
+        pop();
+    }
+    timer();
+
+    // Blows up the bomb
+    if (time <= 0) {
+        game.lost = true;
+    }
+
+
+
+}
+
