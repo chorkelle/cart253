@@ -76,7 +76,6 @@ Coursework repository for CART253 with Pippin Barr
 
 ---
 
-
 # Prototypes - Conditionals
 
 ### Umbrella Sim
@@ -113,11 +112,11 @@ Coursework repository for CART253 with Pippin Barr
 
 > [View Online](./topics/prototyping/mousey-maze-2.0/)
 
----
-
 > [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/mousey-maze-2.0)
 
 ## Journal Entry
 
 >[Events Journal](journal.md)
+
+---
 
