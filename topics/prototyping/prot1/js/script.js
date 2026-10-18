@@ -2,7 +2,7 @@
  * Mousey Maze 2.0
  * Charlotte Walsh
  * 
- * Get through the maze and avoid the bomb.
+ * Get through the maze and avoid the bomb before the bomb goes off!
  */
 
 "use strict";
@@ -191,10 +191,15 @@ function draw() {
         time -= 0.02;
     }
 
+    // Makes the time stop when you win
     if (game.won) {
-        time = time;
+        time === time;
     }
 
+    // Makes the time stop when you lose
+    if (game.lost) {
+        time === time;
+    }
 
 }
 
@@ -203,10 +208,10 @@ function draw() {
  */
 function timer() {
     push();
+    fill("red");
     textSize(30);
     textStyle(BOLD);
-    textAlign(50, 450);
-    text(floor(time), 550, 50);
+    text(floor(time), 540, 50);
     pop();
 }
 
@@ -366,7 +371,7 @@ function mazeWalls() {
         mouse.y < hedgeD.y + hedgeD.height);
 
 
-    // returns mouse to beginning
+    // returns mousey to beginning
     if (overlapD) {
         mouse.x = mouse.overlap.x;
         mouse.y = mouse.overlap.y;
@@ -381,21 +386,22 @@ function mazeWalls() {
  */
 function eatCheese() {
 
-    // CHEESE
+    // Calculates distance between cheese and mousey
     const overlap = (mouse.x + mouse.size > cheese.x &&
-        //right of hedge
+        //right of cheese
         mouse.x < cheese.x + cheese.size &&
-        // top of hedge
+        // top of cheese
         mouse.y + mouse.size > cheese.y &&
-        // bottom of hedge
+        // bottom of cheese
         mouse.y < cheese.y + cheese.size);
 
 
-    // returns mouse to beginning
+    // Returns mousey to beginning
     if (overlap) {
         game.won = true;
     }
 
+    // Displays the winscreen
     if (game.won) {
         push();
         image(win.image, 0, 0);
@@ -409,17 +415,17 @@ function eatCheese() {
 function blowUp() {
 
 
-    // CHEESE
+    // Calculates the distance between mousey and dynamite
     const overlap = (mouse.x + mouse.size > dynamite.x &&
-        //right of hedge
+        // dynamite right
         mouse.x < dynamite.x + dynamite.size &&
-        // top of hedge
+        // dynamite top
         mouse.y + mouse.size > dynamite.y &&
-        // bottom of hedge
+        // dynamite bottom
         mouse.y < dynamite.y + dynamite.size);
 
 
-    // returns mouse to beginning
+    // Makes mousey blow up
     if (overlap) {
         game.lost = true;
     }
@@ -431,20 +437,19 @@ function blowUp() {
  * Shows that the bomb went off
  */
 function loseScreen() {
+    // Displays the lose screen 
     if (game.lost) {
         push();
         image(lose.image, 0, 0);
         pop();
-        time = 0;
     }
     timer();
 
     // Blows up the bomb
     if (time <= 0) {
         game.lost = true;
+        time = 0;
     }
-
-
 
 }
 
