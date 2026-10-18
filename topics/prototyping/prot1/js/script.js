@@ -185,8 +185,8 @@ function keyPressed() {
     }
 
     // constrains mousey to canvas
-    mouse.x = constrain(mouse.x, Canvas.left, Canvas.right);
-    mouse.y = constrain(mouse.y, Canvas.top, Canvas.bottom);
+    mouse.x = constrain(mouse.x, Canvas.left, Canvas.right - 50);
+    mouse.y = constrain(mouse.y, Canvas.top, Canvas.bottom - 50);
 
 }
 
