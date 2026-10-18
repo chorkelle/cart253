@@ -27,6 +27,14 @@ let mouse = {
 
 }
 
+// Makes dynamite a variable
+let dynamite = {
+    x: 25,
+    y: 400,
+    size: 75,
+    image: undefined
+}
+
 // Makes cheese a variable
 let cheese = {
 
@@ -95,9 +103,15 @@ let win = {
 
     x: -600,
     y: -600,
-    size: 75,
     image: undefined
 
+}
+
+let lose = {
+
+    x: -600,
+    y: -600,
+    image: undefined
 }
 
 /**
@@ -108,6 +122,7 @@ async function preload() {
     cheese.image = await loadImage("./assets/images/cheese.png")
     win.image = await loadImage("./assets/images/mouse.png")
     mouse.image = await loadImage("./assets/images/mouse-emoji.png")
+    dynamite.image = await loadImage("./assets/images/dynamite.png")
 }
 
 /**
@@ -138,6 +153,10 @@ function draw() {
     // draw the mouse
     drawMouse();
 
+    // makes you lose the game
+    drawDynamite();
+    blowUp();
+
     // makes walls and cheese interactive
     mazeWalls();
     eatCheese();
@@ -146,6 +165,8 @@ function draw() {
     push();
     image(win.image, win.x, win.y);
     pop();
+
+    // lose screen!
 
 }
 
@@ -157,6 +178,18 @@ function drawMouse() {
     // mousey
     push();
     image(mouse.image, mouse.x, mouse.y);
+    pop();
+
+}
+
+/**
+ * Draws the dynamite
+ */
+function drawDynamite() {
+
+    // dynamite
+    push();
+    image(dynamite.image, dynamite.x, dynamite.y);
     pop();
 
 }
@@ -309,13 +342,13 @@ function mazeWalls() {
 function eatCheese() {
 
     // CHEESE
-    const overlap = (mouse.x + 25 > cheese.x + 10 &&
+    const overlap = (mouse.x + mouse.size > cheese.x &&
         //right of hedge
-        mouse.x - 25 < cheese.x + cheese.size - 10 &&
+        mouse.x < cheese.x + cheese.size &&
         // top of hedge
-        mouse.y + 25 > cheese.y &&
+        mouse.y + mouse.size > cheese.y &&
         // bottom of hedge
-        mouse.y - 25 < cheese.y + cheese.size);
+        mouse.y < cheese.y + cheese.size);
 
 
     // returns mouse to beginning
@@ -325,6 +358,30 @@ function eatCheese() {
     } else {
         win.x = win.x;
         win.y = win.y;
+    }
+
+}
+
+function blowUp() {
+
+
+    // CHEESE
+    const overlap = (mouse.x + mouse.size > dynamite.x &&
+        //right of hedge
+        mouse.x < dynamite.x + dynamite.size &&
+        // top of hedge
+        mouse.y + dynamite.size > dynamite.y &&
+        // bottom of hedge
+        mouse.y < dynamite.y + dynamite.size);
+
+
+    // returns mouse to beginning
+    if (overlap) {
+        lose.x = 0;
+        lose.y = 0;
+    } else {
+        lose.x = lose.x;
+        lose.y = lose.y;
     }
 
 }
