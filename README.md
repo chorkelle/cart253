@@ -108,7 +108,7 @@ Coursework repository for CART253 with Pippin Barr
 # Prototypes - Events
 
 ### Mousey Maze 2.0
-<img src="./images/mousey-maze-ss.png" width="250">
+<img src="./images/mousey-maze-2-ss.png" width="250">
 
 > [View Online](./topics/prototyping/mousey-maze-2.0/)
 
