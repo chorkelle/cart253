@@ -18,11 +18,6 @@ let mouse = {
         x: 50,
         y: 50
     },
-    ate: {
-        r: "yellow",
-        g: "yellow",
-        b: "yellow"
-    },
     image: undefined
 
 }
@@ -120,7 +115,7 @@ let game = {
 }
 
 // Time
-let time = 15;
+let time = 25;
 
 /**
  * Preloads the image
@@ -160,6 +155,9 @@ function draw() {
     image(cheese.image, cheese.x, cheese.y);
     pop();
 
+    // displays timer
+    timer();
+
     // draw the maze
     drawMaze();
 
@@ -173,6 +171,8 @@ function draw() {
     // makes walls and cheese interactive
     mazeWalls();
     eatCheese();
+
+
 
     // win screen!
     push();
@@ -188,12 +188,26 @@ function draw() {
     // Makes the timer slowly go down if you havent already blown up
     if (!game.lost) {
         // Score increases relatively slowly
-        time -= 0.03;
+        time -= 0.02;
+    }
+
+    if (game.won) {
+        time = time;
     }
 
 
-    timer();
+}
 
+/**
+ * Displays the bomb timer
+ */
+function timer() {
+    push();
+    textSize(30);
+    textStyle(BOLD);
+    textAlign(50, 450);
+    text(floor(time), 550, 50);
+    pop();
 }
 
 /**
@@ -379,12 +393,16 @@ function eatCheese() {
 
     // returns mouse to beginning
     if (overlap) {
-        win.x = 0;
-        win.y = 0;
-    } else {
-        win.x = win.x;
-        win.y = win.y;
+        game.won = true;
     }
+
+    if (game.won) {
+        push();
+        image(win.image, 0, 0);
+        pop();
+        time += 0.02;
+    }
+    timer();
 
 }
 
@@ -408,17 +426,7 @@ function blowUp() {
 
 }
 
-/**
- * Displays the bomb timer
- */
-function timer() {
-    push();
-    textSize(30);
-    textStyle(BOLD);
-    textAlign(50, 450);
-    text(floor(time), 550, 50);
-    pop();
-}
+
 /**
  * Shows that the bomb went off
  */
@@ -427,6 +435,7 @@ function loseScreen() {
         push();
         image(lose.image, 0, 0);
         pop();
+        time = 0;
     }
     timer();
 
