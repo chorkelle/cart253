@@ -2,7 +2,7 @@
 
 Charlotte Walsh
 
-[View this project online](https://chorkelle.github.io/cart253/topics/prototyping/mousey-maze/)
+[View this project online](https://chorkelle.github.io/cart253/topics/prototyping/mousey-maze-2.0/)
 
 ## Description
 
