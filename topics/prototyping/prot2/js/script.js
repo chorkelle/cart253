@@ -1,8 +1,8 @@
 /**
- * Antisocial Bear
+ * Don't poke the bear
  * Charlotte Walsh
  * 
- * A guy who doesn't like it when he notices your presence
+ * Don't poke the bear on he'll get mad at you
  */
 
 "use strict";
@@ -52,9 +52,8 @@ async function setup() {
 
 }
 
-
 /**
- * Shows the guy
+ * Draws the emotional bear
 */
 function draw() {
 
@@ -75,14 +74,6 @@ function draw() {
 
     updateBear();
 
-    // Makes the timer slowly go down if you havent already blown up
-    if (emotion.shy = true) {
-        // Score increases relatively slowly
-        time += 0.02;
-    }
-
-
-
 }
 
 /**
@@ -90,13 +81,16 @@ function draw() {
  */
 function updateBear() {
 
-
+    // Makes the bear hide if you start to poke it
     if (keyIsPressed || mouseIsPressed) {
         push();
         image(shyBear.image, shyBear.x, shyBear.y);
         pop();
+
+        // Counts how long you've poked the bear
         emotion.shy = true;
         floor(time, 200, 200);
+        time += 0.05;
     }
 
     // Makes the bear angry if you don't stop poking the bear
@@ -111,7 +105,7 @@ function updateBear() {
         fill("red");
         textSize(50);
         textStyle(BOLD);
-        text("You poked the bear", 100, 100);
+        text("You poked", 100, 100);
         pop();
 
         emotion.angry = true;
