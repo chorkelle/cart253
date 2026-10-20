@@ -21,12 +21,18 @@ let circle = {
     }
 }
 
+let chaos = false;
+
+let time = 0;
+
 /**
  * Makes the canvas
 */
 function setup() {
 
     createCanvas(600, 600);
+
+    addEventListener("wheel", multiply);
 
 }
 
@@ -41,6 +47,18 @@ function draw() {
     drawCircle();
 
     keysChange();
+
+    multiply();
+
+    // Only increase the score if the game is not over
+    if (!chaos) {
+        // Score increases relatively slowly
+        time += 0.05;
+    }
+
+    timer();
+
+
 
 }
 
@@ -68,7 +86,7 @@ function keysChange() {
         circle.fill.b = 189;
     }
 
-    if (key === 'w') {
+    if (key === 'k') {
         circle.fill.r += 10;
         circle.fill.g += 10;
         circle.fill.b += 10;
@@ -107,7 +125,7 @@ function keysChange() {
 
     if (key === 'o') {
         circle.fill.r += 10;
-        circle.fill.g += 10;
+        circle.fill.g = random(0, 250);
         circle.fill.b += 10;
     }
 
@@ -117,16 +135,11 @@ function keysChange() {
         circle.fill.b -= 15;
     }
 
-    if (key === 'a') {
+    if (key === 'h') {
         circle.size.w += 0.5;
     }
 
-    if (key === 's') {
-        circle.size.w += 0.5;
-        circle.size.h += 0.5;
-    }
-
-    if (key === 'd') {
+    if (key === 'g') {
         circle.size.h += 0.5;
     }
 
@@ -136,20 +149,96 @@ function keysChange() {
         circle.fill.b = 13;
     }
 
-    if (key === 'g') {
+    if (key === 'j') {
+        circle.fill.r = random(3, 250);
+        circle.fill.g = random(0, 250);
+        circle.fill.b = random(4, 250);
+    }
+
+    if (key === 'a') {
         circle.x -= 0.5;
-    } else {
-        circle.x = 300;
+    }
+
+    if (key === 'd') {
+        circle.x += 0.5;
+    }
+
+    if (key === 's') {
+        circle.y += 0.5;
+    }
+
+    if (key === 'w') {
+        circle.y -= 0.5;
     }
 
     if (key === 'm') {
-        circle.size.w -= 0.5;
-        circle.size.h -= 0.5;
-    } else {
-        circle.size.w = 300;
-        circle.size.h = 300;
+        circle.size.w -= random(0, 10);
+        circle.size.h -= random(0, 10);
     }
 
+    if (key === 'l') {
+        circle.size.w += random(0, 10);
+        circle.size.h += random(0, 10);
+    }
 
+    if (key === 'c') {
+        circle.size.w += 10;
+        circle.size.h += 15;
+    }
+
+    if (key === 'b') {
+        circle.size.w -= 15;
+        circle.size.h -= 5;
+    }
+
+    if (key === 'v') {
+        circle.size.w -= 15;
+        circle.size.h -= 5;
+    }
+
+    // makes the circle normal again
+    if (key === ' ') {
+        circle.size.w = 300;
+        circle.size.h = 300;
+        circle.fill.r = 149;
+        circle.fill.g = 235;
+        circle.fill.b = 52;
+        circle.x = 300;
+        circle.y = 300;
+    }
 
 }
+
+/**
+ * Makes things happen when you move your mouse
+ */
+function multiply() {
+
+    if (mouseIsPressed) {
+        push();
+        noStroke();
+        fill(random(0, 255), random(0, 255), random(0, 255));
+        ellipse(random(0, 600), random(0, 600), random(0, 400), random(0, 400));
+        pop();
+    }
+
+}
+
+function timer() {
+
+    floor(time);
+
+    if (time >= 30) {
+        chaos = true;
+    }
+
+    if (chaos = true) {
+        push();
+        noStroke();
+        fill(random(0, 255), random(0, 255), random(0, 255));
+        ellipse(random(0, 600), random(0, 600), random(0, 400), random(0, 400));
+        pop();
+    }
+
+}
+
