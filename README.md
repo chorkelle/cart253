@@ -114,6 +114,20 @@ Coursework repository for CART253 with Pippin Barr
 
 > [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/mousey-maze-2.0)
 
+### Circles
+<img src="./images/circles-ss.png" width="250">
+
+> [View Online](./topics/prototyping/circles/)
+
+> [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/circles)
+
+### Don't Poke the Bear
+<img src="./images/dont-poke-ss.png" width="250">
+
+> [View Online](./topics/prototyping/dont-poke-the-bear/)
+
+> [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/dont-poke-the-bear)
+
 ## Journal Entry
 
 >[Events Journal](journal.md)
