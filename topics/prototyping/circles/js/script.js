@@ -26,7 +26,9 @@ let circle = {
 let chaos = false;
 
 // Sets time as a variable
-let time = 0;
+let time = 1;
+
+let smile = false;
 
 /**
  * Makes the canvas
@@ -34,6 +36,9 @@ let time = 0;
 function setup() {
 
     createCanvas(600, 600);
+
+    // If the mousewheel is moved, a smiley face is drawn
+    addEventListener("wheel", smiley);
 
 }
 
@@ -45,9 +50,6 @@ function draw() {
 
     // draws the background
     background("white");
-
-    // draws the circle
-    drawCircle();
 
     // changes the circle based on key pressed
     keysChange();
@@ -61,9 +63,33 @@ function draw() {
         time += 0.05;
     }
 
+    // Return circle to center if it touches canvas right or bottom
+    if (circle.x > 450 || circle.y > 450) {
+        circle.x = 300;
+        circle.y = 300;
+    }
+
+    // Return circle to center if it touches canvas left or top
+    if (circle.x < 150 || circle.y < 150) {
+        circle.x = 300;
+        circle.y = 300;
+    }
+
     // sets a timer
     timer();
 
+    // draws the circle
+    drawCircle();
+
+    // draws a smiley face if you scroll using your mouse
+    if (smile) {
+        push();
+        textSize(48);
+        textStyle(BOLD);
+        textAlign(CENTER, CENTER);
+        text(":)", width / 2, height / 2);
+        pop();
+    }
 
 }
 
@@ -221,12 +247,9 @@ function multiply() {
 
     // makes chaos happen when mouse is clicked
     if (mouseIsPressed) {
-        push();
-        noStroke();
-        fill(random(0, 255), random(0, 255), random(0, 255));
-        ellipse(random(0, 600), random(0, 600), random(0, 400), random(0, 400));
-        pop();
+        background("black");
     }
+
 
 }
 
@@ -250,6 +273,18 @@ function timer() {
         ellipse(random(0, 600), random(0, 600), random(0, 400), random(0, 400));
         pop();
     }
+
+}
+
+/**
+ * Checks if you should lose or not
+ */
+function smiley() {
+
+    smile = true;
+
+
+
 
 }
 
