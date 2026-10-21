@@ -1,5 +1,5 @@
 /**
- * Abstract Events
+ * Circles
  * Charlotte Walsh
  * 
  * A simple circle that does different things depending on the events triggered.
@@ -7,6 +7,7 @@
 
 "use strict";
 
+// Makes the circle a variable
 let circle = {
     x: 300,
     y: 300,
@@ -21,8 +22,10 @@ let circle = {
     }
 }
 
+// Sets chaos as a variable
 let chaos = false;
 
+// Sets time as a variable
 let time = 0;
 
 /**
@@ -32,8 +35,6 @@ function setup() {
 
     createCanvas(600, 600);
 
-    addEventListener("wheel", multiply);
-
 }
 
 
@@ -42,12 +43,16 @@ function setup() {
 */
 function draw() {
 
+    // draws the background
     background("white");
 
+    // draws the circle
     drawCircle();
 
+    // changes the circle based on key pressed
     keysChange();
 
+    // multiplies the circle when mouse is clicked
     multiply();
 
     // Only increase the score if the game is not over
@@ -56,8 +61,8 @@ function draw() {
         time += 0.05;
     }
 
+    // sets a timer
     timer();
-
 
 
 }
@@ -196,7 +201,7 @@ function keysChange() {
         circle.size.h -= 5;
     }
 
-    // makes the circle normal again
+    // makes the circle normal again when space bar is pressed
     if (key === ' ') {
         circle.size.w = 300;
         circle.size.h = 300;
@@ -214,6 +219,7 @@ function keysChange() {
  */
 function multiply() {
 
+    // makes chaos happen when mouse is clicked
     if (mouseIsPressed) {
         push();
         noStroke();
@@ -224,15 +230,20 @@ function multiply() {
 
 }
 
+/**
+ * Creates a timer that counts how long the program has been running
+ */
 function timer() {
-
+    // sets a timer
     floor(time);
 
+    // makes chaos start after timer reaches 30
     if (time >= 30) {
         chaos = true;
     }
 
-    if (chaos = true) {
+    // makes chaos
+    if (chaos === true) {
         push();
         noStroke();
         fill(random(0, 255), random(0, 255), random(0, 255));

@@ -2,7 +2,7 @@
 
 Charlotte Walsh
 
-[View this project online](URL_FOR_THE_RUNNING_PROJECT)
+[View this project online](https://chorkelle.github.io/cart253/topics/prototyping/dont-poke-the-bear/)
 
 ## Description
 
@@ -11,6 +11,7 @@ Avoid poking the bear or he will come at you.
 ## Attribution
 
 > - This project uses [p5.js](https://p5js.org).
+> - Code inspired by events challenge.
 > - All bear photos belong to Unsplash.
 
 ## License
