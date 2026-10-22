@@ -15,11 +15,7 @@ let circle = {
         w: 300,
         h: 300
     },
-    fill: {
-        r: 149,
-        g: 235,
-        b: 52,
-    }
+
 }
 
 // Sets chaos as a variable
@@ -87,7 +83,7 @@ function draw() {
         textSize(48);
         textStyle(BOLD);
         textAlign(CENTER, CENTER);
-        text(":)", width / 2, height / 2);
+        text(":)", circle.x, circle.y);
         pop();
     }
 
@@ -98,11 +94,32 @@ function draw() {
 */
 function drawCircle() {
 
+    // makes r value change based on mouse position
+    const minColour = 250;
+    const maxColour = 1;
+    let d = dist(mouseX, mouseY, circle.x, circle.y);
+    let colourR = map(d, 0, width, minColour, maxColour);
+
+    // makes g value change based on mouse position
+    const minColourG = 200;
+    const maxColourG = 15;
+    let dG = dist(mouseX, mouseY, circle.x, circle.y);
+    let colourG = map(dG, 0, width, minColourG, maxColourG);
+
+    // makes b value change based on mouse position
+    const minColourB = 1;
+    const maxColourB = 250;
+    let dB = dist(mouseX, mouseY, circle.x, circle.y);
+    let colourB = map(dB, 0, width, minColourB, maxColourB);
+
+    // draws the circle
     push();
     noStroke();
-    fill(circle.fill.r, circle.fill.g, circle.fill.b);
+    fill(colourR, colourG, colourB);
     ellipse(circle.x, circle.y, circle.size.w, circle.size.h);
     pop();
+
+
 
 }
 
@@ -111,118 +128,106 @@ function drawCircle() {
 */
 function keysChange() {
 
-    if (key === 'q') {
-        circle.fill.r = 0;
-        circle.fill.g = 88;
-        circle.fill.b = 189;
+    if (key === 'q' || key === 'Q') {
+        circle.x = 449;
+        circle.y = 449;
     }
 
-    if (key === 'k') {
-        circle.fill.r += 10;
-        circle.fill.g += 10;
-        circle.fill.b += 10;
+    if (key === 'k' || key === 'K') {
+        circle.size.w -= random(0, 100);
+        circle.size.h -= random(0, 30);
     }
 
-    if (key === 'e') {
-        circle.fill.r -= 10;
-        circle.fill.g -= 10;
-        circle.fill.b -= 10;
+    if (key === 'e' || key === 'E') {
+        circle.x = 449;
+        circle.y = 449;
     }
 
-    if (key === 'r') {
-        circle.fill.r -= 10;
+    if (key === 'r' || key === 'R') {
+        circle.x = random(151, 449);
     }
 
-    if (key === 't') {
-        circle.fill.r += 10;
-        circle.fill.g -= 10;
+    if (key === 't' || key === 'T') {
+        circle.x = random(151, 449);
+        circle.y = random(151, 449);
     }
 
-    if (key === 'y') {
-        circle.fill.r = 212;
-        circle.fill.g = 0;
-        circle.fill.b = 155;
+    if (key === 'y' || key === 'Y') {
+        circle.x = 151;
+        circle.y = 151;
     }
 
-    if (key === 'u') {
-        circle.fill.b += 10;
+    if (key === 'u' || key === 'U') {
+        circle.y -= 1;
     }
 
-    if (key === 'i') {
-        circle.fill.r = 100;
-        circle.fill.g = 15;
-        circle.fill.b = 200;
+    if (key === 'i' || key === 'I') {
+        circle.size.w += random(0, 40);
+        circle.size.h += random(0, 2);
     }
 
-    if (key === 'o') {
-        circle.fill.r += 10;
-        circle.fill.g = random(0, 250);
-        circle.fill.b += 10;
+    if (key === 'o' || key === 'O') {
+        circle.y -= 1;
     }
 
-    if (key === 'p') {
-        circle.fill.r -= 20;
-        circle.fill.g -= 10;
-        circle.fill.b -= 15;
+    if (key === 'p' || key === 'P') {
+        circle.size.w -= random(0, 100);
+        circle.size.h -= random(0, 30);
     }
 
-    if (key === 'h') {
+    if (key === 'h' || key === 'H') {
         circle.size.w += 0.5;
     }
 
-    if (key === 'g') {
-        circle.size.h += 0.5;
+    if (key === 'g' || key === 'G') {
+        circle.x += 1;
     }
 
-    if (key === 'f') {
-        circle.fill.r = 200;
-        circle.fill.g = 15;
-        circle.fill.b = 13;
+    if (key === 'f' || key === 'F') {
+        circle.x += 1;
     }
 
-    if (key === 'j') {
-        circle.fill.r = random(3, 250);
-        circle.fill.g = random(0, 250);
-        circle.fill.b = random(4, 250);
+    if (key === 'j' || key === 'J') {
+        circle.y -= 1;
     }
 
-    if (key === 'a') {
-        circle.x -= 0.5;
+    if (key === 'a' || key === 'A') {
+        circle.x -= 1;
     }
 
-    if (key === 'd') {
-        circle.x += 0.5;
+    if (key === 'd' || key === 'D') {
+        circle.x += 1;
     }
 
-    if (key === 's') {
-        circle.y += 0.5;
+    if (key === 's' || key === 'S') {
+        circle.y += 1;
     }
 
-    if (key === 'w') {
-        circle.y -= 0.5;
+    if (key === 'w' || key === 'W') {
+        circle.y -= 1;
     }
 
-    if (key === 'm') {
+    if (key === 'm' || key === 'M') {
         circle.size.w -= random(0, 10);
         circle.size.h -= random(0, 10);
     }
 
-    if (key === 'l') {
+    if (key === 'l' || key === 'L') {
         circle.size.w += random(0, 10);
         circle.size.h += random(0, 10);
     }
 
-    if (key === 'c') {
+    if (key === 'c' || key === 'C') {
         circle.size.w += 10;
         circle.size.h += 15;
     }
 
-    if (key === 'b') {
+    if (key === 'b' || key === 'B') {
         circle.size.w -= 15;
         circle.size.h -= 5;
     }
 
-    if (key === 'v') {
+    if (key === 'v' || key === 'V') {
         circle.size.w -= 15;
         circle.size.h -= 5;
     }
@@ -231,9 +236,6 @@ function keysChange() {
     if (key === ' ') {
         circle.size.w = 300;
         circle.size.h = 300;
-        circle.fill.r = 149;
-        circle.fill.g = 235;
-        circle.fill.b = 52;
         circle.x = 300;
         circle.y = 300;
     }
@@ -274,6 +276,11 @@ function timer() {
         pop();
     }
 
+    // slows down the framerate so viewer doesnt have an anurysm 
+    if (chaos === true) {
+        frameRate(15);
+    }
+
 }
 
 /**
@@ -282,9 +289,6 @@ function timer() {
 function smiley() {
 
     smile = true;
-
-
-
 
 }
 
