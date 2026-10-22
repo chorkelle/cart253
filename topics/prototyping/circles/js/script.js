@@ -15,7 +15,7 @@ let circle = {
         w: 300,
         h: 300
     },
-
+    velocity: 10
 }
 
 // Sets chaos as a variable
@@ -95,20 +95,20 @@ function draw() {
 function drawCircle() {
 
     // makes r value change based on mouse position
-    const minColour = 250;
-    const maxColour = 1;
+    const minColour = 1;
+    const maxColour = 250;
     let d = dist(mouseX, mouseY, circle.x, circle.y);
     let colourR = map(d, 0, width, minColour, maxColour);
 
     // makes g value change based on mouse position
-    const minColourG = 200;
+    const minColourG = 1;
     const maxColourG = 15;
     let dG = dist(mouseX, mouseY, circle.x, circle.y);
     let colourG = map(dG, 0, width, minColourG, maxColourG);
 
     // makes b value change based on mouse position
-    const minColourB = 1;
-    const maxColourB = 250;
+    const minColourB = 250;
+    const maxColourB = 1;
     let dB = dist(mouseX, mouseY, circle.x, circle.y);
     let colourB = map(dB, 0, width, minColourB, maxColourB);
 
@@ -279,6 +279,8 @@ function timer() {
     // slows down the framerate so viewer doesnt have an anurysm 
     if (chaos === true) {
         frameRate(15);
+        circle.x += random(-circle.velocity, circle.velocity);
+        circle.y += random(-circle.velocity, circle.velocity);
     }
 
 }
