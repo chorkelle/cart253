@@ -1,5 +1,5 @@
 /**
- * Umbrella Sim 
+ * Umbrella Sim 2.0
  * Charlotte Walsh 
  * 
  * Avoid the evil raindrop. AKA, umbrella simulator where one raindrop is evil
@@ -11,7 +11,7 @@
 /**
  * Makes raindrop a variable
 */
-let raindropEVIL = {
+const raindrop = {
 
     x: 300,
     y: 0,
@@ -28,7 +28,7 @@ let raindropEVIL = {
 /**
  * Makes a second raindrop 
 */
-let raindropB = {
+const raindropB = {
 
     x: 400,
     y: -9,
@@ -113,90 +113,60 @@ function draw() {
     noCursor();
 
     // draws rain
-    drawRain();
-    moveRain();
+    drawRain(raindrop);
+    drawRain(raindropB);
+    drawRain(raindropC);
+    drawRain(raindropD);
+
+    // moves the raindrops
+    moveRain(raindrop);
+    moveRain(raindropB);
+    moveRain(raindropC);
+    moveRain(raindropD);
 
     // draws umbrella
     drawUmbrella();
     updateUmbrella();
 
-    //catches the rain
-    catchRain();
+    //Makes the rain drops bigger for the evil raindrop
+    evilRain(raindrop);
+
+    //Makes the rain drops smaller for the good raindrops
+    goodRain(raindropB);
+    goodRain(raindropC);
+    goodRain(raindropD);
+
+
 
 }
 
 /**
  * Draws the raindrops (individually because I couldnt figure out how to multiply them... yet)
 */
-function drawRain() {
+function drawRain(raindrop) {
 
-    // Draws raindrop evil
+    // Draws the raindrops
     noStroke();
     push();
-    fill(raindropEVIL.fill.r, raindropEVIL.fill.g, raindropEVIL.fill.b);
-    ellipse(raindropEVIL.x, raindropEVIL.y, raindropEVIL.size, raindropEVIL.size);
+    fill(raindrop.fill.r, raindrop.fill.g, raindrop.fill.b);
+    ellipse(raindrop.x, raindrop.y, raindrop.size, raindrop.size);
     pop();
-
-    // Draws raindrop B
-    noStroke();
-    push();
-    fill(raindropB.fill.r, raindropB.fill.g, raindropB.fill.b);
-    ellipse(raindropB.x, raindropB.y, raindropB.size, raindropB.size);
-    pop();
-
-    // Draws raindrop C
-    noStroke();
-    push();
-    fill(raindropC.fill.r, raindropC.fill.g, raindropC.fill.b);
-    ellipse(raindropC.x, raindropC.y, raindropC.size, raindropC.size);
-    pop();
-
-    // Draws raindrop D
-    noStroke();
-    push();
-    fill(raindropD.fill.r, raindropD.fill.g, raindropD.fill.b);
-    ellipse(raindropD.x, raindropD.y, raindropD.size, raindropD.size);
-    pop();
-
 
 }
 
 /**
  * Makes the rain cycle
  */
-function moveRain() {
+function moveRain(raindrop) {
 
     // moves the rain down
-    raindropEVIL.y += raindropEVIL.velocity
+    raindrop.y += raindrop.velocity
     // brings back the raindrop
-    if (raindropEVIL.y >= 600) {
-        raindropEVIL.y = 0,
-            raindropEVIL.x = random(0, 600);
+    if (raindrop.y >= 600) {
+        raindrop.y = 0,
+            raindrop.x = random(0, 600);
     }
 
-    // move raindrop B down
-    raindropB.y += raindropB.velocity
-    // brings back traindrop B
-    if (raindropB.y >= 600) {
-        raindropB.y = 0,
-            raindropB.x = random(0, 600);
-    }
-
-    // move raindrop C down
-    raindropC.y += raindropC.velocity
-    // brings back traindrop C
-    if (raindropC.y >= 600) {
-        raindropC.y = 0,
-            raindropC.x = random(0, 600);
-    }
-
-    // move raindrop D down
-    raindropD.y += raindropD.velocity
-    // brings back traindrop D
-    if (raindropD.y >= 600) {
-        raindropD.y = 0,
-            raindropD.x = random(0, 600);
-    }
 }
 
 /**
@@ -212,52 +182,44 @@ function updateUmbrella() {
 /**
    * Makes the umbrella catch the rain
    */
-function catchRain() {
+function evilRain(raindrop) {
     // Calculate distance between umbrella and raindrop 
-    const d = dist(umbrella.x, umbrella.y, raindropEVIL.x, raindropEVIL.y);
-    const overlap = (d < umbrella.size / 2 + raindropEVIL.size / 2);
+    const d = dist(umbrella.x, umbrella.y, raindrop.x, raindrop.y);
+    const overlap = (d < umbrella.size / 2 + raindrop.size / 2);
 
     // Makes the raindrop restart its fall cycle and get HUGE!!
     if (overlap) {
-        raindropEVIL.y = 0;
-        raindropEVIL.x = random(0, 600);
-        raindropEVIL.size += 10;
+        raindrop.y = 0;
+        raindrop.x = random(0, 600);
+        raindrop.size += 10;
     }
 
     // Makes sure evil raindrop can't get smaller than starting size
-    if (raindropEVIL.size < 15) {
-        raindropEVIL.size = 15
+    if (raindrop.size < 15) {
+        raindrop.size = 15
+    }
+}
+
+/**
+   * Makes the umbrella catch the rain
+    */
+function goodRain(raindrop) {
+    // Calculate distance between umbrella and raindrop 
+    const d = dist(umbrella.x, umbrella.y, raindrop.x, raindrop.y);
+    const overlap = (d < umbrella.size / 2 + raindrop.size / 2);
+
+    // makes the raindrop restart its fall cycle!! B
+    if (overlap) {
+        raindrop.y = 0;
+        raindrop.x = random(0, 600);
+        raindrop.size -= 3;
     }
 
-    // Calculate distance between umbrella and raindrop B
-    const dB = dist(umbrella.x, umbrella.y, raindropB.x, raindropB.y);
-    const overlapB = (dB < umbrella.size / 2 + raindropB.size / 2);
-    // makes the raindrop restart its fall cycle!! B
-    if (overlapB) {
-        raindropB.y = 0;
-        raindropB.x = random(0, 600);
-        raindropEVIL.size -= 3;
+    // Makes sure evil raindrop can't get smaller than starting size
+    if (raindrop.size < 15) {
+        raindrop.size = 15
     }
 
-    // Calculate distance between umbrella and raindrop C
-    const dC = dist(umbrella.x, umbrella.y, raindropC.x, raindropC.y);
-    const overlapC = (dC < umbrella.size / 2 + raindropC.size / 2);
-    // makes the raindrop restart its fall cycle!! B
-    if (overlapC) {
-        raindropC.y = 0;
-        raindropC.x = random(0, 600);
-        raindropEVIL.size -= 3;
-    }
-
-    // Calculate distance between umbrella and raindrop D
-    const dD = dist(umbrella.x, umbrella.y, raindropD.x, raindropD.y);
-    const overlapD = (dD < umbrella.size / 2 + raindropD.size / 2);
-    // makes the raindrop restart its fall cycle!! B
-    if (overlapD) {
-        raindropD.y = 0;
-        raindropD.x = random(0, 600);
-        raindropEVIL.size -= 3;
-    }
 }
 
 /**

@@ -62,8 +62,8 @@ function draw() {
 */
 function mousePressed() {
     if (mousePressed) {
-        horse.x += random(-200, 200),
-            horse.y += random(-200, 200)
+        horse.x += random(-200, 200);
+        horse.y += random(-200, 200);
     }
 
     // Keeps horse on the canvas

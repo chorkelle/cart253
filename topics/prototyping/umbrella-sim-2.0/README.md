@@ -1,8 +1,8 @@
-# Umbrella Sim
+# Umbrella Sim 2.0
 
 Charlotte Walsh
 
-[View this project online](https://chorkelle.github.io/cart253/topics/prototyping/umbrella-sim/)
+[View this project online](https://chorkelle.github.io/cart253/topics/prototyping/umbrella-sim-2.0/)
 
 ## Description
 
