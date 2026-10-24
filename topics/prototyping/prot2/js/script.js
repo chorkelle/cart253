@@ -29,7 +29,32 @@ const fish = {
         g: 150,
         b: 100
     },
-    velocity: 10
+    velocity: 0.5
+}
+
+// Draws a fish
+const fishB = {
+    x: 500,
+    y: 500,
+    body: {
+        w: 30,
+        h: 60
+    },
+    fin: {
+        x: 510,
+        y: 455,
+        x2: 500,
+        y2: 480,
+        x3: 490,
+        y3: 455
+
+    },
+    fill: {
+        r: 230,
+        g: 120,
+        b: 100
+    },
+    velocity: 0.5
 }
 
 /**
@@ -50,6 +75,10 @@ function draw() {
     background(150, 200, 200);
 
     drawFish(fish);
+    drawFish(fishB);
+
+    updateFish(fish);
+    updateFish(fishB);
 
 }
 
@@ -65,5 +94,44 @@ function drawFish(fish) {
     triangle(fish.fin.x, fish.fin.y, fish.fin.x2, fish.fin.y2, fish.fin.x3, fish.fin.y3)
     pop();
 
+
+}
+
+/**
+ * Draws a fish
+*/
+function updateFish(fish) {
+
+    /**
+    *if (fish.x > mouseX) {
+       fish.x += fish.velocity;
+       fish.fin.x += fish.velocity;
+       fish.fin.x2 += fish.velocity;
+       fish.fin.x3 += fish.velocity;
+   }
+
+    if (fish.y > mouseY) {
+       fish.y += fish.velocity;
+       fish.fin.y += fish.velocity;
+       fish.fin.y2 += fish.velocity;
+       fish.fin.y3 += fish.velocity;
+   } */
+
+    fish.y += fish.velocity
+    fish.fin.y += fish.velocity;
+    fish.fin.y2 += fish.velocity;
+    fish.fin.y3 += fish.velocity;
+
+    if (fish.x >= 550) {
+        fish.x = 0
+    }
+
+    if (fish.y >= 550) {
+        fish.y = 0
+    }
+
+    if (fish.x <= 50) {
+        fish.x = 0
+    }
 
 }
