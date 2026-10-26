@@ -1,8 +1,8 @@
 /**
- * Pond Sim
+ * Cross the Pond
  * Charlotte Walsh
  * 
- * Draws an interactive pond
+ * Try to get the frog (your mouse) across the pond.
  */
 
 "use strict";
@@ -15,21 +15,12 @@ const fish = {
         w: 30,
         h: 60
     },
-    fin: {
-        x: 310,
-        y: 255,
-        x2: 300,
-        y2: 280,
-        x3: 290,
-        y3: 255
-
-    },
     fill: {
         r: 200,
         g: 150,
         b: 100
     },
-    velocity: 0.5
+    velocity: 5
 }
 
 // Draws a fish
@@ -40,21 +31,36 @@ const fishB = {
         w: 30,
         h: 60
     },
-    fin: {
-        x: 510,
-        y: 455,
-        x2: 500,
-        y2: 480,
-        x3: 490,
-        y3: 455
+    fill: {
+        r: 230,
+        g: 120,
+        b: 100
+    },
+    velocity: 3
+}
 
+// Draws a fish
+const fishC = {
+    x: 175,
+    y: 0,
+    body: {
+        w: 30,
+        h: 60
     },
     fill: {
         r: 230,
         g: 120,
         b: 100
     },
-    velocity: 0.5
+    velocity: 3
+}
+
+// Draws the user (frog)
+const frog = {
+    x: 0,
+    y: 0,
+    body: 30,
+    fill: "green"
 }
 
 /**
@@ -66,19 +72,28 @@ function setup() {
 
 }
 
-
 /**
  * Draws a pond with fish in it
 */
 function draw() {
 
     background(150, 200, 200);
+    noCursor();
 
+    // Draws the fishies
     drawFish(fish);
     drawFish(fishB);
+    drawFish(fishC);
 
+    drawFrog();
+    updateFrog();
+
+    // Updates the fish and lets them move
     updateFish(fish);
     updateFish(fishB);
+    updateFish(fishC);
+
+    collision();
 
 }
 
@@ -91,9 +106,30 @@ function drawFish(fish) {
     noStroke();
     fill(fish.fill.r, fish.fill.g, fish.fill.b);
     ellipse(fish.x, fish.y, fish.body.w, fish.body.h);
-    triangle(fish.fin.x, fish.fin.y, fish.fin.x2, fish.fin.y2, fish.fin.x3, fish.fin.y3)
     pop();
 
+}
+
+/**
+ * Draws a frog
+*/
+function drawFrog() {
+
+    push();
+    noStroke();
+    fill(frog.fill);
+    ellipse(frog.x, frog.y, frog.body);
+    pop();
+
+}
+
+/**
+ * Makes the frog your mouse position
+*/
+function updateFrog() {
+
+    frog.x = mouseX;
+    frog.y = mouseY;
 
 }
 
@@ -117,21 +153,37 @@ function updateFish(fish) {
        fish.fin.y3 += fish.velocity;
    } */
 
+    // Moves the fishies
     fish.y += fish.velocity
-    fish.fin.y += fish.velocity;
-    fish.fin.y2 += fish.velocity;
-    fish.fin.y3 += fish.velocity;
 
-    if (fish.x >= 550) {
-        fish.x = 0
+    // Makes the fishies bounce back
+    if (fish.y >= 575) {
+        fish.velocity -= 1;
     }
 
-    if (fish.y >= 550) {
-        fish.y = 0
+    // Makes the fishies bounce back
+    if (fish.y <= 25) {
+        fish.velocity += 1;
     }
 
-    if (fish.x <= 50) {
-        fish.x = 0
+
+}
+
+function collision() {
+
+    // Calculate distance between umbrella and raindrop 
+    const d = dist(frog.x, frog.y, fish.x, fish.y);
+    const overlap = (d < frog.size / 2 + fish.size / 2);
+
+    // makes the raindrop restart its fall cycle!! B
+    if (overlap) {
+        frog.fill = "hotpink";
     }
+
+    // Makes sure evil raindrop can't get smaller than starting size
+    if (fish.size < 15) {
+        fish.size = 15
+    }
+
 
 }

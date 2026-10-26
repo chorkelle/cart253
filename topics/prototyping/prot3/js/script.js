@@ -1,24 +1,26 @@
 /**
- * Title of Project
- * Author Name
+ * Prot 3
+ * Charlotte Walsh
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * Description description
  */
 
 "use strict";
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * Creates the canvas
 */
 function setup() {
+
+    createCanvas(600, 600);
 
 }
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * Draws the program
 */
 function draw() {
 
+    background(20, 280, 110);
 }
