@@ -169,7 +169,7 @@ function updateFish(fish) {
 
 }
 
-function collision() {
+function collision(frog, fish) {
 
     // Calculate distance between umbrella and raindrop 
     const d = dist(frog.x, frog.y, fish.x, fish.y);
@@ -177,13 +177,10 @@ function collision() {
 
     // makes the raindrop restart its fall cycle!! B
     if (overlap) {
-        frog.fill = "hotpink";
+        push();
+        fill("black");
+        ellipse(300, 300, 500);
+        pop();
     }
-
-    // Makes sure evil raindrop can't get smaller than starting size
-    if (fish.size < 15) {
-        fish.size = 15
-    }
-
 
 }
