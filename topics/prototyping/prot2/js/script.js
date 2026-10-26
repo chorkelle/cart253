@@ -93,7 +93,9 @@ function draw() {
     updateFish(fishB);
     updateFish(fishC);
 
-    collision();
+    collision(fish);
+    collision(fishB);
+    collision(fishC);
 
 }
 
@@ -169,18 +171,16 @@ function updateFish(fish) {
 
 }
 
-function collision(frog, fish) {
+function collision(fish) {
 
-    // Calculate distance between umbrella and raindrop 
+    // Calculate distance between frog and fish 
     const d = dist(frog.x, frog.y, fish.x, fish.y);
-    const overlap = (d < frog.size / 2 + fish.size / 2);
+    const overlap = (d < frog.size / 2 + fish.size / 2 + 130
+    );
 
-    // makes the raindrop restart its fall cycle!! B
+    // Makes the game lose
     if (overlap) {
-        push();
-        fill("black");
-        ellipse(300, 300, 500);
-        pop();
+        frog.fill = "red";
     }
 
 }
