@@ -134,3 +134,31 @@ Coursework repository for CART253 with Pippin Barr
 
 ---
 
+# Prototypes - Functions
+
+### Umbrella Sim 2.0
+<img src="./images/mousey-maze-2-ss.png" width="250">
+
+> [View Online](./topics/prototyping/umbrella-sim-2.0/)
+
+> [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/umbrella-sim-2.0)
+
+### Prot 2
+
+> [View Online](x)
+
+> [View Code](x)
+
+### A Very Normal Soundboard
+<img src="./images/dont-poke-ss.png" width="250">
+
+> [View Online](./topics/prototyping/a-very-normal-soundboard/)
+
+> [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/a-very-normal-soundboard)
+
+## Journal Entry
+
+>[Functions Journal](journal.md)
+
+---
+
