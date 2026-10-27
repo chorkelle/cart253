@@ -44,7 +44,7 @@ const fishC = {
     x: 175,
     y: 0,
     body: {
-        w: 30,
+        w: 60,
         h: 60
     },
     fill: {
@@ -85,6 +85,7 @@ function draw() {
     drawFish(fishB);
     drawFish(fishC);
 
+    // Draws the frog
     drawFrog();
     updateFrog();
 
@@ -175,12 +176,12 @@ function collision(fish) {
 
     // Calculate distance between frog and fish 
     const d = dist(frog.x, frog.y, fish.x, fish.y);
-    const overlap = (d < frog.size / 2 + fish.size / 2 + 130
+    const overlap = (d < frog.size / 2 + fish.size / 2
     );
 
     // Makes the game lose
     if (overlap) {
-        frog.fill = "red";
+        fish.velocity = 0;
     }
 
 }
