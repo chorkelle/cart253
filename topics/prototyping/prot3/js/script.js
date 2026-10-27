@@ -10,7 +10,7 @@
 // The dog barking sound effect
 const dogBark = {
     // Position and size
-    x: 100,
+    x: 150,
     y: 100,
     size: 100,
     // Colours
@@ -24,7 +24,7 @@ const dogBark = {
 // The dog barking sound effect
 const applause = {
     // Position and size
-    x: 250,
+    x: 300,
     y: 100,
     size: 100,
     // Colours
@@ -35,14 +35,30 @@ const applause = {
     soundEffect: undefined
 }
 
+// The dog barking sound effect
+const boing = {
+    // Position and size
+    x: 450,
+    y: 100,
+    size: 100,
+    // Colours
+    fill: {
+        notclicked: "#53ec30",
+        clicked: "#085720"
+    },
+    soundEffect: undefined
+}
+
 /**
  * Loads the sound effects
  */
 async function preload() {
     // Dog bark
     dogBark.soundEffect = await loadSound("assets/sounds/bark.wav");
-    // Cat meow
-    applause.soundEffect = await loadSound("assets/sounds/bark.wav");
+    // Applause 
+    applause.soundEffect = await loadSound("assets/sounds/applause.wav");
+    // Boing
+    boing.soundEffect = await loadSound("assets/sounds/boing.wav");
 }
 
 /**
@@ -55,7 +71,8 @@ async function setup() {
     await preload();
 
     dogBark.soundEffect.rate(0.5);
-    applause.soundEffect.rate(1);
+    applause.soundEffect.rate(0.9);
+    boing.soundEffect.rate(0.9);
 
 
 }
@@ -70,8 +87,11 @@ function draw() {
     // Draws the buttons
     drawButton(dogBark);
     drawButton(applause);
+    drawButton(boing);
 
     pushButton(dogBark);
+    pushButton(applause);
+    pushButton(boing);
 }
 
 /**
@@ -103,8 +123,8 @@ function pushButton(button) {
 
     // Makes the buttons run away from you
     if (!overlap && mouseIsPressed) {
-        button.x -= random(1, 5);
-        button.y -= random(1, 5);
+        button.x -= random(1, 4);
+        button.y -= random(1, 4);
     }
 
 }
