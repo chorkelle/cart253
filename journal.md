@@ -40,3 +40,12 @@
 
 <img src="./images/experimental-ss.png" width="250">
  
+---
+
+## October 26, 2026
+
+> Journal Entry 6. I was pleasantly surprised this week with how my prototypes ended up looking and with my actual prototyping process! I had originally planned to re-code my Umbrella Sim and make it super fancy and cool but ended up simply re-coding it using the new function materials and focusing on experimenting with new programs. I’m glad I did it that way because I feel like I did more than I would have had I spent all of my time on making Umbrella Sim 2.0 fancy. I also got to focus on learning sound effects for A Very Normal Soundboard which was both frustrating and fun. Frustrating because of the cryptic error message that would pop up sometimes with no explanation as to what the problem is beyond “Tone.start”. It seems to only pop up once I reload the page but not if I reopen the link elsewhere? Anyways, learning the sound effects has been a journey. Bouncy Fish was actually more of a nightmare because it was originally supposed to have fish that swim away from you but I could not figure out how to rotate things around themself when they’re made up of multiple shapes that have different xy coordinates so I had to pivot that prototype. I would like to revisit that idea though once I understand the rotation stuff! I might try that for next week’s prototypes if I can figure it out. I’m enjoying these minigames though and I think it could be fun to make a bunch of minigames for my final!
+
+<img src="./images/sound-error-ss.png" width="250">
+
+---
