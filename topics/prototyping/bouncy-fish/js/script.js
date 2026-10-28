@@ -43,11 +43,11 @@ function setup() {
 
 }
 
-
 /**
  * Draws a fish
  */
 function createFish(x, y, size, r, g, b, velocity) {
+    // Holds the info for fishy
     const fish = {
         x: x,
         y: y,
@@ -68,6 +68,7 @@ function createFish(x, y, size, r, g, b, velocity) {
 */
 function draw() {
 
+    // Draws the background and gets rid of the cursor
     background(150, 200, 200);
     noCursor();
 
@@ -80,6 +81,7 @@ function draw() {
 
     // Draws the frog
     drawFrog(frog);
+
     //Makes the frog your mouse position
     frog.x = mouseX;
     frog.y = mouseY;
