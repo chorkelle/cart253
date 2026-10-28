@@ -174,10 +174,12 @@ async function setup() {
     dogBark.soundEffect.rate(0.5);
     applause.soundEffect.rate(0.9);
     boing.soundEffect.rate(0.9);
+
     // Row 2
     catMeow.soundEffect.rate(0.9);
     trumpets.soundEffect.rate(0.9);
     vineBoom.soundEffect.rate(0.9);
+
     // Row 3
     dolphin.soundEffect.rate(0.9);
     villager.soundEffect.rate(0.9);
@@ -189,6 +191,7 @@ async function setup() {
  * Draws the program
 */
 function draw() {
+
     // Draws the background
     background("lightgrey");
 
@@ -221,6 +224,7 @@ function draw() {
     pushButton(dolphin);
     pushButton(villager);
     pushButton(metalPipe);
+
 }
 
 /**
@@ -274,3 +278,4 @@ function pushButton(button) {
     }
 
 }
+
