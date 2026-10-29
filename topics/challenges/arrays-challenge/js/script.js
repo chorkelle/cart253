@@ -2,7 +2,7 @@
  * Boingo
  * Charlotte Walsh & Sofia Allashukurova
  *
- * A ball that bounces around on the canvas
+ * Colourful balls that bounce around on the canvas.
  */
 
 

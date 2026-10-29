@@ -6,11 +6,9 @@ Charlotte Walsh & Sofia Allashukurova
 
 ## Description
 
-Try not to move or lose the game.
+Colourful balls that bounce around on the canvas.
 
 ## Attribution
-
-This bit should attribute any code, assets or other elements used taken from other sources. For example:
 
 > - This project uses [p5.js](https://p5js.org).
 
