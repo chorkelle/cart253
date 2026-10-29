@@ -112,7 +112,7 @@ function mousePressed() {
 }
 
 /**
- * Draw the ball on the canvas
+ * Erases the last ball created
  */
 function keyPressed() {
     let ball = [];

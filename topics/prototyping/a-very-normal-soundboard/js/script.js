@@ -250,8 +250,8 @@ function pushButton(button) {
 
     if (overlap && mouseIsPressed) {
 
+        // Overrides the Tone.start() error in the online version
         try {
-
             // Plays the sound effect when the button is clicked
             button.soundEffect.play();
         } catch (error) {
