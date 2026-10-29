@@ -250,8 +250,14 @@ function pushButton(button) {
 
     if (overlap && mouseIsPressed) {
 
-        // Plays the sound effect when the button is clicked
-        button.soundEffect.play();
+        try {
+
+            // Plays the sound effect when the button is clicked
+            button.soundEffect.play();
+        } catch (error) {
+            console.log(error)
+            userStartAudio()
+        }
 
         // Moves the buttons around at random
         button.x += random(1, 7);
