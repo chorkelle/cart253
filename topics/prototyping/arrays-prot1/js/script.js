@@ -1,38 +1,50 @@
 /**
- * Boingo
- * Charlotte Walsh & Sofia Allashukurova
+ * Cat Mouse
+ * Charlotte Walsh 
  *
- * Colourful balls that bounce around on the canvas.
+ * Not sure yet.
  */
 
 
-// let ball1 = undefined; // Will create it with createBall()
-let balls = []; // Will create it with createBall()
+
+let mice = []; // Will create it with createBall()
+
+let cat = {     // Position and dimensions
+    x: mouseX,
+    y: mouseY,
+    // Movement
+    image: undefined
+};
+
+
 /**
  * Create the canvas and the ball
  */
-function setup() {
+async function setup() {
     // Create the canvas
-    createCanvas(400, 400);
-    // Create the ball
-    ball = createBall();
+    createCanvas(600, 500);
+
+    await preload();
+
+    // Makes all the mice
+    mouse = createMouse();
 }
 
 /**
  * Creates a random ball
  */
-function createBall() {
+function createMouse() {
     // Create a ball object with appropriate properties
-    const newBall = {
+    const newMouse = {
         // Position and dimensions
         x: mouseX,
         y: mouseY,
-        size: random(10, 30),
+        size: random(45, 50),
         // Colour
         fill: {
-            r: random(0, 255),
-            g: random(0, 255),
-            b: random(0, 255),
+            r: 128,
+            g: 128,
+            b: 128,
         },
         // Movement
         velocity: {
@@ -40,7 +52,7 @@ function createBall() {
             y: random(-5, 5)
         }
     };
-    return newBall;
+    return newMouse;
 }
 
 /**
@@ -50,55 +62,50 @@ function draw() {
     background("#87ceeb");
 
     // Loop to add infinite balls
-    for (let ball of balls) {
-        moveBall(ball);
-        bounceBall(ball);
-        drawBall(ball);
+    for (let mouse of mice) {
+        moveMouse(mouse);
+        runMouse(mouse);
+        drawMouse(mouse);
     }
-
-
-    //  ctrl /
-    // moveBall(balls);
-    // bounceBall(balls);
-    // drawBall(balls);
 
 }
 
 /**
  * Moves the ball according to its velocity
  */
-function moveBall(ball) {
-    ball.x += ball.velocity.x;
-    ball.y += ball.velocity.y;
+function moveMouse(mouse) {
+    mouse.x += mouse.velocity.x;
+    mouse.y += mouse.velocity.y;
 }
 
 /**
  * Bounces the ball off the walls
  */
-function bounceBall(ball) {
+function runMouse(mouse) {
     // Check if the ball has reached the left or right
-    const bounceX = (ball.x > width || ball.x < 0);
+    const runX = (mouse.x > width || mouse.x < 0);
     // Check if the ball has reached the top or bottom
-    const bounceY = (ball.y > height || ball.y < 0);
+    const runY = (mouse.y > height || mouse.y < 0);
 
     // Handle bouncing horizontally
-    if (bounceX) {
-        ball.velocity.x *= -1;
+    if (runX) {
+        mouse.velocity.x *= -1;
     }
     // Handle bouncing vertically
-    if (bounceY) {
-        ball.velocity.y *= -1;
+    if (runY) {
+        mouse.velocity.y *= -1;
     }
 }
 
 /**
  * Draw the ball on the canvas
  */
-function drawBall(ball) {
+function drawMouse(mouse) {
+    // Draws the circle mice
     push();
     noStroke();
-    fill(ball.fill.r, ball.fill.g, ball.fill.b);
-    ellipse(ball.x, ball.y, ball.size);
+    fill(mouse.fill.r, mouse.fill.g, mouse.fill.b);
+    ellipse(mouse.x, mouse.y, mouse.size);
     pop();
 }
 
@@ -106,8 +113,8 @@ function drawBall(ball) {
  * Draw the ball on the canvas
  */
 function mousePressed() {
-    let ball = createBall();
-    balls.push(ball);
+    let mouse = createMouse();
+    mice.push(mouse);
 
 }
 
@@ -115,6 +122,6 @@ function mousePressed() {
  * Erases the last ball created
  */
 function keyPressed() {
-    let ball = [];
-    balls.pop(ball);
+    let mouse = [];
+    mice.pop(mouse);
 }
