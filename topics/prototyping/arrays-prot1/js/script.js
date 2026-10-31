@@ -2,7 +2,7 @@
  * Cat Mouse
  * Charlotte Walsh 
  *
- * Not sure yet.
+ * Cat who scares the mice.
  */
 
 
@@ -16,6 +16,7 @@ let cat = {     // Position and dimensions
     image: undefined
 };
 
+let time = 0;
 
 /**
  * Create the canvas and the ball
@@ -46,8 +47,8 @@ function createMouse() {
     // Create a ball object with appropriate properties
     const newMouse = {
         // Position and dimensions
-        x: mouseX,
-        y: mouseY,
+        x: random(0, 500),
+        y: random(0, 400),
         size: random(45, 50),
         // Colour
         fill: {
@@ -72,8 +73,8 @@ function draw() {
 
 
     drawCat(cat);
-    cat.x = mouseX;
-    cat.y = mouseY;
+    cat.x = mouseX - 50;
+    cat.y = mouseY - 50;
 
     // Loop to add infinite balls
     for (let mouse of mice) {
@@ -81,6 +82,9 @@ function draw() {
         runMouse(mouse);
         drawMouse(mouse);
     }
+
+    // Calculates the time
+    timer();
 
 }
 
@@ -111,6 +115,8 @@ function runMouse(mouse) {
     // Check if the mouse has reached the top or bottom
     const runY = (mouse.y > height || mouse.y < 0);
 
+
+
     // Handle bouncing horizontally
     if (runX) {
         mouse.velocity.x *= -1;
@@ -133,19 +139,22 @@ function drawMouse(mouse) {
     pop();
 }
 
-/**
- * Draw the ball on the canvas
- */
-function mousePressed() {
-    let mouse = createMouse();
-    mice.push(mouse);
+function timer() {
+    // Score increases relatively slowly
+    time += 0.02;
+
+    // Adds mice over time
+    if (time > 5) {
+        let mouse = createMouse();
+        mice.push(mouse);
+    }
 
 }
 
 /**
  * Erases the last ball created
  */
-function keyPressed() {
+function mousePressed() {
     let mouse = [];
     mice.pop(mouse);
 }
