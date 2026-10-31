@@ -10,8 +10,8 @@
 let mice = []; // Will create it with createBall()
 
 let cat = {     // Position and dimensions
-    x: mouseX,
-    y: mouseY,
+    x: 0,
+    y: 0,
     // Movement
     image: undefined
 };
@@ -28,6 +28,15 @@ async function setup() {
 
     // Makes all the mice
     mouse = createMouse();
+}
+
+/**
+ * Preloads the kitty
+ */
+async function preload() {
+
+    cat.image = await loadImage("./assets/images/cat.png")
+
 }
 
 /**
@@ -61,6 +70,11 @@ function createMouse() {
 function draw() {
     background("#87ceeb");
 
+
+    drawCat(cat);
+    cat.x = mouseX;
+    cat.y = mouseY;
+
     // Loop to add infinite balls
     for (let mouse of mice) {
         moveMouse(mouse);
@@ -68,6 +82,16 @@ function draw() {
         drawMouse(mouse);
     }
 
+}
+
+/**
+ * Moves the ball according to its velocity
+ */
+function drawCat(cat) {
+    push();
+    translate(CENTER, CENTER);
+    image(cat.image, cat.x, cat.y);
+    pop();
 }
 
 /**
@@ -82,9 +106,9 @@ function moveMouse(mouse) {
  * Bounces the ball off the walls
  */
 function runMouse(mouse) {
-    // Check if the ball has reached the left or right
+    // Check if the mouse has reached the left or right
     const runX = (mouse.x > width || mouse.x < 0);
-    // Check if the ball has reached the top or bottom
+    // Check if the mouse has reached the top or bottom
     const runY = (mouse.y > height || mouse.y < 0);
 
     // Handle bouncing horizontally
