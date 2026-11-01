@@ -1,6 +1,6 @@
-# Bouncy Balls
+# Cat Mouse
 
-Charlotte Walsh & Sofia Allashukurova
+Charlotte Walsh 
 
 [View this project online](https://chorkelle.github.io/cart253/topics/challenges/arrays-challenge/)
 
@@ -11,6 +11,7 @@ Colourful balls that bounce around on the canvas.
 ## Attribution
 
 > - This project uses [p5.js](https://p5js.org).
+> - https://pngimg.com/image/50447https://pngimg.com/image/50447
 
 ## License
 

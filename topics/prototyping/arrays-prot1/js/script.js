@@ -12,6 +12,8 @@ let mice = []; // Will create it with createBall()
 let cat = {     // Position and dimensions
     x: 0,
     y: 0,
+    w: 100,
+    h: 121,
     // Movement
     image: undefined
 };
@@ -49,7 +51,7 @@ function createMouse() {
         // Position and dimensions
         x: random(0, 500),
         y: random(0, 400),
-        size: random(45, 50),
+        size: random(25, 35),
         // Colour
         fill: {
             r: 128,
@@ -71,20 +73,21 @@ function createMouse() {
 function draw() {
     background("#87ceeb");
 
-    // Draws the cat and assigns its position to the mouseX and mouseY
-    drawCat(cat);
-    cat.x = mouseX - 50;
-    cat.y = mouseY - 50;
-
     // Loop to add infinite mouse
     for (let mouse of mice) {
         moveMouse(mouse);
         runMouse(mouse);
         drawMouse(mouse);
-
     }
+
+    // Draws the cat and assigns its position to the mouseX and mouseY
+    drawCat(cat);
+    cat.x = mouseX - 50;
+    cat.y = mouseY - 50;
+
     // Calculates the time
     timer();
+    // mousePressed();
 
 
 }
@@ -95,12 +98,12 @@ function draw() {
 function drawCat(cat) {
     push();
     translate(CENTER, CENTER);
-    image(cat.image, cat.x, cat.y);
+    image(cat.image, cat.x, cat.y, cat.w, cat.h);
     pop();
 }
 
 /**
- * Moves the ball according to its velocity
+ * Makes the mouse run
  */
 function moveMouse(mouse) {
     mouse.x += mouse.velocity.x;
@@ -116,26 +119,34 @@ function runMouse(mouse) {
     // Check if the mouse has reached the top or bottom
     const runY = (mouse.y > height || mouse.y < 0);
 
-    // Apply friction to the stone by multiplying it by a fraction
-    // less than 1, reducing it
-    mouse.velocity.x *= 0.95;
-    mouse.velocity.y *= 0.95;
-    // If it gets close to 0, make it zero
-    if (abs(mouse.velocity.x) < 0.1) {
-        mouse.velocity.x = 0;
-    }
-    if (abs(mouse.velocity.y) < 0.1) {
-        mouse.velocity.y = 0;
-    }
+    // // Apply friction to the stone by multiplying it by a fraction
+    // // less than 1, reducing it
+    // mouse.velocity.x *= 0.95;
+    // mouse.velocity.y *= 0.95;
+    // // If it gets close to 0, make it zero
+    // if (abs(mouse.velocity.x) < 0.1) {
+    //     mouse.velocity.x = 0;
+    // }
+    // if (abs(mouse.velocity.y) < 0.1) {
+    //     mouse.velocity.y = 0;
+    // }
 
-    // If the mouse is in range it affects the stone...
+    // Lets the cat eat the mice
     const d = dist(mouseX, mouseY, mouse.x, mouse.y);
     if (d < mouse.size) {
         // Change the stone's velocity based on the mouse position 
         // relative to the stone position
         // (Essentially it accelerates away from the mouse)
-        mouse.velocity.x += (mouse.x - mouseX) * 0.1;
-        mouse.velocity.y += (mouse.y - mouseY) * 0.1;
+        // mouse.velocity.x += (mouse.x - mouseX) * 0.1;
+        // mouse.velocity.y += (mouse.y - mouseY) * 0.1;
+
+        let mouse = [];
+        mice.pop(mouse);
+        // Makes the cat gradually larger the more it eats
+        cat.w += 0.1;
+        cat.h += 0.1;
+        // Makes the mice gradually smaller the more they get eaten
+        mouse.size /= 0.5;
     }
 
 
@@ -197,14 +208,22 @@ function timer() {
     // Adds mice over time
     if (time > 5) {
         let mouse = createMouse();
-        mice.push(mouse);
+        mice.push(mouse) * 0.0001;
     }
+
+
 }
 
-/**
- * Erases the last ball created
- */
-function mousePressed() {
-    let mouse = [];
-    mice.pop(mouse);
-}
+// /**
+//  * Erases the last ball created
+//  */
+// function mousePressed() {
+//     // Makes the mice run from the cat
+//     const d = dist(mouseX + 50, mouseY + 50, mouse.x, mouse.y);
+//     if (d < mouse.size) {
+//         // eat the mouse
+//         let mouse = [];
+//         mice.pop(mouse);
+//     }
+
+// }
