@@ -1,12 +1,12 @@
-# Bouncy Balls
+# Firework Sim
 
-Charlotte Walsh & Sofia Allashukurova
+Charlotte Walsh 
 
-[View this project online](https://chorkelle.github.io/cart253/topics/challenges/arrays-challenge/)
+[View this project online](https://chorkelle.github.io/cart253/topics/challenges/fireworks-sim/)
 
 ## Description
 
-Colourful balls that bounce around on the canvas.
+Lets you set off fireworks.
 
 ## Attribution
 

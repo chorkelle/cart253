@@ -16,6 +16,8 @@ function setup() {
     createCanvas(400, 400);
     // Create the ball
     ball = createBall();
+
+    background("#87ceeb");
 }
 
 /**
@@ -47,7 +49,6 @@ function createBall() {
  * Moves and draws the ball
  */
 function draw() {
-    background("#87ceeb");
 
     // Loop to add infinite balls
     for (let ball of balls) {
@@ -91,8 +92,9 @@ function bounceBall(ball) {
     // }
 
     if (ball.y <= random(100, 75)) {
-        ball.velocity.y = 0.01;
+        ball.velocity.y = -0.001;
 
+        balls.push(ball);
     }
 
 }
