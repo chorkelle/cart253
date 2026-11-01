@@ -71,20 +71,21 @@ function createMouse() {
 function draw() {
     background("#87ceeb");
 
-
+    // Draws the cat and assigns its position to the mouseX and mouseY
     drawCat(cat);
     cat.x = mouseX - 50;
     cat.y = mouseY - 50;
 
-    // Loop to add infinite balls
+    // Loop to add infinite mouse
     for (let mouse of mice) {
         moveMouse(mouse);
         runMouse(mouse);
         drawMouse(mouse);
-    }
 
+    }
     // Calculates the time
     timer();
+
 
 }
 
@@ -107,7 +108,7 @@ function moveMouse(mouse) {
 }
 
 /**
- * Bounces the ball off the walls
+ * Keeps the mice from leaving 
  */
 function runMouse(mouse) {
     // Check if the mouse has reached the left or right
@@ -115,9 +116,31 @@ function runMouse(mouse) {
     // Check if the mouse has reached the top or bottom
     const runY = (mouse.y > height || mouse.y < 0);
 
+    // Apply friction to the stone by multiplying it by a fraction
+    // less than 1, reducing it
+    mouse.velocity.x *= 0.95;
+    mouse.velocity.y *= 0.95;
+    // If it gets close to 0, make it zero
+    if (abs(mouse.velocity.x) < 0.1) {
+        mouse.velocity.x = 0;
+    }
+    if (abs(mouse.velocity.y) < 0.1) {
+        mouse.velocity.y = 0;
+    }
+
+    // If the mouse is in range it affects the stone...
+    const d = dist(mouseX, mouseY, mouse.x, mouse.y);
+    if (d < mouse.size) {
+        // Change the stone's velocity based on the mouse position 
+        // relative to the stone position
+        // (Essentially it accelerates away from the mouse)
+        mouse.velocity.x += (mouse.x - mouseX) * 0.1;
+        mouse.velocity.y += (mouse.y - mouseY) * 0.1;
+    }
 
 
-    // Handle bouncing horizontally
+
+    //Handle bouncing horizontally
     if (runX) {
         mouse.velocity.x *= -1;
     }
@@ -139,6 +162,34 @@ function drawMouse(mouse) {
     pop();
 }
 
+// /**
+//  * Applies friction (diminishing velocity over time) and
+//  * the mouse force (movement based on running away from the mouse)
+//  */
+// function scaredyMouse(mouse) {
+//     // Apply friction to the stone by multiplying it by a fraction
+//     // less than 1, reducing it
+//     mouse.velocity.x *= 0.95;
+//     mouse.velocity.y *= 0.95;
+//     // If it gets close to 0, make it zero
+//     if (abs(mouse.velocity.x) < 0.1) {
+//         mouse.velocity.x = 0;
+//     }
+//     if (abs(mouse.velocity.y) < 0.1) {
+//         mouse.velocity.y = 0;
+//     }
+
+//     // If the mouse is in range it affects the stone...
+//     const d = dist(mouseX, mouseY, mouse.x, mouse.y);
+//     if (d < mouse.size) {
+//         // Change the stone's velocity based on the mouse position 
+//         // relative to the stone position
+//         // (Essentially it accelerates away from the mouse)
+//         mouse.velocity.x += (mouse.x - mouseX) * 0.005;
+//         mouse.velocity.y += (mouse.y - mouseY) * 0.005;
+//     }
+// }
+
 function timer() {
     // Score increases relatively slowly
     time += 0.02;
@@ -148,7 +199,6 @@ function timer() {
         let mouse = createMouse();
         mice.push(mouse);
     }
-
 }
 
 /**

@@ -1,12 +1,12 @@
 /**
- * Boingo
- * Charlotte Walsh & Sofia Allashukurova
+ * Firework Sim
+ * Charlotte Walsh
  *
- * Colourful balls that bounce around on the canvas.
+ * Fireworks.
  */
 
 
-// let ball1 = undefined; // Will create it with createBall()
+
 let balls = []; // Will create it with createBall()
 /**
  * Create the canvas and the ball
@@ -26,8 +26,8 @@ function createBall() {
     const newBall = {
         // Position and dimensions
         x: mouseX,
-        y: mouseY,
-        size: random(10, 30),
+        y: 400,
+        size: random(10, 20),
         // Colour
         fill: {
             r: random(0, 255),
@@ -36,8 +36,8 @@ function createBall() {
         },
         // Movement
         velocity: {
-            x: random(-5, 5),
-            y: random(-5, 5)
+            // x: random(-1, -5),
+            y: random(-1, -5)
         }
     };
     return newBall;
@@ -68,7 +68,7 @@ function draw() {
  * Moves the ball according to its velocity
  */
 function moveBall(ball) {
-    ball.x += ball.velocity.x;
+    // ball.x += ball.velocity.x;
     ball.y += ball.velocity.y;
 }
 
@@ -76,19 +76,25 @@ function moveBall(ball) {
  * Bounces the ball off the walls
  */
 function bounceBall(ball) {
-    // Check if the ball has reached the left or right
-    const bounceX = (ball.x > width || ball.x < 0);
+    // // Check if the ball has reached the left or right
+    // const bounceX = (ball.x > width || ball.x < 0);
     // Check if the ball has reached the top or bottom
     const bounceY = (ball.y > height || ball.y < 0);
 
-    // Handle bouncing horizontally
-    if (bounceX) {
-        ball.velocity.x *= -1;
+    // // Handle bouncing horizontally
+    // if (bounceX) {
+    //     ball.velocity.x *= -1;
+    // }
+    // // Handle bouncing vertically
+    // if (bounceY) {
+    //     ball.velocity.y *= -1;
+    // }
+
+    if (ball.y <= random(100, 75)) {
+        ball.velocity.y = 0.01;
+
     }
-    // Handle bouncing vertically
-    if (bounceY) {
-        ball.velocity.y *= -1;
-    }
+
 }
 
 /**
