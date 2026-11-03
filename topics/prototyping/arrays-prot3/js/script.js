@@ -1,60 +1,89 @@
 /**
- * Boingo
- * Charlotte Walsh & Sofia Allashukurova
+ * Eye See You
+ * Charlotte Walsh 
  *
- * Colourful balls that bounce around on the canvas.
+ * Eye ball that follows your cursor.
  */
 
 
-// let ball1 = undefined; // Will create it with createBall()
-let balls = []; // Will create it with createBall()
+
+
 /**
- * Create the canvas and the ball
+ * Creates the canvas
  */
 function setup() {
     // Create the canvas
-    createCanvas(400, 400);
-    // Create the ball
-    ball = createBall();
+    createCanvas(600, 500);
+
+    // Creates the eyeball elements
+    eye = createEye();
+    iris = createIris();
+    pupil = createPupil();
+
+
 }
 
 /**
- * Creates a random ball
+ * Creates an eyeball
  */
-function createBall() {
+function createEye() {
     // Create a ball object with appropriate properties
-    const newBall = {
+    const newEye = {
         // Position and dimensions
-        x: mouseX,
-        y: mouseY,
-        size: random(10, 30),
+        x: 300,
+        y: 250,
+        size: 300,
         // Colour
-        fill: {
-            r: random(0, 255),
-            g: random(0, 255),
-            b: random(0, 255),
-        },
-        // Movement
-        velocity: {
-            x: random(-5, 5),
-            y: random(-5, 5)
-        }
+        fill: "white",
     };
-    return newBall;
+    return newEye;
+}
+
+/**
+ * Creates a pupil for the eyeball
+ */
+function createIris() {
+    // Create a ball object with appropriate properties
+    const iris = {
+        // Position and size
+        x: 300,
+        y: 250,
+        size: 150,
+        // Colour
+        fill: #914e0f,
+    };
+    return iris;
+
+}
+
+/**
+ * Creates a pupil for the eyeball
+ */
+function createPupil() {
+    // Create a ball object with appropriate properties
+    const pupil = {
+        // Position and size
+        x: 300,
+        y: 250,
+        size: 100,
+        // Colour
+        fill: "black",
+    };
+    return pupil;
+
 }
 
 /**
  * Moves and draws the ball
  */
 function draw() {
-    background("#87ceeb");
+    background("#270317");
 
-    // Loop to add infinite balls
-    for (let ball of balls) {
-        moveBall(ball);
-        bounceBall(ball);
-        drawBall(ball);
-    }
+    // movePupil(pupil);
+    drawEye(eye);
+    drawEye(iris);
+    drawEye(pupil);
+
 
 
     //  ctrl /
@@ -67,54 +96,20 @@ function draw() {
 /**
  * Moves the ball according to its velocity
  */
-function moveBall(ball) {
-    ball.x += ball.velocity.x;
-    ball.y += ball.velocity.y;
+function movePupil(pupil) {
+    pupil.x += pupil.velocity;
+    pupil.y += pupil.velocity;
 }
 
-/**
- * Bounces the ball off the walls
- */
-function bounceBall(ball) {
-    // Check if the ball has reached the left or right
-    const bounceX = (ball.x > width || ball.x < 0);
-    // Check if the ball has reached the top or bottom
-    const bounceY = (ball.y > height || ball.y < 0);
-
-    // Handle bouncing horizontally
-    if (bounceX) {
-        ball.velocity.x *= -1;
-    }
-    // Handle bouncing vertically
-    if (bounceY) {
-        ball.velocity.y *= -1;
-    }
-}
 
 /**
  * Draw the ball on the canvas
  */
-function drawBall(ball) {
+function drawEye(eye) {
     push();
     noStroke();
-    fill(ball.fill.r, ball.fill.g, ball.fill.b);
-    ellipse(ball.x, ball.y, ball.size);
+    fill(eye.fill);
+    ellipse(eye.x, eye.y, eye.size);
     pop();
 }
 
-/**
- * Draw the ball on the canvas
- */
-function mousePressed() {
-    let ball = createBall();
-    balls.push(ball);
-
-}
-
-/**
- * Erases the last ball created
- */
-function keyPressed() {
-    let ball = [];
-    balls.pop(ball);
-}
