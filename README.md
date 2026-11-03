@@ -163,3 +163,32 @@ Coursework repository for CART253 with Pippin Barr
 
 ---
 
+
+# Prototypes - Arrays
+
+### Cat Mouse
+<img src="./images/cat-mouse-ss.png" width="250">
+
+> [View Online](./topics/prototyping/cat-mouse/)
+
+> [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/cat-mouse)
+
+### Eye See You
+<img src="./images/eye-see-you-ss.png" width="250">
+
+> [View Online](./topics/prototyping/eye-see-you/)
+
+> [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/eye-see-you)
+
+### Something
+<img src="./images/soundboard-ss.png" width="250">
+
+> [View Online](./topics/prototyping/a-very-normal-soundboard/)
+
+> [View Code](https://github.com/chorkelle/cart253/tree/main/topics/prototyping/a-very-normal-soundboard)
+
+## Journal Entry
+
+>[Arrays Journal](journal.md)
+
+---
