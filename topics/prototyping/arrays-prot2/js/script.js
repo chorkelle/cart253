@@ -2,17 +2,20 @@
  * Firework Sim
  * Charlotte Walsh
  *
- * Fireworks.
+ * Kyle
  */
 
 // The speech itself as an array of strings
 const dialogue = [
-    "Hi there!",
-    "I'm XXX",
-    "I was wondering if you could help me with something...",
-    "I don't know what to do with my next prototype!",
-    "What do you think I should do?",
+    "Oh my god you're normal!",
+    "Oh sorry, I'm Kyle.",
+    "I uh work here at Couche Tard.",
+    "My manager told me to work.",
 ];
+
+const kylepics = []
+
+let kyleIndex = 0;
 
 // Organizes the dialogue sequence
 let dialogueIndex = 0;
@@ -25,31 +28,57 @@ let box = {
     padding: 20,
     fontSize: 18
 };
-// Marc Anthony (we will preload an image into this)
-let Image = undefined;
 
-/**
- * Loads the Marc Anthony image
- */
+let kyle = {
+    x: 0,
+    y: 0,
+    width: 500,
+    height: 417,
+}
+
+let kylepic0;
+let kylepic1;
+let kylepic2;
+
+// Load image files
 function preload() {
-    marcImage = loadImage("assets/images/marc.png");
+
+    kylepic0 = loadImage("./assets/images/kyle-concerned.png")
+    kylepic1 = loadImage("./assets/images/kyle-content.png")
+    kylepic2 = loadImage("./assets/images/kyle-spooked.png")
+
+    // add image file to pics array
+    kylepics.push(kylepic);
+
 }
 
 /**
  * Creates the canvas
  */
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(500, 417);
+
+    console.log(kylepics);
 }
 
-/**
- * Displays Marc Anthony giving a speech
- */
+
 function draw() {
-    image(marcImage, 0, 0);
+    background(220);
 
     // Display Marc Anthony and his dialog
     showDialogue();
+    drawKyle();
+}
+
+function drawKyle() {
+    // if there are images in the array
+    if (kylepics.length > 0) {
+
+        // use index variable to access image file at each position in the pics array
+        // draw image in corner of canvas
+        // using the image's native width and height
+        image(kylepics[kyleIndex], kyle.x, kyle.y, kyle.width, kyle.height);
+    }
 }
 
 /**
@@ -84,5 +113,13 @@ function mousePressed() {
         // Advance the line
         dialogueIndex++;
     }
+
+    // if we access all the files in the array, then reset index number to 0 to start at the beginning
+    // if we access all the files in the array, then reset index number to 0 to start at the beginning
+    if (kyleIndex == kylepics.length) {
+        kyleIndex = 0;
+    }
+    kyleIndex++;
 }
+
 
