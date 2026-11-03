@@ -5,124 +5,84 @@
  * Fireworks.
  */
 
+// The speech itself as an array of strings
+const dialogue = [
+    "Hi there!",
+    "I'm XXX",
+    "I was wondering if you could help me with something...",
+    "I don't know what to do with my next prototype!",
+    "What do you think I should do?",
+];
 
+// Organizes the dialogue sequence
+let dialogueIndex = 0;
+// Text box
+let box = {
+    x: 50,
+    y: 300,
+    width: 300,
+    height: 80,
+    padding: 20,
+    fontSize: 18
+};
+// Marc Anthony (we will preload an image into this)
+let Image = undefined;
 
-let balls = []; // Will create it with createBall()
 /**
- * Create the canvas and the ball
+ * Loads the Marc Anthony image
+ */
+function preload() {
+    marcImage = loadImage("assets/images/marc.png");
+}
+
+/**
+ * Creates the canvas
  */
 function setup() {
-    // Create the canvas
     createCanvas(400, 400);
-    // Create the ball
-    ball = createBall();
-
-    background("#87ceeb");
 }
 
 /**
- * Creates a random ball
- */
-function createBall() {
-    // Create a ball object with appropriate properties
-    const newBall = {
-        // Position and dimensions
-        x: mouseX,
-        y: 400,
-        size: random(10, 20),
-        // Colour
-        fill: {
-            r: random(0, 255),
-            g: random(0, 255),
-            b: random(0, 255),
-        },
-        // Movement
-        velocity: {
-            // x: random(-1, -5),
-            y: random(-1, -5)
-        }
-    };
-    return newBall;
-}
-
-/**
- * Moves and draws the ball
+ * Displays Marc Anthony giving a speech
  */
 function draw() {
+    image(marcImage, 0, 0);
 
-    // Loop to add infinite balls
-    for (let ball of balls) {
-        moveBall(ball);
-        bounceBall(ball);
-        drawBall(ball);
-    }
-
-
-    //  ctrl /
-    // moveBall(balls);
-    // bounceBall(balls);
-    // drawBall(balls);
-
+    // Display Marc Anthony and his dialog
+    showDialogue();
 }
 
 /**
- * Moves the ball according to its velocity
+ * Display the speech in a dialog box
  */
-function moveBall(ball) {
-    // ball.x += ball.velocity.x;
-    ball.y += ball.velocity.y;
-}
-
-/**
- * Bounces the ball off the walls
- */
-function bounceBall(ball) {
-    // // Check if the ball has reached the left or right
-    // const bounceX = (ball.x > width || ball.x < 0);
-    // Check if the ball has reached the top or bottom
-    const bounceY = (ball.y > height || ball.y < 0);
-
-    // // Handle bouncing horizontally
-    // if (bounceX) {
-    //     ball.velocity.x *= -1;
-    // }
-    // // Handle bouncing vertically
-    // if (bounceY) {
-    //     ball.velocity.y *= -1;
-    // }
-
-    if (ball.y <= random(100, 75)) {
-        ball.velocity.y = -0.001;
-
-        balls.push(ball);
-    }
-
-}
-
-/**
- * Draw the ball on the canvas
- */
-function drawBall(ball) {
+function showDialogue() {
+    // The background box
     push();
-    noStroke();
-    fill(ball.fill.r, ball.fill.g, ball.fill.b);
-    ellipse(ball.x, ball.y, ball.size);
+    fill(0);
+    stroke(255);
+    strokeWeight(3);
+    rect(box.x, box.y, box.width, box.height);
+    pop();
+
+    // The text
+    // Note how we're using extra arguments in text() to specify
+    // the dimensions we want the text to wrap inside, including
+    // using the padding of the dialog box
+    push();
+    fill(255);
+    textSize(18);
+    text(dialogue[dialogueIndex], box.x + box.padding, box.y + box.padding, box.width - 2 * box.padding, box.height - 2 * box.padding);
     pop();
 }
 
 /**
- * Draw the ball on the canvas
+ * Lets you click to keep listening
  */
 function mousePressed() {
-    let ball = createBall();
-    balls.push(ball);
-
+    // Make sure we're not at the end of the speech aready
+    if (dialogueIndex < dialogue.length - 1) {
+        // Advance the line
+        dialogueIndex++;
+    }
 }
 
-/**
- * Erases the last ball created
- */
-function keyPressed() {
-    let ball = [];
-    balls.pop(ball);
-}
