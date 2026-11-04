@@ -24,14 +24,14 @@ function setup() {
     // Creates the pupil
     pupil = createPupil();
 
-
+    background("#270317");
 }
 
 /**
  * Creates an eyeball
  */
 function createEye() {
-    // Create a ball object with appropriate properties
+    // Creates the eyeball
     const newEye = {
         // Position and dimensions
         x: 300,
@@ -39,6 +39,7 @@ function createEye() {
         size: 500,
         // Colour
         fill: "white",
+        // Speed
         speed: 0
     };
     return newEye;
@@ -48,7 +49,7 @@ function createEye() {
  * Creates a pupil for the eyeball
  */
 function createIris() {
-    // Create a ball object with appropriate properties
+    // Creates the iris
     const iris = {
         // Position and size
         x: 300,
@@ -56,7 +57,8 @@ function createIris() {
         size: 250,
         // Colour
         fill: "brown",
-        speed: 3
+        // Speed
+        speed: 5
     };
     return iris;
 
@@ -74,28 +76,21 @@ function createPupil() {
         size: 175,
         // Colour
         fill: "black",
-        speed: 3
+        speed: 5
     };
     return pupil;
 
 }
 
 /**
- * Moves and draws the ball
+ * Draws the eye and moves the pupil
  */
 function draw() {
-    background("#270317");
 
-    // movePupil(pupil);
+    // Draws the eyeball (pupil, iris, eye(white))
     drawEye(eye);
     drawEye(iris);
     drawEye(pupil);
-
-    pupil.x = mouseX;
-    pupil.y = mouseY;
-
-    iris.x = mouseX;
-    iris.y = mouseY;
 
     // Moves the iris and the pupil together
     movePupil(iris);
@@ -104,49 +99,43 @@ function draw() {
 }
 
 /**
- * Moves the ball according to its velocity
+ * Moves the iris and the pupil to make it look like the eye is tracking your mouse
  */
 function movePupil(pupil) {
 
-    // Lets the eye track the mouse
-
-    if (mouseX > pupil.x) {
+    // Makes the pupil track your mouse
+    if (mouseX + 75 > pupil.x) {
         pupil.x += pupil.speed
     }
-
-    if (mouseX < pupil.x) {
+    // Makes the pupil track your mouse
+    if (mouseX - 75 < pupil.x) {
         pupil.x -= pupil.speed
     }
-    if (mouseY > pupil.y) {
+    // Makes the pupil track your mouse
+    if (mouseY + 75 > pupil.y) {
         pupil.y += pupil.speed
     }
-
-    if (mouseY < pupil.y) {
+    // Makes the pupil track your mouse
+    if (mouseY - 75 < pupil.y) {
         pupil.y -= pupil.speed
     }
 
-
-
-    // // Makes the fish freak out if you touch them
-    // if (pupil.x >= 300) {
-    //     pupil.x = 300;
-    // }
-
-    // // Makes the fish freak out if you touch them
-    // if (pupil.x >= 450) {
-    //     pupil.x = pupil.x;
-    // }
-
-    if (pupil.x <= 150) {
-        pupil.x = eye.size / 2;
+    // Constrains the pupil and iris to they eyeball (for the most part... I tried using a constrain function but it wasn't working so this is my silly solution)
+    // Constrains eye on the right
+    if (pupil.x >= 425) {
+        pupil.x -= pupil.speed
     }
-
-    if (pupil.y >= 450) {
-        pupil.y = eye.size / 2;
+    // Constrains eye on the left
+    if (pupil.x <= 175) {
+        pupil.x += pupil.speed
     }
-
-    if (pupil.y <= 150) {
-        pupil.y = eye.size / 2;
+    // Constrains eye on the top
+    if (pupil.y <= 125) {
+        pupil.y += pupil.speed
+    }
+    // Constrains eye on the bottom
+    if (pupil.y >= 375) {
+        pupil.y -= pupil.speed
     }
 
 }

@@ -9,7 +9,7 @@
 const dialogue = [
     "Oh my god you're normal!",
     "Oh sorry, I'm Kyle.",
-    "I uh work here at Couche Tard.",
+    "I uh... work here at Couche Tard.",
     "I think there's something weird going on outside.",
 ];
 
@@ -36,10 +36,6 @@ let kyle = {
     height: 417,
 }
 
-// let kylepic0;
-// let kylepic1;
-// let kylepic2;
-
 // Load image files
 function preload() {
 
@@ -61,12 +57,25 @@ function preload() {
 
 }
 
+function createKyle {
+    // Create a ball object with appropriate properties
+    const kyle = {
+        // Position and dimensions
+        x: 0,
+        y: 0,
+        width: 500,
+        height: 417
+    };
+    return kyle;
+
+}
+
 /**
  * Creates the canvas
  */
 function setup() {
     createCanvas(500, 417);
-
+    // Loads the kyle pics
     console.log(kylepics);
 
 }
@@ -75,17 +84,14 @@ function setup() {
 function draw() {
     background(220);
 
-    // Display Marc Anthony and his dialog
+    // Displays Kyle's yapping
     showDialogue();
-    // drawKyle();
 
     // if there are images in the array
     if (kylepics.length > 0) {
 
-        // use index variable to access image file at each position in the pics array
-        // draw image in corner of canvas
-        // using the image's native width and height
-        image(kylepics[kyleIndex], kyle.x, kyle.y, kyle.width, kyle.height);
+
+        image(kylepics[kyleIndex], 0, 0);
     }
 }
 
@@ -134,11 +140,10 @@ function mousePressed() {
     }
 
     // if we access all the files in the array, then reset index number to 0 to start at the beginning
-    // if we access all the files in the array, then reset index number to 0 to start at the beginning
-    if (kyleIndex == kylepics.length) {
-        kyleIndex = 0;
+    if (kyleIndex < kylepics.length) {
+        kyleIndex++;
     }
-    kyleIndex++;
+
 }
 
 
