@@ -1,12 +1,12 @@
-# Firework Sim
+# Kyle
 
 Charlotte Walsh 
 
-[View this project online](https://chorkelle.github.io/cart253/topics/challenges/fireworks-sim/)
+[View this project online](https://chorkelle.github.io/cart253/topics/challenges/kyle/)
 
 ## Description
 
-Lets you set off fireworks.
+Fanart for Look Outside.
 
 ## Attribution
 

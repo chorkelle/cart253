@@ -91,21 +91,15 @@ function draw() {
     drawEye(iris);
     drawEye(pupil);
 
-    // pupil.x = mouseX;
-    // pupil.y = mouseY;
+    pupil.x = mouseX;
+    pupil.y = mouseY;
 
-    // iris.x = mouseX;
-    // iris.y = mouseY;
+    iris.x = mouseX;
+    iris.y = mouseY;
 
+    // Moves the iris and the pupil together
     movePupil(iris);
     movePupil(pupil);
-
-
-
-    //  ctrl /
-    // moveBall(balls);
-    // bounceBall(balls);
-    // drawBall(balls);
 
 }
 
@@ -133,30 +127,27 @@ function movePupil(pupil) {
 
 
 
-    // Makes the fish freak out if you touch them
-    if (pupil.x >= 300) {
-        pupil.x = pupil.x;
+    // // Makes the fish freak out if you touch them
+    // if (pupil.x >= 300) {
+    //     pupil.x = 300;
+    // }
+
+    // // Makes the fish freak out if you touch them
+    // if (pupil.x >= 450) {
+    //     pupil.x = pupil.x;
+    // }
+
+    if (pupil.x <= 150) {
+        pupil.x = eye.size / 2;
     }
 
-    // Makes the fish freak out if you touch them
-    if (pupil.x >= 450) {
-        pupil.x = pupil.x;
+    if (pupil.y >= 450) {
+        pupil.y = eye.size / 2;
     }
 
-    // if (pupil.x <= 150) {
-    //     pupil.x = eye.size / 2;
-    // }
-
-    // if (pupil.y >= 450) {
-    //     pupil.y = eye.size / 2;
-    // }
-
-    // if (pupil.y <= 150) {
-    //     pupil.y = eye.size / 2;
-    // }
-
-
-
+    if (pupil.y <= 150) {
+        pupil.y = eye.size / 2;
+    }
 
 }
 

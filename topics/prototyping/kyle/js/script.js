@@ -68,6 +68,7 @@ function setup() {
     createCanvas(500, 417);
 
     console.log(kylepics);
+
 }
 
 
