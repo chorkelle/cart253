@@ -10,10 +10,10 @@ const dialogue = [
     "Oh my god you're normal!",
     "Oh sorry, I'm Kyle.",
     "I uh work here at Couche Tard.",
-    "My manager told me to work.",
+    "I think there's something weird going on outside.",
 ];
 
-const kylepics = []
+const kylepics = [];
 
 let kyleIndex = 0;
 
@@ -36,19 +36,28 @@ let kyle = {
     height: 417,
 }
 
-let kylepic0;
-let kylepic1;
-let kylepic2;
+// let kylepic0;
+// let kylepic1;
+// let kylepic2;
 
 // Load image files
 function preload() {
 
-    kylepic0 = loadImage("./assets/images/kyle-concerned.png")
-    kylepic1 = loadImage("./assets/images/kyle-content.png")
-    kylepic2 = loadImage("./assets/images/kyle-spooked.png")
+    // kylepic0 = loadImage("./assets/images/kyle-concerned.png")
+    // kylepic1 = loadImage("./assets/images/kyle-content.png")
+    // kylepic2 = loadImage("./assets/images/kyle-spooked.png")
 
-    // add image file to pics array
-    kylepics.push(kylepic);
+    // QUICKER way to load sound files
+    // load each image and store (push it) in an array
+    // this only works if the image filenames are numbered
+    for (let i = 0; i < 9; i++) {
+        // load a image file
+        // use the i from our loop to refer to each file name
+        let kylepic = loadImage(i + ".png");
+
+        // add image file to pics array
+        kylepics.push(kylepic);
+    }
 
 }
 
@@ -67,10 +76,8 @@ function draw() {
 
     // Display Marc Anthony and his dialog
     showDialogue();
-    drawKyle();
-}
+    // drawKyle();
 
-function drawKyle() {
     // if there are images in the array
     if (kylepics.length > 0) {
 
@@ -80,6 +87,17 @@ function drawKyle() {
         image(kylepics[kyleIndex], kyle.x, kyle.y, kyle.width, kyle.height);
     }
 }
+
+// function drawKyle() {
+//     // if there are images in the array
+//     if (kylepics.length > 0) {
+
+//         // use index variable to access image file at each position in the pics array
+//         // draw image in corner of canvas
+//         // using the image's native width and height
+//         image(kylepics[kyleIndex], kyle.x, kyle.y, kyle.width, kyle.height);
+//     }
+// }
 
 /**
  * Display the speech in a dialog box
