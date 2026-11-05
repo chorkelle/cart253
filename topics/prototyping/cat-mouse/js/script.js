@@ -164,7 +164,7 @@ function drawMouse(mouse) {
  * Sets a timer
  */
 function timer() {
-    // Score increases relatively slowly
+    // Adds time
     time += 0.02;
 
     // Adds mice over time

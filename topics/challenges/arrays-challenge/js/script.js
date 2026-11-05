@@ -1,120 +1,56 @@
 /**
- * Boingo
- * Charlotte Walsh & Sofia Allashukurova
- *
- * Colourful balls that bounce around on the canvas.
- */
+ * Lines
+    * Pippin Barr
+        * 
+ * A series of lines across the canvas
+    */
 
+"use strict";
 
-// let ball1 = undefined; // Will create it with createBall()
-let balls = []; // Will create it with createBall()
 /**
- * Create the canvas and the ball
+ * Creates the canvas
  */
 function setup() {
-    // Create the canvas
-    createCanvas(400, 400);
-    // Create the ball
-    ball = createBall();
+    createCanvas(500, 500);
 }
 
 /**
- * Creates a random ball
- */
-function createBall() {
-    // Create a ball object with appropriate properties
-    const newBall = {
-        // Position and dimensions
-        x: mouseX,
-        y: mouseY,
-        size: random(10, 30),
-        // Colour
-        fill: {
-            r: random(0, 255),
-            g: random(0, 255),
-            b: random(0, 255),
-        },
-        // Movement
-        velocity: {
-            x: random(-5, 5),
-            y: random(-5, 5)
-        }
-    };
-    return newBall;
-}
-
-/**
- * Moves and draws the ball
+ * Draws lines across the canvas with increasing thickness and
+ * gradually lightening colour
  */
 function draw() {
-    background("#87ceeb");
+    background("pink");
 
-    // Loop to add infinite balls
-    for (let ball of balls) {
-        moveBall(ball);
-        bounceBall(ball);
-        drawBall(ball);
-    }
+    stroke(0);
+    line(0, 0, 0, height);
 
+    stroke(25);
+    line(50, 0, 50, height);
 
-    //  ctrl /
-    // moveBall(balls);
-    // bounceBall(balls);
-    // drawBall(balls);
+    stroke(50);
+    line(100, 0, 100, height);
 
-}
+    stroke(75);
+    line(150, 0, 150, height);
 
-/**
- * Moves the ball according to its velocity
- */
-function moveBall(ball) {
-    ball.x += ball.velocity.x;
-    ball.y += ball.velocity.y;
-}
+    stroke(100);
+    line(200, 0, 200, height);
 
-/**
- * Bounces the ball off the walls
- */
-function bounceBall(ball) {
-    // Check if the ball has reached the left or right
-    const bounceX = (ball.x > width || ball.x < 0);
-    // Check if the ball has reached the top or bottom
-    const bounceY = (ball.y > height || ball.y < 0);
+    stroke(125);
+    line(250, 0, 250, height);
 
-    // Handle bouncing horizontally
-    if (bounceX) {
-        ball.velocity.x *= -1;
-    }
-    // Handle bouncing vertically
-    if (bounceY) {
-        ball.velocity.y *= -1;
-    }
-}
+    stroke(150);
+    line(300, 0, 300, height);
 
-/**
- * Draw the ball on the canvas
- */
-function drawBall(ball) {
-    push();
-    noStroke();
-    fill(ball.fill.r, ball.fill.g, ball.fill.b);
-    ellipse(ball.x, ball.y, ball.size);
-    pop();
-}
+    stroke(175);
+    line(350, 0, 350, height);
 
-/**
- * Draw the ball on the canvas
- */
-function mousePressed() {
-    let ball = createBall();
-    balls.push(ball);
+    stroke(200);
+    line(400, 0, 400, height);
 
-}
+    stroke(225);
+    line(450, 0, 450, height);
 
-/**
- * Erases the last ball created
- */
-function keyPressed() {
-    let ball = [];
-    balls.pop(ball);
+    stroke(250);
+    line(500, 0, 500, height);
 }
