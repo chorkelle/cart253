@@ -11,6 +11,7 @@ Fanart for Look Outside.
 ## Attribution
 
 > - This project uses [p5.js](https://p5js.org).
+> - This project is inspired by code from Pippin's friends and countrymen prototype.
 
 
 ## License
