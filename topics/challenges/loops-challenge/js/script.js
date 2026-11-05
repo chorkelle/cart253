@@ -1,131 +1,74 @@
 /**
- * Instructions Challenge
- * Charlotte Walsh and Sofia
+ * Lines
+ * Pippin Barr
  * 
- * Duck.
+ * A series of lines across the canvas
  */
 
 "use strict";
 
 /**
  * Creates the canvas
-*/
+ */
 function setup() {
-    createCanvas(640, 640)
+    createCanvas(500, 500);
 }
 
 /**
- * Sets the background
-*/
-function drawSky() {
-    // Blue Sky
-    background(0, 30, 170);
-
-    // Got rid of strokes
-    noStroke();
-}
-
-/**
- * Draws a landscape
+ * Draws lines across the canvas with increasing thickness and
+ * gradually lightening colour
  */
 function draw() {
-    drawSky();
-    drawGround();
-    drawSun();
-    drawMountain();
-    drawCloud();
-    drawRiver();
-    drawLilypad();
-    drawDuck();
 
-}
+    background("pink");
 
-/**
- * Sets a ground
- */
-function drawGround() {
-    push();
-    fill(50, 150, 50);
-    rect(0, 320, 640, 320);
-    pop();
+    let stroke = 0;
+    let x = 0;
+    let y = 0;
+    let size = 0;
 
-}
+    while (y <= width) {
+        stroke(stroke);
+        line(x, y, size, height);
 
-/**
- * Draw a cloud
- */
-function drawCloud() {
+        x += 50;
+        size += 50;
+        stroke += 25;
 
-    push();
-    fill(255);
-    ellipse(100, 100, 100, 80);
-    ellipse(150, 150, 100, 80);
-    ellipse(70, 150, 100, 80);
-    ellipse(400, 150, 100, 80);
-    ellipse(450, 200, 100, 80);
-    ellipse(370, 200, 100, 80);
-    pop();
+    }
 
-}
 
-/**
- * Draw a mountain range
- */
-function drawMountain() {
 
-    push();
-    fill(50, 150, 50);
-    triangle(0, 320, 100, 80, 500, 320);
-    triangle(450, 320, 580, 150, 750, 320);
-    pop();
-}
+    // stroke(0);
+    // line(x, y, size, height);
 
-/**
- * Draw a river
- */
-function drawRiver() {
-    push();
-    fill("blue");
-    rect(0, 520, 640, 640);
-    pop();
-}
+    // stroke(25);
+    // line(50, 0, 50, height);
 
-/**
- * Draw a duck
- */
-function drawDuck() {
-    // made a duck
-    push();
-    fill("yellow");
-    ellipse(300, 550, 80, 40);
-    ellipse(265, 530, 40, 40);
-    fill("orange");
-    triangle(230, 530, 250, 540, 250, 520);
-    fill("black")
-    ellipse(266, 530, 10, 10);
-    pop();
+    // stroke(50);
+    // line(100, 0, 100, height);
 
-}
+    // stroke(75);
+    // line(150, 0, 150, height);
 
-/**
- * Draw a lily pad
- */
-function drawLilypad() {
-    push();
-    fill(0, 200, 0);
-    ellipse(500, 560, 50, 30);
-    ellipse(525, 575, 50, 30);
-    ellipse(150, 570, 50, 30);
-    pop();
+    // stroke(100);
+    // line(200, 0, 200, height);
 
-}
+    // stroke(125);
+    // line(250, 0, 250, height);
 
-/**
- * Draw a sun
- */
-function drawSun() {
-    push();
-    fill("yellow")
-    ellipse(640, 0, 150, 150);
-    pop();
+    // stroke(150);
+    // line(300, 0, 300, height);
+
+    // stroke(175);
+    // line(350, 0, 350, height);
+
+    // stroke(200);
+    // line(400, 0, 400, height);
+
+    // stroke(225);
+    // line(450, 0, 450, height);
+
+    // stroke(250);
+    // line(500, 0, 500, height);
 }
