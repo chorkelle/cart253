@@ -6,12 +6,13 @@ Charlotte Walsh
 
 ## Description
 
-Fanart for Look Outside.
+Small dialogue experiment using arrays for images and text. The character is a spoof of a character in Look Outside (a very cool Montreal based horror game that was made by a montrealer originally as a game jam piece!).
 
 ## Attribution
 
 > - This project uses [p5.js](https://p5js.org).
-> - This project is inspired by code from Pippin's friends and countrymen prototype.
+> - This project uses code inspired by Pippin's Friends, Romans, Countrymen prototype.
+> - This project is inspired by Look Outside by Francis Coulombe.
 
 
 ## License

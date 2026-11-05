@@ -2,7 +2,7 @@
  * Kyle
  * Charlotte Walsh
  *
- * Kyle dialogue and images.
+ * Small dialogue experiment using arrays for images and text. The character is a spoof of a character in Look Outside (a very cool Montreal based horror game that was made by a montrealer originally as a game jam piece!).
  */
 
 
@@ -10,9 +10,12 @@
 const dialogue = [
     "Oh my god you're normal!",
     "Oh sorry, I'm Kyle.",
-    "I uh... work here at Couche Tard.",
-    "I think there's something weird outside.",
-    "xxx"
+    "I uh . . . work here at Couche Tard.",
+    "There's something weird going on outside . . .",
+    "I can't get ahold of my manager.",
+    "She told me she was on her way here yesterday but never showed up.",
+    "I called the police but they told me to get away from the windows.",
+    "Then I saw that the mice in our breakroom were . . . weird.",
 ];
 
 // Kyle's picture array
@@ -31,56 +34,31 @@ let box = {
     height: 80,
     // Space around text and size of text
     padding: 20,
-    fontSize: 18
+    fontSize: 18,
+    // Rounds the corners of the text box
+    round: 15,
 };
 
-// Kyle??
-let kyle = {
-    x: 0,
-    y: 0,
-    width: 500,
-    height: 417,
-}
+/**
+ * Creates canvas and loads the images in the array
+ */
+async function setup() {
 
-// Load the image files
-function preload() {
-
-    // NOT WORKING
-    // kylepic0 = loadImage("./assets/images/kyle-concerned.png")
-    // kylepic1 = loadImage("./assets/images/kyle-content.png")
-    // kylepic2 = loadImage("./assets/images/kyle-spooked.png")
+    createCanvas(500, 417);
 
     // Loads the beautiful pictures of Kyle
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 7; i++) {
         // load a image file
         // use the i from our loop to refer to each file name
-        let kylepic = loadImage(i + "./assets/images/ " + i + " .png");
+        let kylepic = await loadImage("assets/images/" + i + ".png");
 
         // add image file to pics array
         kylepics.push(kylepic);
     }
 
+    // Loads the kyle pics
+    console.log(kylepics);
 }
-
-// BROKE THE CODE
-
-// async function setup() {
-
-//     createCanvas(500, 417);
-
-//     // Loads the beautiful pictures of Kyle
-//     for (let i = 0; i < 9; i++) {
-//         // load a image file
-//         // use the i from our loop to refer to each file name
-//         let kylepic = loadImage(i + "./assets/images/ " + i + " .png");
-
-//         // add image file to pics array
-//         kylepics.push(kylepic);
-//     }
-
-//     // Loads the kyle pics
-//     console.log(kylepics);
-// }
 
 // NOT WORKING EITHER
 // Creates Kyle
@@ -98,28 +76,22 @@ function createKyle() {
 
 }
 
-/**
- * Creates the canvas
- */
-function setup() {
-    createCanvas(500, 417);
+// /**
+//  * Creates the canvas
+//  */
+// function setup() {
+//     createCanvas(500, 417);
 
-    // Loads the kyle pics
-    console.log(kylepics);
+//     // Loads the kyle pics
+//     console.log(kylepics);
 
-    createKyle(kylepics);
+//     createKyle(kylepics);
 
-}
+// }
 
 // Draws Kyle and his dialogue
 function draw() {
     background(220);
-
-    // Displays Kyle's yapping
-    showDialogue();
-
-    // NOT WORKING
-    // drawKyle();
 
     // Displays kyle????????
     if (kylepics.length > 0) {
@@ -127,6 +99,9 @@ function draw() {
 
         image(kylepics[kyleIndex], 0, 0);
     }
+
+    // Displays Kyle's yapping
+    showDialogue();
 }
 
 /**
@@ -152,14 +127,15 @@ function showDialogue() {
     fill(0);
     stroke(255);
     strokeWeight(3);
-    rect(box.x, box.y, box.width, box.height);
+    rect(box.x, box.y, box.width, box.height, box.round);
     pop();
 
     // Displays the dialogue
     push();
     fill(255);
     textSize(18);
-    text(dialogue[dialogueIndex], box.x + box.padding, box.y + box.padding, box.width - 2 * box.padding, box.height - 2 * box.padding);
+    // Organizes the text within the text box 
+    text(dialogue[dialogueIndex], box.x + box.padding, box.y + box.padding, box.width - 2 * box.padding, box.height - 2);
     pop();
 }
 
@@ -179,5 +155,7 @@ function mousePressed() {
     }
 
 }
+
+
 
 
