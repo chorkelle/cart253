@@ -1,12 +1,12 @@
-# Bouncy Balls
+# Eye See You
 
-Charlotte Walsh & Sofia Allashukurova
+Charlotte Walsh 
 
-[View this project online](https://chorkelle.github.io/cart253/topics/challenges/arrays-challenge/)
+[View this project online](https://chorkelle.github.io/cart253/topics/prototyping/eye-see-you/)
 
 ## Description
 
-Colourful balls that bounce around on the canvas.
+A very normal eyeball that follows your cursor
 
 ## Attribution
 

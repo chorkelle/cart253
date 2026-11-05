@@ -2,14 +2,16 @@
  * Cat Mouse
  * Charlotte Walsh 
  *
- * Cat who scares the mice.
+ * Cat who grows as he eats all the mice. Soon he will take over the world.
  */
 
 
 
-let mice = []; // Will create it with createBall()
+// Creates mice array
+let mice = [];
 
-let cat = {     // Position and dimensions
+// Makes cat variable
+let cat = {
     x: 0,
     y: 0,
     w: 100,
@@ -18,10 +20,11 @@ let cat = {     // Position and dimensions
     image: undefined
 };
 
+// Makes time a variable
 let time = 0;
 
 /**
- * Create the canvas and the ball
+ * Creates the canvas, loads the image, and creates the mice
  */
 async function setup() {
     // Create the canvas
@@ -38,17 +41,18 @@ async function setup() {
  */
 async function preload() {
 
+    // Cat image
     cat.image = await loadImage("./assets/images/cat.png")
 
 }
 
 /**
- * Creates a random ball
+ * Creates the abstract mouse
  */
 function createMouse() {
-    // Create a ball object with appropriate properties
+    // Mouse variable
     const newMouse = {
-        // Position and dimensions
+        // Position and size
         x: random(0, 500),
         y: random(0, 400),
         size: random(25, 35),
@@ -64,14 +68,16 @@ function createMouse() {
             y: random(-5, 5)
         }
     };
+    // Returns the mouse
     return newMouse;
 }
 
 /**
- * Moves and draws the ball
+ * Draws cat and mouse, and moves them
  */
 function draw() {
-    background("#87ceeb");
+    // Draws the background
+    background("#d0eb87");
 
     // Loop to add infinite mouse
     for (let mouse of mice) {
@@ -119,50 +125,31 @@ function runMouse(mouse) {
     // Check if the mouse has reached the top or bottom
     const runY = (mouse.y > height || mouse.y < 0);
 
-    // // Apply friction to the stone by multiplying it by a fraction
-    // // less than 1, reducing it
-    // mouse.velocity.x *= 0.95;
-    // mouse.velocity.y *= 0.95;
-    // // If it gets close to 0, make it zero
-    // if (abs(mouse.velocity.x) < 0.1) {
-    //     mouse.velocity.x = 0;
-    // }
-    // if (abs(mouse.velocity.y) < 0.1) {
-    //     mouse.velocity.y = 0;
-    // }
-
     // Lets the cat eat the mice
     const d = dist(mouseX, mouseY, mouse.x, mouse.y);
     if (d < mouse.size) {
-        // Change the stone's velocity based on the mouse position 
-        // relative to the stone position
-        // (Essentially it accelerates away from the mouse)
-        // mouse.velocity.x += (mouse.x - mouseX) * 0.1;
-        // mouse.velocity.y += (mouse.y - mouseY) * 0.1;
 
-        let mouse = [];
+        // let mouse = [];
         mice.pop(mouse);
         // Makes the cat gradually larger the more it eats
         cat.w += 0.1;
         cat.h += 0.1;
         // Makes the mice gradually smaller the more they get eaten
-        mouse.size /= 0.5;
+        mouse.size -= 2;
     }
 
-
-
-    //Handle bouncing horizontally
+    // Constrain mice to canvas right & left
     if (runX) {
         mouse.velocity.x *= -1;
     }
-    // Handle bouncing vertically
+    // Constrain mice to canvas top & bottom
     if (runY) {
         mouse.velocity.y *= -1;
     }
 }
 
 /**
- * Draw the ball on the canvas
+ * Draw the mice
  */
 function drawMouse(mouse) {
     // Draws the circle mice
@@ -173,34 +160,9 @@ function drawMouse(mouse) {
     pop();
 }
 
-// /**
-//  * Applies friction (diminishing velocity over time) and
-//  * the mouse force (movement based on running away from the mouse)
-//  */
-// function scaredyMouse(mouse) {
-//     // Apply friction to the stone by multiplying it by a fraction
-//     // less than 1, reducing it
-//     mouse.velocity.x *= 0.95;
-//     mouse.velocity.y *= 0.95;
-//     // If it gets close to 0, make it zero
-//     if (abs(mouse.velocity.x) < 0.1) {
-//         mouse.velocity.x = 0;
-//     }
-//     if (abs(mouse.velocity.y) < 0.1) {
-//         mouse.velocity.y = 0;
-//     }
-
-//     // If the mouse is in range it affects the stone...
-//     const d = dist(mouseX, mouseY, mouse.x, mouse.y);
-//     if (d < mouse.size) {
-//         // Change the stone's velocity based on the mouse position 
-//         // relative to the stone position
-//         // (Essentially it accelerates away from the mouse)
-//         mouse.velocity.x += (mouse.x - mouseX) * 0.005;
-//         mouse.velocity.y += (mouse.y - mouseY) * 0.005;
-//     }
-// }
-
+/**
+ * Sets a timer
+ */
 function timer() {
     // Score increases relatively slowly
     time += 0.02;
@@ -208,22 +170,7 @@ function timer() {
     // Adds mice over time
     if (time > 5) {
         let mouse = createMouse();
-        mice.push(mouse) * 0.0001;
+        mice.push(mouse);
     }
 
-
 }
-
-// /**
-//  * Erases the last ball created
-//  */
-// function mousePressed() {
-//     // Makes the mice run from the cat
-//     const d = dist(mouseX + 50, mouseY + 50, mouse.x, mouse.y);
-//     if (d < mouse.size) {
-//         // eat the mouse
-//         let mouse = [];
-//         mice.pop(mouse);
-//     }
-
-// }

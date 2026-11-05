@@ -2,16 +2,16 @@
 
 Charlotte Walsh 
 
-[View this project online](https://chorkelle.github.io/cart253/topics/challenges/arrays-challenge/)
+[View this project online](https://chorkelle.github.io/cart253/topics/prototyping/cat-mouse/)
 
 ## Description
 
-Colourful balls that bounce around on the canvas.
+Cat who grows as he eats all the mice. Soon he will take over the world.
 
 ## Attribution
 
 > - This project uses [p5.js](https://p5js.org).
-> - https://pngimg.com/image/50447https://pngimg.com/image/50447
+> - Cat image: https://pngimg.com/image/50447https://pngimg.com/image/50447
 
 ## License
 

@@ -2,9 +2,8 @@
  * Eye See You
  * Charlotte Walsh 
  *
- * Eye ball that follows your cursor.
+ * A very normal eyeball that follows your cursor.
  */
-
 
 
 
@@ -46,7 +45,7 @@ function createEye() {
 }
 
 /**
- * Creates a pupil for the eyeball
+ * Creates an iris for the eyeball
  */
 function createIris() {
     // Creates the iris
@@ -55,7 +54,7 @@ function createIris() {
         x: 300,
         y: 300,
         size: 250,
-        // Colour
+        // Colour (is this really brown?)
         fill: "brown",
         // Speed
         speed: 5
@@ -83,7 +82,7 @@ function createPupil() {
 }
 
 /**
- * Draws the eye and moves the pupil
+ * Draws the eyeball and moves the pupil
  */
 function draw() {
 
@@ -103,19 +102,19 @@ function draw() {
  */
 function movePupil(pupil) {
 
-    // Makes the pupil track your mouse
+    // Makes the pupil track your mouse right
     if (mouseX + 75 > pupil.x) {
         pupil.x += pupil.speed
     }
-    // Makes the pupil track your mouse
+    // Makes the pupil track your mouse left
     if (mouseX - 75 < pupil.x) {
         pupil.x -= pupil.speed
     }
-    // Makes the pupil track your mouse
+    // Makes the pupil track your mouse down
     if (mouseY + 75 > pupil.y) {
         pupil.y += pupil.speed
     }
-    // Makes the pupil track your mouse
+    // Makes the pupil track your mouse up
     if (mouseY - 75 < pupil.y) {
         pupil.y -= pupil.speed
     }
@@ -142,7 +141,7 @@ function movePupil(pupil) {
 
 
 /**
- * Draw the ball on the canvas
+ * Draws the eye
  */
 function drawEye(eye) {
     push();
