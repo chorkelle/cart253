@@ -6,16 +6,18 @@
  */
 
 
-// Kyle's dialogue
+// Kyle's dialogue - you're meeting him for the first time and the world is kinda ending
 const dialogue = [
     "Oh my god you're normal!",
-    "Oh sorry, I'm Kyle.",
+    "Oh sorry, I'm Kyle!",
     "I uh . . . work here at Couche Tard.",
     "There's something weird going on outside . . .",
-    "I can't get ahold of my manager.",
-    "She told me she was on her way here yesterday but never showed up.",
+    "I can't get ahold of my manager . . .",
+    "She told me she was on her way here yesterday but never showed up . . .",
     "I called the police but they told me to get away from the windows.",
     "Then I saw that the mice in our breakroom were . . . weird.",
+    "They were blue . . . and talking . . .",
+    "Do you think the world is ending?"
 ];
 
 // Kyle's picture array
@@ -28,8 +30,9 @@ let kyleIndex = 0;
 let dialogueIndex = 0;
 // Text box
 let box = {
-    x: 65,
-    y: 300,
+    // Position and size of the text box
+    x: 75,
+    y: 315,
     width: 350,
     height: 80,
     // Space around text and size of text
@@ -47,12 +50,11 @@ async function setup() {
     createCanvas(500, 417);
 
     // Loads the beautiful pictures of Kyle
-    for (let i = 0; i < 7; i++) {
-        // load a image file
-        // use the i from our loop to refer to each file name
+    for (let i = 0; i < 10; i++) {
+        // Uses the i from the loop to refer to each file name
         let kylepic = await loadImage("assets/images/" + i + ".png");
 
-        // add image file to pics array
+        // Adds the image file to kylepics array
         kylepics.push(kylepic);
     }
 
@@ -60,63 +62,23 @@ async function setup() {
     console.log(kylepics);
 }
 
-// NOT WORKING EITHER
-// Creates Kyle
-function createKyle() {
-
-    // Creates Kyle
-    const kyle = {
-        // Position and dimensions
-        x: 0,
-        y: 0,
-        width: 500,
-        height: 417
-    };
-    return kyle;
-
-}
-
-// /**
-//  * Creates the canvas
-//  */
-// function setup() {
-//     createCanvas(500, 417);
-
-//     // Loads the kyle pics
-//     console.log(kylepics);
-
-//     createKyle(kylepics);
-
-// }
-
-// Draws Kyle and his dialogue
+/**
+ * Draws Kyle and his dialogue
+*/
 function draw() {
-    background(220);
+    // Draws the background
+    background(0);
 
-    // Displays kyle????????
+    // Draws Kyle!
     if (kylepics.length > 0) {
 
-
+        // Displays the kyle image depending on the index number (makes him move)
         image(kylepics[kyleIndex], 0, 0);
     }
 
-    // Displays Kyle's yapping
+    // Displays Kyle's dialogue
     showDialogue();
 }
-
-/**
- * NOT WORKING
- */
-// function drawKyle() {
-//     // if there are images in the array
-//     // if (kylepics.length > 0) {
-
-//     // use index variable to access image file at each position in the pics array
-//     // draw image in corner of canvas
-//     // using the image's native width and height
-//     image(kylepics[kyleIndex], kyle.x, kyle.y, kyle.width, kyle.height);
-//     // }
-// }
 
 /**
  * Displays Kyle's dialogue
@@ -140,7 +102,7 @@ function showDialogue() {
 }
 
 /**
- * Lets you click to keep listening
+ * Lets you click to go through the dialogue
  */
 function mousePressed() {
     // Checks to see where we are in the dialogue
@@ -153,7 +115,6 @@ function mousePressed() {
     if (kyleIndex < kylepics.length - 1) {
         kyleIndex++;
     }
-
 }
 
 
