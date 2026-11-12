@@ -1,7 +1,7 @@
-# Lines
+# Terrible Car Name Generator
 
 Charlotte Walsh
-[View this project online](https://chorkelle.github.io/cart253/topics/data-challenge/)
+[View this project online](https://chorkelle.github.io/cart253/topics/challenges/data-challenge/)
 
 ## Description
 
