@@ -1,12 +1,11 @@
 # Lines
 
-Sofia Allashukurova & Charlotte Walsh
-
-[View this project online](https://chorkelle.github.io/cart253/topics/loops-challenge/)
+Charlotte Walsh
+[View this project online](https://chorkelle.github.io/cart253/topics/data-challenge/)
 
 ## Description
 
-It's a landscape drawing of a duck in a river.
+A terrible car name generator.
 
 ## Attribution
 
