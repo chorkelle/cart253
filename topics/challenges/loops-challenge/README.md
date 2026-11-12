@@ -1,8 +1,8 @@
-# Go With the Flow
+# Lines
 
 Sofia Allashukurova & Charlotte Walsh
 
-[View this project online](https://chorkelle.github.io/cart253/topics/instructions-challenge/)
+[View this project online](https://chorkelle.github.io/cart253/topics/loops-challenge/)
 
 ## Description
 
