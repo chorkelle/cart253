@@ -9,6 +9,14 @@
 
 let x, y;
 
+// Makes the canvas a variable
+const Canvas = {
+    right: 850,
+    left: 0,
+    top: 0,
+    bottom: 600
+}
+
 let theseus = {
     x: 70,
     y: 70,
@@ -71,13 +79,91 @@ let G = {
     x: 258,
     y: 370,
     width: 48,
-    height: 125
+    height: 123
 }
 let H = {
     x: 258,
-    y: 180,
-    width: 48,
+    y: 185,
+    width: 95,
+    height: 40
+}
+let I = {
+    x: 258,
+    y: 448,
+    width: 97,
+    height: 45
+}
+let J = {
+    x: 453,
+    y: 185,
+    width: 95,
+    height: 42
+}
+let K = {
+    x: 451,
+    y: 449,
+    width: 97,
+    height: 44
+}
+let L = {
+    x: 517,
+    y: -20,
+    width: 45,
+    height: 302
+}
+let M = {
+    x: 517,
+    y: 368,
+    width: 45,
     height: 125
+}
+let N = {
+    x: 681,
+    y: 322,
+    width: 42,
+    height: 400
+}
+let O = {
+    x: 640,
+    y: 322,
+    width: 42,
+    height: 35
+}
+let P = {
+    x: 160,
+    y: 567,
+    width: 160,
+    height: 35
+}
+let Q = {
+    x: 422,
+    y: 567,
+    width: 300,
+    height: 35
+}
+let R = {
+    x: 708,
+    y: 0,
+    width: 40,
+    height: 221
+}
+let S = {
+    x: 655,
+    y: 184,
+    width: 60,
+    height: 37
+}
+let T = {
+    x: 824,
+    y: 0,
+    width: 40,
+    height: 90
+}
+let U = {
+    x: 824,
+    y: 214,
+    width: 40,
+    height: 400
 }
 
 let restartGame = {
@@ -110,6 +196,7 @@ function draw() {
 
     moveMinotaur();
 
+    // there has to be a better way good god
     labyrinthWalls(A);
     labyrinthWalls(B);
     labyrinthWalls(C);
@@ -118,7 +205,19 @@ function draw() {
     labyrinthWalls(F);
     labyrinthWalls(G);
     labyrinthWalls(H);
-
+    labyrinthWalls(I);
+    labyrinthWalls(J);
+    labyrinthWalls(K);
+    labyrinthWalls(L);
+    labyrinthWalls(M);
+    labyrinthWalls(N);
+    labyrinthWalls(O);
+    labyrinthWalls(P);
+    labyrinthWalls(Q);
+    labyrinthWalls(R);
+    labyrinthWalls(S);
+    labyrinthWalls(T);
+    labyrinthWalls(U);
 }
 
 /**
@@ -188,10 +287,10 @@ function moveMinotaur() {
 
 function labyrinthWalls(wall) {
 
-    push();
-    fill("blue");
-    rect(wall.x, wall.y, wall.width, wall.height)
-    pop();
+    // push();
+    // fill("blue");
+    // rect(wall.x, wall.y, wall.width, wall.height)
+    // pop();
 
     // makes hedgeA a wall 
     const overlap = (theseus.x + theseus.size / 2 > wall.x &&
@@ -205,11 +304,15 @@ function labyrinthWalls(wall) {
 
     // Returns mouse to beginning
     if (overlap) {
-        theseus.x = 300
+        theseus.speed -= theseus.speed
     } else {
         theseus.x = theseus.x;
         theseus.y = theseus.y;
     }
+
+    // constrains Theseus to canvas
+    theseus.x = constrain(theseus.x, Canvas.left + theseus.size / 2, Canvas.right - theseus.size / 2);
+    theseus.y = constrain(theseus.y, Canvas.top + theseus.size / 2, Canvas.bottom - theseus.size / 2);
 
 }
 
