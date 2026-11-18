@@ -304,7 +304,7 @@ function labyrinthWalls(wall) {
 
     // Returns mouse to beginning
     if (overlap) {
-        theseus.speed -= theseus.speed
+        theseus.speed *= -1
     } else {
         theseus.x = theseus.x;
         theseus.y = theseus.y;
