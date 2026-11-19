@@ -30,6 +30,14 @@ let icarus = {
     gravity: 0.25
 }
 
+let sun = {
+    x: 775,
+    y: 100,
+    size: 75,
+    fill: 255,
+    speed: 0.1,
+}
+
 /**
  * Creates the canvas
 */
@@ -42,11 +50,59 @@ function setup() {
 */
 function draw() {
     background("skyblue");
-
-    // Draws the wave
-    drawWave();
+    // Draws the sun
+    drawSun();
     // Draws Icarus
     icarusMove();
+    // Draws the wave
+    drawWave();
+
+
+}
+
+/**
+ * Draws the sun
+ */
+function drawSun() {
+
+    // Calculates the distance between Icarus and the sun
+    const d = dist(icarus.x, icarus.y, sun.x, sun.y);
+    const overlap = (d < icarus.size / 2 + sun.size / 2);
+
+    // Makes the minotaur chase Theseus (LEFT)
+    if (!overlap && icarus.x < sun.x) {
+        icarus.x += 0.1
+    }
+    // Makes the minotaur chase Theseus (RIGHT)
+    if (!overlap && icarus.x > sun.x) {
+        icarus.x -= 0.1
+    }
+    // Makes the minotaur chase Theseus (TOP)
+    if (!overlap && icarus.y < sun.y) {
+        icarus.y += 0.1
+    }
+    // Makes the minotaur chase Theseus (BOTTOM)
+    if (!overlap && icarus.y > sun.y) {
+        icarus.y -= 0.1
+    }
+
+    // Makes Icarus fall 
+    if (overlap) {
+        icarus.gravity += 1;
+    }
+
+    // Draws Icarus
+    push();
+    noStroke();
+    fill(sun.fill);
+    ellipse(sun.x, sun.y, sun.size);
+    pop();
+
+    // Moves the sun slowly across the screen
+    sun.x -= sun.speed;
+
+
+
 }
 
 /**
@@ -87,10 +143,10 @@ function icarusMove() {
         icarus.velocity.y = 0;
     }
     // LEFT ARROW
-    if (keyIsDown(LEFT_ARROW)) { icarus.velocity.x = -icarus.speed; }
+    if (keyIsDown(LEFT_ARROW)) { icarus.velocity.x = (-icarus.speed + 2); }
     // RIGHT ARROW
     else if (keyIsDown(RIGHT_ARROW)) {
-        icarus.velocity.x = icarus.speed;
+        icarus.velocity.x = (icarus.speed - 2);
     }
     else { icarus.velocity.x = 0; }
 
