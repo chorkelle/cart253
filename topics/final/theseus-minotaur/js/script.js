@@ -23,6 +23,10 @@ let theseus = {
     size: 40,
     fill: "red",
     speed: 3,
+    velocity: {
+        x: 0,
+        y: 0
+    }
 }
 
 let minotaur = {
@@ -194,6 +198,7 @@ function draw() {
     // Moves Theseus
     moveTheseus();
 
+    // Moves the Minotaur
     moveMinotaur();
 
     // there has to be a better way good god
@@ -226,20 +231,25 @@ function draw() {
 function moveTheseus() {
 
     // UP ARROW
-    if (keyIsDown(UP_ARROW)) theseus.y -= theseus.speed;
+    if (keyIsDown(UP_ARROW)) theseus.velocity.y = -theseus.speed;
     // DOWN ARROW
-    if (keyIsDown(DOWN_ARROW)) theseus.y += theseus.speed;
+    else if (keyIsDown(DOWN_ARROW)) theseus.velocity.y = theseus.speed;
+    else theseus.velocity.y = 0;
     // LEFT ARROW
-    if (keyIsDown(LEFT_ARROW)) theseus.x -= theseus.speed;
+    if (keyIsDown(LEFT_ARROW)) theseus.velocity.x = -theseus.speed;
     // RIGHT ARROW
-    if (keyIsDown(RIGHT_ARROW)) theseus.x += theseus.speed;
+    else if (keyIsDown(RIGHT_ARROW)) theseus.velocity.x = theseus.speed;
+    else theseus.velocity.x = 0;
 
-    // 2. Normalize so diagonal movement isn't faster
-    let v = createVector(theseus.x, theseus.y);
-    v.setMag(minotaur.speed);
+    theseus.x += theseus.velocity.x
+    theseus.y += theseus.velocity.y
 
-    x += v.x;
-    y += v.y;
+    // // 2. Normalize so diagonal movement isn't faster
+    // let v = createVector(theseus.x, theseus.y);
+    // v.setMag(minotaur.speed);
+
+    // x += v.x;
+    // y += v.y;
 
     // Draws Theseus
     push();
@@ -276,6 +286,10 @@ function moveMinotaur() {
         minotaur.y -= minotaur.speed
     }
 
+    if (overlap) {
+        theseus.size -= 1;
+    }
+
     // Draws the minotaur
     push();
     noStroke();
@@ -292,25 +306,27 @@ function labyrinthWalls(wall) {
     // rect(wall.x, wall.y, wall.width, wall.height)
     // pop();
 
-    // makes hedgeA a wall 
+    // Makes the labyrinth walls interactive
     const overlap = (theseus.x + theseus.size / 2 > wall.x &&
-        //right of hedge
+        // right of wall
         theseus.x - theseus.size / 2 < wall.x + wall.width &&
-        // top of hedge
+        // top of wall
         theseus.y + theseus.size / 2 > wall.y &&
-        // bottom of hedge
+        // bottom of wall
         theseus.y - theseus.size / 2 < wall.y + wall.height);
 
 
     // Returns mouse to beginning
     if (overlap) {
-        theseus.speed *= -1
+        theseus.x -= theseus.velocity.x;
+        theseus.y -= theseus.velocity.y;
+        theseus.velocity.x = 0;
+        theseus.velocity.y = 0;
     } else {
-        theseus.x = theseus.x;
-        theseus.y = theseus.y;
+        theseus.speed = theseus.speed;
     }
 
-    // constrains Theseus to canvas
+    // Constrains Theseus to canvas
     theseus.x = constrain(theseus.x, Canvas.left + theseus.size / 2, Canvas.right - theseus.size / 2);
     theseus.y = constrain(theseus.y, Canvas.top + theseus.size / 2, Canvas.bottom - theseus.size / 2);
 
